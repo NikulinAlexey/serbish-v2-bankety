@@ -1,6 +1,10 @@
 // Льняная текстура фона (страница, внутренняя рамка «Жемчужин»).
+// Прозрачный SVG-оверлей с шумом (feTurbulence, stitchTiles) поверх
+// льняного background-color — бесшовный, лёгкий, чёткий на retina.
 .linen {
   background-color: var(--color-surface-page);
-  background-image: url("https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/98a77865-pres-banket-linen.jpg");
-  background-size: 640px auto;
+  background-image: url("../../files/img/patterns/linen.svg");
+  background-size: 280px 280px;
+  background-repeat: repeat;
 }
+

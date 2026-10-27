@@ -31,7 +31,7 @@
   color: var(--color-text-secondary);
 }
 
-// Песочная карточка «Кстати» с полосой вышивки сверху.
+// Песочная карточка «Кстати» с полосой вышивки сверху (SVG-паттерн .embroidery).
 .about__aside {
   margin-top: var(--spacing-36);
   background-color: var(--color-surface-soft);
@@ -41,13 +41,7 @@
   line-height: var(--text-md-line-height);
 }
 
-.about__aside-img {
-  display: block;
-  width: 100%;
-  height: 46px; // значение donor.html
-  object-fit: cover;
-}
-
+// Полоса вышивки сверху карточки — SVG-паттерн (.embroidery--aside).
 .about__aside-body {
   padding: var(--spacing-20) var(--spacing-28) var(--spacing-24);
 }

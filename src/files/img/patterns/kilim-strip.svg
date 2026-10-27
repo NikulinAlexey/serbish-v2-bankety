@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <!-- Килимная лента, бесшовный тайл repeat-x (период узора 28px) -->
+  <rect width="56" height="56" fill="#f3ece2"/>
+  <rect width="56" height="5" fill="#2b314b"/>
+  <rect y="5" width="56" height="2" fill="#a8262c"/>
+  <rect y="49" width="56" height="2" fill="#a8262c"/>
+  <rect y="51" width="56" height="5" fill="#2b314b"/>
+  <path d="M0 13l7-4 7 4 7-4 7 4 7-4 7 4 7-4 7 4" fill="none" stroke="#d79a2b" stroke-width="1.6"/>
+  <path d="M0 43l7 4 7-4 7 4 7-4 7 4 7-4 7 4 7-4" fill="none" stroke="#d79a2b" stroke-width="1.6"/>
+  <g fill="#a8262c">
+    <path d="M14 19l7 9-7 9-7-9z"/>
+    <path d="M42 19l7 9-7 9-7-9z"/>
+  </g>
+  <g fill="#f3ece2">
+    <path d="M14 23l3.6 5-3.6 5-3.6-5z"/>
+    <path d="M42 23l3.6 5-3.6 5-3.6-5z"/>
+  </g>
+  <g fill="#2b314b">
+    <path d="M14 26l1.8 2-1.8 2-1.8-2z"/>
+    <path d="M42 26l1.8 2-1.8 2-1.8-2z"/>
+  </g>
+  <g fill="#d79a2b">
+    <rect x="12" y="38" width="4" height="4"/>
+    <rect x="40" y="38" width="4" height="4"/>
+  </g>
+</svg>

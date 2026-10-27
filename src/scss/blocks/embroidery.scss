@@ -1,8 +1,17 @@
-// Полоса сербской вышивки во всю ширину страницы
-// (разделитель между секциями).
+// Полоса сербской вышивки во всю ширину страницы (разделитель между
+// секциями) и узкая полоса сверху карточки «Кстати» — бесшовный
+// SVG-паттерн repeat-x (src/files/img/patterns/embroidery-strip.svg).
 .embroidery {
   display: block;
   width: 100%;
   height: var(--embroidery-height);
-  object-fit: cover;
+  background-image: url("../../files/img/patterns/embroidery-strip.svg");
+  background-repeat: repeat-x;
+  background-size: auto 100%; // тайл 150×150 → ширина = высоте
 }
+
+// Узкая полоса вышивки в карточке «Кстати» (patтерн масштабируется к высоте).
+.embroidery--aside {
+  height: 46px; // значение donor.html
+}
+

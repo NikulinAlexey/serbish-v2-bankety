@@ -93,9 +93,7 @@ Template Name: Страница банкетов №2
             <p class="about__text about__text--muted">Если гостей много, а повод большой, так получается и сытнее, и
               дешевле, чем меню на каждого.</p>
             <div class="about__aside">
-              <img class="about__aside-img"
-                src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/87847088-pres-banket-embroidery.jpg"
-                alt="" aria-hidden="true" />
+              <div class="embroidery embroidery--aside" aria-hidden="true"></div>
               <div class="about__aside-body">
                 <b>Кстати.</b> Главный семейный праздник сербов — <i lang="sr-Cyrl" data-srlang><span
                     data-sr="slava">слава</span></i>, день святого покровителя рода. Под него накрывают стол на всю
@@ -389,9 +387,7 @@ Template Name: Страница банкетов №2
         </div>
       </section>
 
-      <img class="embroidery"
-        src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/87847088-pres-banket-embroidery.jpg"
-        alt="" aria-hidden="true" />
+      <div class="embroidery" aria-hidden="true"></div>
 
       <section class="proverb">
         <div class="container proverb__inner">

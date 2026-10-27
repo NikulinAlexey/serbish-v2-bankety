@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <!-- Ковровое поле, бесшовный тайл repeat (сетка 130px, 4×4 ячейки) -->
+  <rect width="520" height="520" fill="#f3ece2"/>
+  <defs>
+    <pattern id="cell" width="130" height="130" patternUnits="userSpaceOnUse">
+      <g fill="#2b314b">
+        <path d="M0 0h14L0 14z"/>
+        <path d="M130 0h-14l14 14z"/>
+        <path d="M0 130h14L0 116z"/>
+        <path d="M130 130h-14l14-14z"/>
+      </g>
+      <g fill="#d79a2b">
+        <rect x="61" y="3" width="8" height="5"/>
+        <rect x="61" y="122" width="8" height="5"/>
+        <rect x="3" y="61" width="5" height="8"/>
+        <rect x="122" y="61" width="5" height="8"/>
+      </g>
+      <path d="M65 18l47 47-47 47-47-47z" fill="#2b314b"/>
+      <path d="M65 30l35 35-35 35-35-35z" fill="#a8262c"/>
+      <path d="M65 44l21 21-21 21-21-21z" fill="#f3ece2"/>
+      <circle cx="65" cy="65" r="4.5" fill="#d79a2b"/>
+    </pattern>
+  </defs>
+  <rect width="520" height="520" fill="url(#cell)"/>
+</svg>
