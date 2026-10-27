@@ -1,0 +1,43 @@
+// Секция отзывов: три светлые карточки на льняном фоне,
+// между FAQ и формой заявки.
+.reviews {
+  padding-block: var(--spacing-100) var(--spacing-110);
+}
+
+.reviews__title {
+  margin: 0 0 var(--spacing-40);
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-28);
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: var(--spacing-28);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+}
+
+.review__text {
+  margin: 0;
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+  color: var(--color-text-primary);
+}
+
+.review__meta {
+  margin-top: auto;
+  font-size: var(--caption-font-size);
+  color: var(--color-text-secondary);
+}

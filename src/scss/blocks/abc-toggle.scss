@@ -1,0 +1,27 @@
+// Тумблер азбуки в шапке: «Ћир | Lat». Активная половина — светлая
+// плашка (как в donor.html); JS переключает класс .is-active и
+// переписывает текст сербских слов.
+.abc-toggle {
+  display: flex;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--caption-sm-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-on-dark);
+  background: none;
+  border: 1px solid var(--color-border-toggle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+// Половины тумблера; у активной — светлая заливка.
+.abc-toggle__option {
+  padding: 7px var(--spacing-10); // 7px — значение donor.html
+  color: var(--color-text-on-dark);
+}
+
+.abc-toggle__option.is-active {
+  background-color: var(--color-surface-page);
+  color: var(--color-surface-dark);
+}

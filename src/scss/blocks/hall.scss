@@ -1,0 +1,90 @@
+// Секция «Зал»: фото во всю ширину страницы и тёмная карточка,
+// наезжающая на фото снизу (отрицательный отступ).
+.hall {
+  position: relative;
+}
+
+.hall__photo {
+  display: block;
+  width: 100%;
+  height: var(--hall-photo-height);
+  object-fit: cover;
+}
+
+.hall__inner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-28);
+  margin-top: calc(-1 * var(--spacing-120));
+
+  @include media-breakpoint-down(tab) {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: calc(-1 * var(--spacing-56));
+  }
+}
+
+.hall__card {
+  max-width: 560px; // значение donor.html
+  padding: var(--spacing-40) var(--spacing-44);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-xs);
+}
+
+.hall__title {
+  font-family: var(--font-serif);
+  font-size: var(--display-md-font-size);
+}
+
+.hall__text {
+  margin: var(--spacing-14) 0 0;
+  font-size: var(--body-font-size);
+  line-height: var(--text-lg-line-height);
+  color: var(--color-text-on-dark-secondary);
+}
+
+// Ссылка на Яндекс.Карты в карточке зала.
+.hall__map {
+  display: inline-block;
+  margin-top: var(--spacing-20);
+  font-size: var(--text-md-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gold);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text-on-dark);
+  }
+}
+
+// Мини-галерея: три миниатюры рядом с карточкой.
+.hall__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-14);
+  align-self: end;
+}
+
+.hall__thumb {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+    opacity: 0.92;
+  }
+}

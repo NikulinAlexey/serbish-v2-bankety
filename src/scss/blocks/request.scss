@@ -1,0 +1,232 @@
+// Секция заявки: тёмный фон с ковровым полем-подложкой, слева
+// призыв «Ајде!» и телефон, справа льняная карточка с формой.
+.request {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-100) var(--spacing-110);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+}
+
+.request__field {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16; // значение donor.html
+}
+
+.request__grid {
+  align-items: start;
+  position: relative;
+  @include grid-two;
+}
+
+.request__serb {
+  margin-bottom: var(--spacing-12);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-sm-font-size);
+  color: var(--color-gold);
+}
+
+.request__title {
+  margin: 0 0 var(--spacing-24);
+}
+
+.request__call {
+  margin: 0 0 var(--spacing-36);
+  font-size: var(--text-lg-font-size);
+  line-height: var(--text-lg-line-height);
+  color: var(--color-text-on-dark-secondary);
+}
+
+.request__phone {
+  font-family: var(--font-serif);
+  font-size: var(--phone-big-font-size);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+}
+
+.request__phone:hover {
+  color: var(--color-gold);
+}
+
+// Бейджи-гарантии под телефоном: смета, пробок нет, свой торт.
+.request__perks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+  margin: var(--spacing-28) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.request__perk {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  font-size: var(--text-md-font-size);
+  color: var(--color-text-on-dark-secondary);
+}
+
+.request__perk-icon {
+  flex: none;
+  width: var(--spacing-40);
+  height: var(--spacing-40);
+  filter: brightness(1.6);
+}
+
+// Льняная карточка с формой.
+.request__card {
+  padding: var(--spacing-36);
+  background-color: var(--color-surface-page);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+}
+
+// Сообщение об успехе (показывает JS вместо формы).
+.request__success {
+  padding-block: var(--spacing-32);
+}
+
+.request__thanks {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-lg-font-size);
+  color: var(--color-text-accent);
+}
+
+.request__success-text {
+  margin: var(--spacing-12) 0 0;
+  font-size: var(--text-lg-font-size);
+  line-height: var(--text-lg-line-height);
+}
+
+.request__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-18);
+}
+
+.request__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-14);
+}
+
+.request__label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  font-size: var(--label-font-size);
+  font-weight: var(--font-weight-semibold);
+}
+
+.request__input {
+  height: var(--input-height);
+  padding-inline: var(--spacing-12);
+  font-family: var(--font-sans);
+  font-size: var(--control-font-size);
+  font-weight: var(--control-font-weight);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-sm);
+}
+
+.request__submit {
+  height: var(--input-height-lg);
+  margin-top: var(--spacing-4);
+  font-family: var(--font-sans);
+  font-size: var(--button-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-on-accent);
+  background-color: var(--color-surface-accent);
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-surface-accent-hover);
+  }
+
+  // Состояние отправки (включает form.js).
+  &:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+}
+
+// Согласие на обработку ПД: чекбокс + ссылка на политику.
+.request__consent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--spacing-10);
+  align-items: start;
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  cursor: pointer;
+
+  a {
+    color: var(--color-text-accent);
+  }
+}
+
+.request__checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+// Inline-ошибки под полями (показывает form.js).
+.request__error {
+  margin-top: calc(-1 * var(--spacing-4));
+  font-size: var(--caption-sm-font-size);
+  color: var(--color-text-accent);
+}
+
+label.has-error .request__input {
+  border-color: var(--color-accent);
+}
+
+// Состояние сбоя отправки: подсказка позвонить.
+.request__fail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-24);
+  font-size: var(--text-md-font-size);
+}
+
+.request__retry {
+  justify-self: start;
+  font-family: var(--font-serif);
+  font-size: var(--display-md-font-size);
+  color: var(--color-text-accent);
+  text-decoration: none;
+}
+
+.request__retry-button {
+  justify-self: start;
+  padding: var(--spacing-8) var(--spacing-16);
+  font-size: var(--caption-font-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-secondary);
+  }
+}
+
+.request__disclaimer {
+  font-size: var(--caption-sm-font-size);
+  line-height: var(--caption-line-height);
+  color: var(--color-text-secondary);
+}

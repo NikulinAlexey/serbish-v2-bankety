@@ -1,0 +1,10 @@
+// Кнопка-загадка «Что это за узор?» — лента-килим во всю ширину,
+// клик по ней раскрывает заметку .kilim-note (JS, #kilimInfo).
+.kilim-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: help;
+}

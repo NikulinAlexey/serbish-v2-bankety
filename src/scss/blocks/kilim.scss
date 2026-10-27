@@ -1,0 +1,30 @@
+// «Килим» — тканый орнамент в трёх ролях donor.html:
+//   .kilim        — горизонтальная лента (после героя, в кнопке-загадке);
+//   .kilim--sm    — уменьшенная лента (под фото подносов);
+//   .vkilim       — вертикальная лента (края hero и «вечера»);
+//   .kilim-field  — ковровое поле (паспарту «Жемчужин», фон заявки).
+.kilim {
+  display: block;
+  height: var(--kilim-height);
+  background-image: url("https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/09fa4c7d-pres-banket-kilim_strip.jpg");
+  background-repeat: repeat-x;
+  background-size: auto var(--kilim-height);
+  background-position: center;
+}
+
+.kilim--sm {
+  height: var(--kilim-height-sm);
+  background-size: auto var(--kilim-height-sm);
+}
+
+.vkilim {
+  background-image: url("https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/95c47314-pres-banket-kilim_vstrip.jpg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+.kilim-field {
+  background-image: url("https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/1bf450d7-pres-banket-kilim_field.jpg");
+  background-size: 520px auto;
+  background-repeat: repeat;
+}

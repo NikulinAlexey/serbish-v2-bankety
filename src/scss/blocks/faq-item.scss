@@ -1,0 +1,54 @@
+// Пункт FAQ: <details> с линией-разделителем и знаком «+/−».
+.faq-item {
+  border-bottom: 1px solid var(--color-border-faq);
+}
+
+.faq-item__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-20);
+  padding-block: var(--spacing-24);
+  font-size: var(--faq-question-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.faq-item__sign::before {
+  content: "+";
+  font-size: var(--faq-sign-size);
+  line-height: 1;
+  color: var(--color-text-accent);
+}
+
+.faq-item[open] .faq-item__sign::before {
+  content: "−";
+}
+
+// Обёртка ответа: JS анимирует её высоту (плавное раскрытие).
+.faq-item__body {
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+.faq-item__answer {
+  max-width: 700px; // значение donor.html
+  margin: 0 0 var(--spacing-24);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height-loose);
+  color: var(--color-text-secondary);
+}
+
+// Пока details открыт и JS управляет анимацией — первый кадр
+// (height:0 перед раскрытием) не должен мигать.
+@media (prefers-reduced-motion: reduce) {
+  .faq-item__body {
+    transition: none;
+  }
+}

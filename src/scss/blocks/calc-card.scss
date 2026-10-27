@@ -1,0 +1,149 @@
+// Карточка калькулятора: степпер «−/значение/+», диапазон цены
+// и реплики-сюрпризы для свадеб и маленьких компаний.
+.calc-card {
+  padding: var(--spacing-40);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+}
+
+.calc-card__label {
+  font-size: var(--label-lg-font-size);
+  font-weight: var(--font-weight-semibold);
+}
+
+.calc-card__stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-18);
+  margin-top: var(--spacing-16);
+}
+
+.calc-card__btn {
+  display: grid;
+  place-items: center;
+  width: var(--stepper-size);
+  height: var(--stepper-size);
+  font-size: var(--stepper-font-size);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-stepper);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.calc-card__btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+// Числовое поле вместо простого div: можно ввести значение с клавиатуры.
+.calc-card__value {
+  min-width: var(--spacing-80);
+  font-family: var(--font-serif);
+  font-size: var(--calc-value-font-size);
+  line-height: 1;
+  text-align: center;
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: 0;
+
+  // Стрелочки нативного number-input убираем — есть степпер.
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+}
+
+// Чипы быстрого выбора (10/15/20/25/30 гостей).
+.calc-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-18);
+}
+
+.calc-card__chip {
+  padding: var(--spacing-8) var(--spacing-14);
+  font-size: var(--control-font-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-page);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  &.is-active {
+    color: var(--color-text-on-accent);
+    background-color: var(--color-surface-accent);
+    border-color: var(--color-surface-accent);
+  }
+}
+
+.calc-card__result {
+  margin-top: var(--spacing-24);
+  padding-top: var(--spacing-24);
+  border-top: 1px solid var(--color-surface-soft);
+}
+
+.calc-card__hint {
+  font-size: var(--caption-font-size);
+  color: var(--color-text-secondary);
+}
+
+.calc-card__amount {
+  margin-top: var(--spacing-6);
+  font-family: var(--font-serif);
+  font-size: var(--calc-amount-font-size);
+  line-height: var(--calc-amount-line-height);
+}
+
+.calc-card__per {
+  margin-top: var(--spacing-8);
+  font-size: var(--caption-font-size);
+  color: var(--color-text-secondary);
+}
+
+// Реплики-сюрпризы (показывает/прячет JS через атрибут hidden).
+.calc-card__aside {
+  margin-top: var(--spacing-14);
+  font-size: var(--text-md-font-size);
+}
+
+.calc-card__serb {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-mini-font-size);
+  color: var(--color-text-accent);
+}
+
+.calc-card__muted {
+  color: var(--color-text-secondary);
+}
+
+.calc-card__aside--muted {
+  color: var(--color-text-secondary);
+}
+
+.calc-card__cta {
+  margin-top: var(--spacing-28);
+}

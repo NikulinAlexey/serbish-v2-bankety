@@ -1,0 +1,40 @@
+// Бургер-кнопка мобильного меню (видна ≤900px). Три полоски,
+// при открытии — крест.
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: var(--spacing-10);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &__line {
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-text-on-dark);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  &.is-open {
+    .nav-burger__line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-burger__line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-burger__line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  @include media-breakpoint-down(tab) {
+    display: flex;
+  }
+}

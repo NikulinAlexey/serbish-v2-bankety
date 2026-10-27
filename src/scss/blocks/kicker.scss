@@ -1,0 +1,29 @@
+// Kicker — надзаголовок раздела: мелкий капс с красной чертой
+// слева. Задаёт ритм секций и подсказывает раздел навигации.
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-16);
+  font-size: var(--micro-font-size);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+
+  &::before {
+    content: "";
+    width: var(--spacing-32);
+    height: 2px;
+    background-color: var(--color-accent);
+  }
+}
+
+// На тёмных секциях черта и текст — золотые.
+.kicker--dark {
+  color: var(--color-gold);
+
+  &::before {
+    background-color: var(--color-gold);
+  }
+}

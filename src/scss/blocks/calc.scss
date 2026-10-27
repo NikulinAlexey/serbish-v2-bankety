@@ -1,0 +1,41 @@
+// Светлая секция калькулятора «Сколько это стоит»: слева
+// пояснения, справа карточка со степпером гостей. Фон —
+// песочный, чтобы разбить длинную череду льняных секций.
+.calc {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-120);
+  background-color: var(--color-surface-soft);
+}
+
+.calc__deco {
+  position: absolute;
+  left: -50px;
+  bottom: var(--spacing-30);
+  width: 300px;
+  opacity: 0.08;
+  transform: rotate(14deg);
+}
+
+.calc__grid {
+  align-items: center;
+  position: relative;
+  @include grid-two;
+}
+
+.calc__title {
+  margin: 0 0 var(--spacing-24);
+}
+
+.calc__lead {
+  margin: 0 0 var(--spacing-16);
+  font-size: var(--lead-font-size);
+  line-height: var(--body-line-height-loose);
+}
+
+.calc__note {
+  margin: 0;
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,8 @@
+// Полоса сербской вышивки во всю ширину страницы
+// (разделитель между секциями).
+.embroidery {
+  display: block;
+  width: 100%;
+  height: var(--embroidery-height);
+  object-fit: cover;
+}

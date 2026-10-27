@@ -1,0 +1,88 @@
+// Тёмная секция «Как проходит вечер»: три шага застолья в колонках
+// course-сетки с тонкими линиями-разделителями. Справа — вертикальный
+// килим и полупрозрачная буклия.
+.evening {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-100);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+}
+
+.evening__kilim {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--spacing-30);
+  opacity: 0.9;
+}
+
+.evening__deco {
+  position: absolute;
+  top: 50px; // значения donor.html
+  right: 70px;
+  width: 170px;
+  opacity: 0.14;
+  transform: rotate(10deg);
+  filter: brightness(1.8);
+}
+
+.evening__inner {
+  position: relative;
+}
+
+.evening__title {
+  margin: 0 0 var(--spacing-14);
+  max-width: 720px; // значение donor.html
+}
+
+.evening__lead {
+  margin: 0 0 var(--spacing-52);
+  font-size: var(--text-lg-font-size);
+  color: var(--color-text-on-dark-secondary);
+}
+
+.evening__serb {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-mini-font-size);
+  color: var(--color-gold);
+}
+
+.evening__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--color-border-on-dark);
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.evening__step {
+  padding: var(--spacing-32) var(--spacing-32) var(--spacing-8) 0;
+
+  &:nth-child(n + 2) {
+    border-left: 1px solid var(--color-border-on-dark);
+    padding-left: var(--spacing-32);
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.evening__step-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-mini-font-size);
+  color: var(--color-gold);
+}
+
+.evening__step-text {
+  margin: var(--spacing-14) 0 0;
+  font-size: var(--text-lg-font-size);
+  line-height: var(--text-lg-line-height);
+  color: var(--color-text-on-dark-secondary);
+}

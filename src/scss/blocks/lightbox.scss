@@ -1,0 +1,141 @@
+// Лайтбокс галереи зала: нативный <dialog> на затемнении.
+.lightbox {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  max-width: min(1100px, 92vw);
+  max-height: 92vh;
+
+  &::backdrop {
+    background: rgba(29, 32, 51, 0.8);
+  }
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+}
+
+.lightbox__close {
+  position: fixed;
+  top: var(--spacing-16);
+  right: var(--spacing-16);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  color: var(--color-text-on-dark);
+  background-color: rgba(29, 32, 51, 0.6);
+  border: 1px solid rgba(243, 236, 226, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-gold);
+  }
+}
+
+// ===== Каталог-лайтбокс меню блюд (menu-view.js) =====
+.lightbox--menu {
+  overflow-y: auto;
+  background-color: var(--color-surface-dark);
+  border-radius: var(--radius-md);
+  max-width: min(980px, 94vw);
+  max-height: 92vh;
+}
+
+.lightbox__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.lightbox--menu .lightbox__img {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  border-radius: 0;
+
+  @include media-breakpoint-down(tab) {
+    min-height: 0;
+    height: 44vh;
+  }
+}
+
+.lightbox__panel {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-32) var(--spacing-28);
+  color: var(--color-text-on-dark);
+
+  @include media-breakpoint-down(tab) {
+    padding: var(--spacing-24) var(--spacing-20) var(--spacing-20);
+  }
+}
+
+.lightbox__group {
+  font-size: var(--micro-font-size);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.lightbox__name {
+  margin: var(--spacing-10) 0 0;
+  font-family: var(--font-serif);
+  font-size: var(--display-md-font-size);
+  line-height: 1.15;
+}
+
+.lightbox__desc {
+  margin: var(--spacing-12) 0 0;
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+  color: var(--color-text-on-dark-secondary);
+}
+
+.lightbox__foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-14);
+  margin-top: auto;
+  padding-top: var(--spacing-28);
+}
+
+.lightbox__counter {
+  font-size: var(--caption-font-size);
+  color: var(--color-text-on-dark-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox__nav {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  color: var(--color-text-on-dark);
+  background-color: rgba(243, 236, 226, 0.08);
+  border: 1px solid rgba(243, 236, 226, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    color: var(--color-gold);
+    background-color: rgba(243, 236, 226, 0.14);
+    border-color: rgba(243, 236, 226, 0.55);
+  }
+}

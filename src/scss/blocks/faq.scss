@@ -1,0 +1,25 @@
+// Секция «Частые вопросы» — список <details>; справа —
+// полупрозрачная буклия (прячется на планшете).
+.faq {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-120) var(--spacing-100);
+}
+
+.faq__deco {
+  position: absolute;
+  top: 90px; // значения donor.html
+  right: -40px;
+  width: 300px;
+  opacity: 0.08;
+  transform: rotate(-10deg);
+}
+
+.faq__inner {
+  position: relative;
+  max-width: 860px; // значение donor.html
+}
+
+.faq__title {
+  margin: 0 0 var(--spacing-32);
+}

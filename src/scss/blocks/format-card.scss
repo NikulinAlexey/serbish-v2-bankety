@@ -1,0 +1,79 @@
+// Карточка формата банкета. Модификаторы:
+//   .format-card--dark  — тёмно-синяя (основной формат «Мешано месо»);
+//   .format-card--light — белая с песочной рамкой («Мини-меню»).
+.format-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-40) var(--spacing-40) var(--spacing-36);
+  border-radius: var(--radius-md);
+}
+
+.format-card--dark {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+}
+
+.format-card--light {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-card);
+}
+
+.format-card__name {
+  font-family: var(--font-serif);
+  font-size: var(--display-xl-font-size);
+}
+
+.format-card__tag {
+  margin-top: var(--spacing-6);
+  font-size: var(--caption-font-size);
+}
+
+.format-card--dark .format-card__tag {
+  color: var(--color-gold);
+}
+
+.format-card--light .format-card__tag {
+  color: var(--color-text-accent);
+}
+
+.format-card__text {
+  margin: var(--spacing-20) 0 0;
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+}
+
+.format-card--dark .format-card__text {
+  color: var(--color-text-on-dark-secondary);
+}
+
+.format-card--light .format-card__text {
+  color: var(--color-text-secondary);
+}
+
+// Список «почему» у основного формата: термин — описание.
+.format-card__why {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--spacing-12) var(--spacing-20);
+  margin: var(--spacing-26) 0 0;
+  padding-top: var(--spacing-22);
+  border-top: 1px solid var(--color-border-on-dark);
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+}
+
+.format-card__term {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gold);
+}
+
+.format-card__desc {
+  margin: 0;
+  color: var(--color-text-on-dark-secondary);
+}
+
+.format-card__price {
+  margin-top: auto;
+  padding-top: var(--spacing-28);
+  font-size: var(--body-font-size);
+}

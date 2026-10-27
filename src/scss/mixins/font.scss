@@ -1,0 +1,35 @@
+/// @param {Number} $fs - Размер шрифта (обязательный)
+/// @param {Number} $lh - Межстрочный интервал (можно unitless)
+/// @param {Number|String} $fw - Насыщенность шрифта [по умолчанию: 400]
+/// @param {String} $family - Семейство шрифтов [по умолчанию: inherit]
+@mixin font(
+  $fs,
+  $lh: null,
+  $fw: 400,
+  $family: inherit
+) {
+  // Проверка обязательных параметров
+  @if not $fs {
+    @error "Параметр $fs (font-size) обязателен для миксина font()";
+  }
+
+  // Обработка line-height
+  $line-height-value: if($lh, if(unitless($lh), #{$lh}px, $lh), null);
+
+  // Формирование свойства font
+  @if $line-height-value and $family != inherit {
+    font: #{$fw} #{$fs}/#{$line-height-value} #{$family};
+  } @else if $line-height-value {
+    font: #{$fw} #{$fs}/#{$line-height-value};
+  } @else if $family != inherit {
+    font: #{$fw} #{$fs} #{$family};
+  } @else {
+    font: #{$fw} #{$fs};
+  }
+
+  // Дублирование отдельных свойств для лучшей читаемости в devtools
+  font-size: $fs;
+  @if $line-height-value { line-height: $line-height-value; }
+  @if $fw { font-weight: $fw; }
+  @if $family != inherit { font-family: $family; }
+}

@@ -1,0 +1,109 @@
+// ============================================================
+// Базовые стили страницы: глобальная механика donor.html
+// (box-sizing, заголовки, ссылки, доступность).
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Заголовки — serif-типографика донора; отступы задают блоки */
+h1,
+h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-display);
+}
+
+h1 {
+  font-size: var(--title-font-size-desktop);
+  line-height: var(--title-line-height);
+
+  @include media-breakpoint-down(tab) {
+    font-size: var(--title-font-size-mobile);
+  }
+}
+
+h2 {
+  font-size: var(--heading-font-size-desktop);
+  line-height: var(--heading-line-height);
+
+  @include media-breakpoint-down(tab) {
+    font-size: var(--heading-font-size-mobile);
+  }
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Плавный скролл к якорям + отступ, чтобы sticky-шапка
+   (72px) не накрывала заголовки разделов. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: calc(var(--header-height) + var(--spacing-16));
+}
+
+/* Скрытые элементы: важнее display:flex/grid у блоков
+   (калькулятор-реплики, ответ килима, форма после отправки) */
+[hidden] {
+  display: none !important;
+}
+
+/* Выделение — как в donor.html: полужирность 600 */
+b,
+strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Доступность: явный фокус и отключение прокрутки при reduce-motion */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Появление секций при прокрутке (включает scroll.js).
+   Пока блок не в кадре — слегка сдвинут вниз и прозрачен. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,42 @@
+// Песочная секция-пословица: «Гост у кућу — Бог у кућу», перевод
+// и цитата владельца с линией-разделителем.
+.proverb {
+  padding-block: var(--spacing-80) var(--spacing-100);
+  background-color: var(--color-surface-soft);
+}
+
+.proverb__inner {
+  max-width: 900px; // значение donor.html
+}
+
+.proverb__serb {
+  font-family: var(--font-serif);
+  font-size: var(--display-3xl-font-size);
+  line-height: var(--display-3xl-line-height);
+}
+
+.proverb__translate {
+  margin-top: var(--spacing-14);
+  font-size: var(--body-font-size);
+  color: var(--color-text-secondary);
+}
+
+.proverb__quote {
+  margin: var(--spacing-40) 0 0;
+  padding-top: var(--spacing-28);
+  border-top: 1px solid var(--color-border-divider);
+}
+
+.proverb__text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-2xs-font-size);
+  line-height: 1.35; // значение donor.html
+}
+
+.proverb__author {
+  margin-top: var(--spacing-12);
+  font-size: var(--text-md-font-size);
+  color: var(--color-text-secondary);
+}

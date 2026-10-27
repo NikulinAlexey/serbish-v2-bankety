@@ -1,0 +1,71 @@
+// «Жемчужины стола»: ковровое поле-паспарту из килимной ткани со
+// вставленной льняной картой (тройной кант — .linen + --ring-pearls)
+// и тремя деликатесами в course-колонках.
+.pearls {
+  margin-top: var(--spacing-28);
+  padding: var(--spacing-22);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pearls);
+  background-image: url("https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/1bf450d7-pres-banket-kilim_field.jpg");
+  background-size: 520px auto;
+  background-repeat: repeat;
+}
+
+.pearls__inner {
+  padding: var(--spacing-36) var(--spacing-40) var(--spacing-34);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--ring-pearls);
+}
+
+.pearls__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-8) var(--spacing-24);
+}
+
+.pearls__title {
+  font-family: var(--font-serif);
+  font-size: var(--display-lg-font-size);
+}
+
+.pearls__hint {
+  font-size: var(--text-md-font-size);
+  color: var(--color-text-secondary);
+}
+
+.pearls__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--spacing-26);
+  border-top: 1px solid var(--color-border-divider);
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.pearls__item {
+  padding: var(--spacing-22) var(--spacing-28) var(--spacing-4) 0;
+
+  &:nth-child(n + 2) {
+    border-left: 1px solid var(--color-border-divider);
+    padding-left: var(--spacing-28);
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.pearls__name {
+  font-family: var(--font-serif);
+  font-size: var(--display-3xs-font-size);
+}
+
+.pearls__desc {
+  margin-top: var(--spacing-6);
+  font-size: var(--caption-font-size);
+  color: var(--color-text-secondary);
+}

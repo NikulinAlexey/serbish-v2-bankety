@@ -1,0 +1,53 @@
+// Кнопка-действие: красная заливка, белый текст (герой, калькулятор).
+// Модификатор .btn--block — кнопка во всю ширину (CTA калькулятора).
+.btn {
+  display: inline-block;
+  padding: var(--spacing-18) var(--spacing-28);
+  font-family: var(--font-sans);
+  font-size: var(--button-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--button-line-height);
+  color: var(--color-text-on-accent);
+  background-color: var(--color-surface-accent);
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-surface-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(126, 27, 32, 0.28);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+/* Призрачная кнопка (второе действие в герое): прозрачная,
+   с бордером; на hover — заливка лёгким красным. */
+.btn--ghost {
+  color: var(--color-text-accent);
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--color-accent);
+
+  &:hover {
+    color: var(--color-text-on-accent);
+    background-color: var(--color-surface-accent);
+    box-shadow: inset 0 0 0 1.5px var(--color-accent), 0 8px 20px rgba(126, 27, 32, 0.28);
+  }
+}
+
+/* Компактная кнопка (шапка). */
+.btn--sm {
+  padding: var(--spacing-10) var(--spacing-18);
+  font-size: var(--button-sm-font-size);
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}

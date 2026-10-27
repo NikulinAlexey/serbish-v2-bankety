@@ -1,0 +1,260 @@
+// ============================================================
+// ПЕРЕМЕННЫЕ И ДИЗАЙН-ТОКЕНЫ — лендинг «Банкеты в Serbish»
+// (адаптация donor.html: палитра «лён + тёмно-синий + красный»).
+//
+// Слои:
+//   1. CORE — сырые значения палитры. Используются ТОЛЬКО
+//      для определения семантических переменных ниже.
+//   2. SEMANTIC — смысловые цвета, привязанные к ролям и
+//      компонентам. Именно они используются в БЭМ-блоках.
+//   3. SPACING — отступы с шагом 4px (--spacing-N); значения,
+//      взятые из donor.html дословно (не кратные 4), помечены.
+//   4. RADIUS — скругления.
+//   5. TYPOGRAPHY — семейства, начертания и текстовые роли.
+//   6. EFFECTS & LAYOUT — тени, кольца, z-индексы, сетка.
+// ============================================================
+
+$breakpoints: (
+  "xs": 375px,
+  "sm": 576px,
+  "phone": 600px, // брейкпоинт donor.html
+  "md": 768px,
+  "tab": 900px, // брейкпоинт donor.html
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+$family: "Golos Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, sans-serif;
+
+:root {
+  color-scheme: light;
+
+  /* ==================== 1. CORE COLORS ==================== */
+
+  /* Нейтральные */
+  --core-white: #ffffff;
+  --core-ink: #1d2033; // основной текст, футер, сильные линии
+
+  /* Тёмно-синие (тёмные поверхности) */
+  --core-navy: #2b314b; // шапка, тёмные секции, тёмные карточки
+
+  /* Льняные (фон страницы, текст на тёмном) */
+  --core-linen: #f3ece2;
+
+  /* Песочные (границы, светлые секции) */
+  --core-sand-100: #e9e0d3; // светлые песочные секции, плашки
+  --core-sand-200: #ded3c3; // границы светлых карточек
+  --core-sand-300: #d8ccbb; // границы FAQ
+  --core-sand-400: #cfc3b2; // границы полей, разделители
+
+  /* Red (акцент бренда) */
+  --core-red-700: #7e1b20; // hover акцента
+  --core-red-600: #a8262c; // кнопки, ссылки, сербские слова
+
+  /* Gold (акцент на тёмном, декор) */
+  --core-gold-500: #e3a64a; // сербские слова на тёмном, термины
+  --core-gold-600: #d79a2b; // декоративный кант рамки «Жемчужин»
+
+  /* Холодная дымка (текст на тёмном) */
+  --core-mist-200: #dcd8e4; // вторичный текст на тёмном
+  --core-mist-400: #b9b6c9; // приглушённый текст на тёмном
+
+  /* Серые тексты */
+  --core-slate-500: #4c4a57; // вторичный текст на светлом
+
+  /* ==================== 2. SEMANTIC COLORS ==================== */
+
+  /* Текст */
+  --color-text-heading: var(--core-ink); // h1, h2
+  --color-text-primary: var(--core-ink); // основной текст
+  --color-text-secondary: var(--core-slate-500); // подписи, вторичные абзацы
+  --color-text-on-dark: var(--core-linen); // текст на тёмных поверхностях
+  --color-text-on-dark-secondary: var(--core-mist-200); // абзацы на тёмном
+  --color-text-on-dark-muted: var(--core-mist-400); // слоган, текст футера
+  --color-text-on-accent: var(--core-white); // текст на акцентных кнопках
+  --color-text-accent: var(--core-red-600); // сербские слова на светлом, «+»
+
+  /* Поверхности */
+  --color-surface-page: var(--core-linen); // фон страницы, поля форм
+  --color-surface-dark: var(--core-navy); // шапка, тёмные секции
+  --color-surface-dark-deep: var(--core-ink); // футер
+  --color-surface-card: var(--core-white); // светлые карточки, поля ввода
+  --color-surface-soft: var(--core-sand-100); // песочные секции, плашки
+  --color-surface-stepper: var(--core-linen); // кнопки «±» калькулятора
+  --color-surface-accent: var(--core-red-600);
+  --color-surface-accent-hover: var(--core-red-700);
+
+  /* Границы */
+  --color-border-card: var(--core-sand-200); // светлые карточки
+  --color-border-input: var(--core-sand-400); // поля ввода, кнопки «±»
+  --color-border-divider: var(--core-sand-400); // разделители колонок
+  --color-border-faq: var(--core-sand-300); // линии FAQ
+  --color-border-rule: var(--core-ink); // сильные линии (2px) над группами
+  --color-border-on-dark: rgba(243, 236, 226, 0.25); // разделители на тёмном
+  --color-border-toggle: rgba(243, 236, 226, 0.4); // рамка тумблера азбуки
+
+  /* Акцент */
+  --color-accent: var(--core-red-600);
+  --color-accent-hover: var(--core-red-700);
+  --color-link: var(--core-red-600);
+  --color-link-hover: var(--core-red-700);
+  --color-gold: var(--core-gold-500);
+  --color-gold-deep: var(--core-gold-600);
+
+  /* ==================== 3. SPACING (шаг 4px) ==================== */
+
+  --spacing-0: 0;
+  --spacing-4: 4px;
+  --spacing-6: 6px; // значение donor.html (не кратно 4)
+  --spacing-8: 8px;
+  --spacing-10: 10px; // значение donor.html (не кратно 4)
+  --spacing-12: 12px;
+  --spacing-14: 14px; // значение donor.html (не кратно 4)
+  --spacing-16: 16px;
+  --spacing-18: 18px; // значение donor.html (не кратно 4)
+  --spacing-20: 20px;
+  --spacing-22: 22px; // значение donor.html (не кратно 4)
+  --spacing-24: 24px;
+  --spacing-26: 26px; // значение donor.html (не кратно 4)
+  --spacing-28: 28px;
+  --spacing-30: 30px; // значение donor.html (не кратно 4)
+  --spacing-32: 32px;
+  --spacing-34: 34px; // значение donor.html (не кратно 4)
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-44: 44px;
+  --spacing-48: 48px;
+  --spacing-52: 52px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
+  --spacing-80: 80px;
+  --spacing-88: 88px;
+  --spacing-100: 100px;
+  --spacing-110: 110px;
+  --spacing-120: 120px;
+
+  /* ==================== 4. RADIUS ==================== */
+
+  --radius-xs: 4px; // фото блюд, карточка зала, внутренняя рамка
+  --radius-sm: 6px; // кнопки, поля ввода, тумблер азбуки
+  --radius-md: 8px; // карточки форматов, калькулятор, форма, «Жемчужины»
+
+  /* ==================== 5. TYPOGRAPHY ==================== */
+
+  /* Семейства */
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+
+  /* Начертания */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-display: var(--font-weight-regular); // serif-заголовки донора
+
+  /* Заголовок страницы (h1) */
+  --title-font-size-desktop: 68px;
+  --title-font-size-mobile: 46px;
+  --title-line-height: 1.03;
+
+  /* Заголовок секции (h2) */
+  --heading-font-size-desktop: 52px;
+  --heading-font-size-mobile: 36px;
+  --heading-line-height: 1.08;
+
+  /* Serif-подзаголовки: названия карточек, цитаты, сербизмы */
+  --display-3xl-font-size: 50px; // «Гост у кућу — Бог у кућу»
+  --display-3xl-line-height: 1.15;
+  --display-2xl-font-size: 42px; // сумма в калькуляторе
+  --display-xl-font-size: 36px; // названия форматов
+  --display-lg-font-size: 34px; // «Жемчужины стола», «Хвала!»
+  --display-md-font-size: 32px; // «Зал на Пестеля»
+  --display-sm-font-size: 30px; // логотип, «Ајде!»
+  --display-xs-font-size: 28px; // заголовки групп меню
+  --display-2xs-font-size: 26px; // сербизмы-подписи, цитата владельца
+  --display-3xs-font-size: 24px; // названия «жемчужин»
+  --display-mini-font-size: 22px; // шаги вечера, инлайн-сербизмы
+  --phone-big-font-size: 38px; // телефон в форме заявки
+
+  /* Крупные подводки */
+  --lead-xl-font-size: 21px; // подзаголовок героя
+  --lead-xl-line-height: 1.45;
+  --lead-font-size: 19px; // подводки секций
+  --lead-line-height: 1.65;
+
+  /* Основной текст */
+  --text-lg-font-size: 18px; // текст тёмных секций, форма
+  --text-lg-line-height: 1.6;
+  --text-md-font-size: 16px; // плашки, примечания, футер
+  --text-md-line-height: 1.6;
+  --body-font-size: 17px; // абзацы, ответы FAQ
+  --body-line-height: 1.6;
+  --body-line-height-loose: 1.65;
+
+  /* Поля ввода */
+  --control-font-size: 16px;
+  --control-font-weight: var(--font-weight-medium);
+
+  /* Подписи и метки */
+  --label-font-size: 15px; // label формы заявки
+  --label-lg-font-size: 16px; // label калькулятора, телефон в шапке
+  --label-xl-font-size: 20px; // заголовки пунктов «Что важно знать»
+  --label-font-weight: var(--font-weight-semibold);
+
+  /* Вторичные подписи */
+  --caption-font-size: 15px;
+  --caption-line-height: 1.5;
+  --caption-sm-font-size: 13px; // дисклеймер формы
+  --micro-font-size: 12px; // «meat · fish»
+  --tracking-wide: 0.2em;
+
+  /* Навигация и служебные роли */
+  --nav-font-size: 15px;
+  --footer-font-size: 15px;
+  --faq-question-font-size: 19px;
+  --faq-sign-size: 26px;
+
+  /* Кнопки */
+  --button-font-size: 17px;
+  --button-line-height: 1.2;
+  --button-sm-font-size: 16px; // мобильная панель
+
+  /* Калькулятор */
+  --stepper-size: 52px;
+  --stepper-font-size: 24px;
+  --calc-value-font-size: 56px;
+  --calc-amount-font-size: 42px;
+  --calc-amount-line-height: 1.2;
+
+  /* ==================== 6. EFFECTS & LAYOUT ==================== */
+
+  /* Тени и кольца */
+  --shadow-pearls: 0 2px 0 rgba(29, 32, 51, 0.25); // рамка «Жемчужин»
+  --ring-pearls: inset 0 0 0 2px var(--core-ink),
+    inset 0 0 0 5px var(--core-linen), inset 0 0 0 6px var(--core-gold-600);
+
+  /* Слои */
+  --z-header: 20;
+  --z-mbar: 30;
+
+  /* Сетка */
+  --container-max: 1180px;
+
+  /* ==================== 7. COMPONENT LAYOUT ==================== */
+
+  --header-height: 72px; // шапка
+  --kilim-height: 56px; // лента-килим после героя
+  --kilim-height-sm: 34px; // лента под фото подносов
+  --hero-media-height: 680px; // фото в герое
+  --hero-media-height-mobile: 360px;
+  --hall-photo-height: 560px; // фото зала
+  --embroidery-height: 150px; // полоса вышивки
+  --input-height: 50px; // поля формы заявки
+  --input-height-lg: 58px; // кнопка «Отправить»
+  --mbar-height: 54px; // кнопки мобильной панели
+  --mbar-offset: 12px; // отступ панели от краёв экрана
+}
+

@@ -1,0 +1,23 @@
+// Навигация в шапке: горизонтальный ряд ссылок. Скрывается
+// ≤900px — на планшете и телефоне ведёт нижняя панель .mbar.
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-30);
+}
+
+.nav__link {
+  font-size: var(--nav-font-size);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav__link:hover {
+  color: var(--color-gold);
+}
+
+// Активный раздел (включает scroll-spy в scroll.js).
+.nav__link.is-active {
+  color: var(--color-gold);
+}

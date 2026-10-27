@@ -1,0 +1,12 @@
+// Двухколоночная раскладка секций (аналог .two из donor.html):
+// на планшете и уже — одна колонка с отступом 40px.
+@mixin grid-two($gap: var(--spacing-64), $mobile-gap: var(--spacing-40)) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $gap;
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: $mobile-gap;
+  }
+}

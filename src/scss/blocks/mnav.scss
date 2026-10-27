@@ -1,0 +1,70 @@
+// Мобильная панель навигации: полноэкранное тёмное полотно под
+// шапкой. Открывает бургер (≤900px), закрывается по ссылке,
+// Esc или повторному нажатию. Закрытое состояние — visibility.
+.mnav {
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-40);
+  padding: var(--spacing-40) var(--spacing-24) var(--spacing-40);
+  background-color: var(--color-surface-dark);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  @include media-breakpoint-up(tab) {
+    display: none;
+  }
+}
+
+// Пока открыта панель — не прокручиваем страницу под ней.
+body.is-nav-open {
+  overflow: hidden;
+}
+
+.mnav__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.mnav__link {
+  font-family: var(--font-serif);
+  font-size: var(--display-lg-font-size);
+  line-height: 1.1;
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: var(--color-gold);
+  }
+}
+
+.mnav__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-18);
+}
+
+.mnav__phone {
+  font-size: var(--label-lg-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: var(--color-gold);
+  }
+}

@@ -1,0 +1,18 @@
+// Контейнер (аналог .wrap из donor.html): до 1180px, поля 32px;
+// ≤900px — 20px, ≤600px — max(16px, safe-area).
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-32);
+
+  @include media-breakpoint-down(tab) {
+    padding-inline: var(--spacing-20);
+  }
+
+  @include media-breakpoint-down(phone) {
+    padding-inline: max(var(--spacing-16), env(safe-area-inset-left, 0px))
+      max(var(--spacing-16), env(safe-area-inset-right, 0px));
+  }
+}
+

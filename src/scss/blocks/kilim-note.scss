@@ -1,0 +1,12 @@
+// Ответ на загадку про узор: светлая полоса с историей пиротского
+// ковра (показывает JS по клику на ленту-килим, #kilimBtn).
+.kilim-note {
+  padding-block: var(--spacing-28);
+  background-color: var(--color-surface-page);
+}
+
+.kilim-note__inner {
+  max-width: 820px; // значение donor.html
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+}

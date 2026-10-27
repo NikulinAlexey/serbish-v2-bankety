@@ -1,0 +1,10 @@
+// Обёртка всей страницы (аналог div.linen из donor.html):
+// шрифт и цвет текста; фон-текстуру задаёт блок .linen.
+.page {
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  color: var(--color-text-primary);
+}
+

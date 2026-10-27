@@ -1,0 +1,34 @@
+// Секция «Что важно знать заранее»: сетка 2×2 из пунктов condition;
+// справа сверху — полупрозрачная погача.
+.conditions {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-110) var(--spacing-20);
+}
+
+.conditions__deco {
+  position: absolute;
+  top: 60px; // значения donor.html
+  right: var(--spacing-40);
+  width: 150px;
+  opacity: 0.1;
+  transform: rotate(8deg);
+}
+
+.conditions__inner {
+  position: relative;
+}
+
+.conditions__title {
+  margin: 0 0 var(--spacing-48);
+}
+
+.conditions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--spacing-64); // значение donor.html
+
+  @include media-breakpoint-down(tab) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

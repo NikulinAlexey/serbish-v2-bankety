@@ -1,0 +1,26 @@
+// Пункт «Что важно знать»: сильная линия сверху, иконка-посуда
+// рядом с заголовком и вторичный текст.
+.condition {
+  padding: var(--spacing-24) 0 var(--spacing-36);
+  border-top: 2px solid var(--color-border-rule);
+}
+
+.condition__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  font-size: var(--label-xl-font-size);
+  font-weight: var(--font-weight-semibold);
+}
+
+.condition__icon {
+  width: var(--spacing-40);
+  height: var(--spacing-40);
+}
+
+.condition__text {
+  margin: var(--spacing-10) 0 0;
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  color: var(--color-text-secondary);
+}

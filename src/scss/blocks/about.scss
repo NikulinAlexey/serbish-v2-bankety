@@ -1,0 +1,62 @@
+// Секция «В Сербии не подают каждому по тарелке»: слева заголовок,
+// справа абзацы и песочная карточка «Кстати» о славе. Левый нижний
+// угол украшает полупрозрачная погача.
+.about {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-120) var(--spacing-100);
+}
+
+.about__grid {
+  align-items: start;
+  position: relative;
+  @include grid-two;
+}
+
+.about__title {
+  margin: 0;
+}
+
+.about__body {
+  font-size: var(--lead-font-size);
+  line-height: var(--lead-line-height);
+}
+
+.about__text {
+  margin: 0 0 var(--spacing-20);
+}
+
+.about__text--muted {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+// Песочная карточка «Кстати» с полосой вышивки сверху.
+.about__aside {
+  margin-top: var(--spacing-36);
+  background-color: var(--color-surface-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+}
+
+.about__aside-img {
+  display: block;
+  width: 100%;
+  height: 46px; // значение donor.html
+  object-fit: cover;
+}
+
+.about__aside-body {
+  padding: var(--spacing-20) var(--spacing-28) var(--spacing-24);
+}
+
+.about__deco {
+  position: absolute;
+  left: -70px;
+  bottom: -80px;
+  width: 380px;
+  opacity: 0.08;
+  transform: rotate(-14deg);
+}

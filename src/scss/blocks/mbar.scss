@@ -1,0 +1,37 @@
+// Мобильная панель действий (≤900px): фиксированная снизу пара
+// кнопок «Позвонить» и «Посчитать»; учтены safe-area отступы.
+.mbar {
+  display: none;
+  position: fixed;
+  left: max(var(--mbar-offset), env(safe-area-inset-left, 0px));
+  right: max(var(--mbar-offset), env(safe-area-inset-right, 0px));
+  bottom: calc(var(--mbar-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--z-mbar);
+  gap: var(--spacing-10);
+
+  @include media-breakpoint-down(tab) {
+    display: flex;
+  }
+}
+
+.mbar__link {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: var(--mbar-height);
+  font-size: var(--button-sm-font-size);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.mbar__link--phone {
+  color: var(--color-text-on-dark);
+  background-color: var(--color-surface-dark);
+}
+
+.mbar__link--calc {
+  color: var(--color-text-on-accent);
+  background-color: var(--color-surface-accent);
+}

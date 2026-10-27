@@ -1,0 +1,20 @@
+// Логотип: serif-«Serbish» с подписью «meat · fish».
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--spacing-12);
+  text-decoration: none;
+}
+
+.logo__name {
+  font-family: var(--font-serif);
+  font-size: var(--display-sm-font-size);
+  color: var(--color-text-on-dark);
+}
+
+.logo__tag {
+  font-size: var(--micro-font-size);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-muted);
+}
