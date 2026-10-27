@@ -39,21 +39,33 @@ jobs:
 
       - name: Deploy build to github-pages branch
         run: |
+          # Сохраняем свежий билд во временную папку: на шаге git clean
+          # все неотслеживаемые файлы (включая dist) будут удалены.
+          rm -rf /tmp/deploy-dist
+          cp -r dist /tmp/deploy-dist
+
           # Ветки github-pages может ещё не существовать — создадим при первом деплое.
           if git ls-remote --heads origin github-pages | grep -q github-pages; then
             git fetch origin github-pages --depth=1
-            git checkout github-pages
+            # -f нужен, чтобы неотслеживаемые файлы (node_modules и т.п.)
+            # не блокировали переключение на ветку.
+            git checkout -f github-pages
           else
             # Орфан-ветка: не содержит исходников, только билд.
             git checkout --orphan github-pages
           fi
 
-          # Чистим всё содержимое ветки (на случай, если ветка уже существовала).
+          # Чистим всё содержимое ветки:
+          #  - git rm убирает отслеживаемые файлы;
+          #  - git clean убирает неотслеживаемые (node_modules, dist и пр.),
+          #    оставшиеся от чекаута исходной ветки: на орфан-ветке нет .gitignore,
+          #    поэтому без этой очистки они попали бы в деплой.
           git rm -rf --quiet . 2>/dev/null || true
+          git clean -ffdx
 
           # Копируем только билд. .nojekyll запрещает GitHub Pages
-          # обрабатывать подчёркивания в путях (например, _assets/).
-          cp -r dist/* .
+          # обрабатывать содержимое через Jekyll.
+          cp -r /tmp/deploy-dist/* .
           touch .nojekyll
 
           git config user.name "github-actions[bot]"
