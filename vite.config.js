@@ -1,8 +1,10 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-console.log(__dirname)
 
 export default defineConfig({
+  // GitHub Pages публикует проект в под-пути:
+  // https://<user>.github.io/serbish-v2-bankety/
+  base: "/serbish-v2-bankety/",
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

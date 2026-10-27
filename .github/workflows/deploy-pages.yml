@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+# Срабатывает на пуш в ЛЮБУЮ ветку проекта:
+# билдим текущее состояние и обновляем ветку github-pages.
+on:
+  push:
+  # Позволяет запустить деплой вручную из вкладки Actions
+  workflow_dispatch:
+
+# Отменяем незавершённый деплой того же workflow, если пришёл новый пуш.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: write # нужен для force-push в ветку github-pages
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (pushing branch)
+        uses: actions/checkout@v4
+        with:
+          # История исходной ветки не нужна — соберём и запушим свежий билд
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy build to github-pages branch
+        run: |
+          # Ветки github-pages может ещё не существовать — создадим при первом деплое.
+          if git ls-remote --heads origin github-pages | grep -q github-pages; then
+            git fetch origin github-pages --depth=1
+            git checkout github-pages
+          else
+            # Орфан-ветка: не содержит исходников, только билд.
+            git checkout --orphan github-pages
+          fi
+
+          # Чистим всё содержимое ветки (на случай, если ветка уже существовала).
+          git rm -rf --quiet . 2>/dev/null || true
+
+          # Копируем только билд. .nojekyll запрещает GitHub Pages
+          # обрабатывать подчёркивания в путях (например, _assets/).
+          cp -r dist/* .
+          touch .nojekyll
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy build from ${GITHUB_REF_NAME} (${GITHUB_SHA:0:7})" || echo "No changes to commit"
+
+          # Force-push: ветка github-pages — всегда чистый снапшот последнего билда.
+          git push -f origin github-pages
