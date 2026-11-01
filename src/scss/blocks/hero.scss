@@ -7,10 +7,10 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  grid-template-columns: minmax(0, 1fr);
 
-  @include media-breakpoint-down(tab) {
-    grid-template-columns: minmax(0, 1fr);
+  @include media-breakpoint-up(tab) {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
   }
 }
 
@@ -48,7 +48,9 @@
 }
 
 .hero__title {
+font-size: clamp(42px, 5vw, var(--title-font-size-desktop));
   margin: var(--spacing-14) 0 var(--spacing-22);
+  text-wrap: balance;
 }
 
 .hero__accent {
@@ -119,10 +121,10 @@
 // Правая половина: фото банкетного стола.
 .hero__media {
   position: relative;
-  min-height: var(--hero-media-height);
+  min-height: var(--hero-media-height-mobile);
 
-  @include media-breakpoint-down(tab) {
-    min-height: var(--hero-media-height-mobile);
+  @include media-breakpoint-up(tab) {
+    min-height: var(--hero-media-height);
   }
 }
 

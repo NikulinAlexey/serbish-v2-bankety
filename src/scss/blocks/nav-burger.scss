@@ -1,7 +1,7 @@
-// Бургер-кнопка мобильного меню (видна ≤900px). Три полоски,
-// при открытии — крест.
+// Бургер-кнопка мобильного меню (видна ниже планшета, <900px).
+// Три полоски, при открытии — крест.
 .nav-burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -34,7 +34,7 @@
     }
   }
 
-  @include media-breakpoint-down(tab) {
-    display: flex;
+  @include media-breakpoint-up(tab) {
+    display: none;
   }
 }

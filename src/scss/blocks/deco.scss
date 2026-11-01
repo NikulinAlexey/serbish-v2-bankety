@@ -1,11 +1,12 @@
 // Декоративные элементы (полупрозрачные иконки-посуда, вертикальные
-// килимы): не интерактивны и прячутся на планшете и телефоне.
+// килимы): не интерактивны и видны только от планшета (≥900px).
 // Геометрия конкретного декора описана в его секции
 // (.about__deco, .evening__deco, .menu__deco и т.д.).
 .deco {
+  display: none;
   pointer-events: none;
 
-  @include media-breakpoint-down(tab) {
-    display: none;
+  @include media-breakpoint-up(tab) {
+    display: block;
   }
 }

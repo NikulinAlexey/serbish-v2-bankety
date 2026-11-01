@@ -1,7 +1,8 @@
-// Мобильная панель действий (≤900px): фиксированная снизу пара
-// кнопок «Позвонить» и «Посчитать»; учтены safe-area отступы.
+// Мобильная панель действий: фиксированная снизу пара кнопок
+// «Позвонить» и «Посчитать», видна ниже планшета (<900px);
+// учтены safe-area отступы.
 .mbar {
-  display: none;
+  display: flex;
   position: fixed;
   left: max(var(--mbar-offset), env(safe-area-inset-left, 0px));
   right: max(var(--mbar-offset), env(safe-area-inset-right, 0px));
@@ -9,8 +10,8 @@
   z-index: var(--z-mbar);
   gap: var(--spacing-10);
 
-  @include media-breakpoint-down(tab) {
-    display: flex;
+  @include media-breakpoint-up(tab) {
+    display: none;
   }
 }
 

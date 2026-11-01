@@ -52,11 +52,11 @@
 
 .evening__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   border-top: 1px solid var(--color-border-on-dark);
 
-  @include media-breakpoint-down(tab) {
-    grid-template-columns: minmax(0, 1fr);
+  @include media-breakpoint-up(tab) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

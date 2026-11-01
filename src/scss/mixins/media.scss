@@ -8,15 +8,3 @@
     @warn "Неизвестный брейкпоинт '#{$name}'";
   }
 }
-
-// Дополнительно: миксин для max-width (аналог Bootstrap's media-breakpoint-down)
-@mixin media-breakpoint-down($name) {
-  @if map-has-key($breakpoints, $name) {
-    $max: map-get($breakpoints, $name);
-    @media (max-width: ($max - 0.02px)) {
-      @content;
-    }
-  } @else {
-    @warn "Неизвестный брейкпоинт '#{$name}'";
-  }
-}

@@ -10,11 +10,11 @@
 
 .reviews__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-28);
 
-  @include media-breakpoint-down(tab) {
-    grid-template-columns: minmax(0, 1fr);
+  @include media-breakpoint-up(tab) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

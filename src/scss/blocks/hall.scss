@@ -14,15 +14,16 @@
 .hall__inner {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
   gap: var(--spacing-28);
-  margin-top: calc(-1 * var(--spacing-120));
+  margin-top: calc(-1 * var(--spacing-56));
 
-  @include media-breakpoint-down(tab) {
-    flex-direction: column;
-    align-items: stretch;
-    margin-top: calc(-1 * var(--spacing-56));
+  @include media-breakpoint-up(tab) {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: calc(-1 * var(--spacing-120));
   }
 }
 

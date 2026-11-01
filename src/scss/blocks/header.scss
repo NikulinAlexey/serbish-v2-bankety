@@ -39,6 +39,7 @@
 }
 
 .header__phone {
+  display: none; // показываем только от xl
   font-size: var(--label-lg-font-size);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-on-dark);
@@ -46,8 +47,8 @@
 
   // От xl показываем и телефон, и кнопку; между lg и xl —
   // только кнопку (телефон дублируют mbar и футер).
-  @include media-breakpoint-down(xl) {
-    display: none;
+  @include media-breakpoint-up(xl) {
+    display: block;
   }
 }
 
@@ -64,11 +65,13 @@
   order: 0;
 }
 
-@include media-breakpoint-down(tab) {
-  .header__nav,
-  .header__phone,
-  .header__cta {
-    display: none;
+// Навигация в шапке видна только от планшета (≥900px);
+// ниже её заменяют бургер (.mnav) и нижняя панель .mbar.
+.header__nav {
+  display: none;
+
+  @include media-breakpoint-up(tab) {
+    display: flex;
   }
 }
 

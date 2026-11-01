@@ -25,10 +25,10 @@
 
 .conditions__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0 var(--spacing-64); // значение donor.html
 
-  @include media-breakpoint-down(tab) {
-    grid-template-columns: minmax(0, 1fr);
+  @include media-breakpoint-up(tab) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

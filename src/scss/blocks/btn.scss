@@ -1,7 +1,7 @@
 // Кнопка-действие: красная заливка, белый текст (герой, калькулятор).
 // Модификатор .btn--block — кнопка во всю ширину (CTA калькулятора).
 .btn {
-  display: inline-block;
+  display: inline-grid;
   padding: var(--spacing-18) var(--spacing-28);
   font-family: var(--font-sans);
   font-size: var(--button-font-size);
@@ -51,4 +51,5 @@
 .btn--block {
   display: block;
   width: 100%;
+  text-align: center;
 }

@@ -23,20 +23,20 @@ h2 {
 }
 
 h1 {
-  font-size: var(--title-font-size-desktop);
+  font-size: var(--title-font-size-mobile);
   line-height: var(--title-line-height);
 
-  @include media-breakpoint-down(tab) {
-    font-size: var(--title-font-size-mobile);
+  @include media-breakpoint-up(tab) {
+    font-size: var(--title-font-size-desktop);
   }
 }
 
 h2 {
-  font-size: var(--heading-font-size-desktop);
+  font-size: var(--heading-font-size-mobile);
   line-height: var(--heading-line-height);
 
-  @include media-breakpoint-down(tab) {
-    font-size: var(--heading-font-size-mobile);
+  @include media-breakpoint-up(tab) {
+    font-size: var(--heading-font-size-desktop);
   }
 }
 

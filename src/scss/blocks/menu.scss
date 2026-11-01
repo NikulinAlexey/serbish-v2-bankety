@@ -83,16 +83,16 @@
 
 .menu__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--spacing-40) var(--spacing-28);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-28) var(--spacing-16);
 
-  @include media-breakpoint-down(xl) {
+  @include media-breakpoint-up(tab) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-40) var(--spacing-28);
   }
 
-  @include media-breakpoint-down(tab) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-28) var(--spacing-16);
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
