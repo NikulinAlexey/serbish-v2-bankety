@@ -3,7 +3,12 @@
 .faq {
   position: relative;
   overflow: hidden;
-  padding-block: var(--spacing-120) var(--spacing-100);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
 }
 
 .faq__deco {

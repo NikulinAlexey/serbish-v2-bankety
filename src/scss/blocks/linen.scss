@@ -1,6 +1,7 @@
 // Льняная текстура фона (страница, внутренняя рамка «Жемчужин»).
 // Прозрачный SVG-оверлей с шумом (feTurbulence, stitchTiles) поверх
 // льняного background-color — бесшовный, лёгкий, чёткий на retina.
+// Декоративные ленты/поле — отдельный тайл main.svg (см. kilim.scss).
 .linen {
   background-color: var(--color-surface-page);
   background-image: url("../../files/img/patterns/linen.svg");

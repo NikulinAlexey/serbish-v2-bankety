@@ -1,4 +1,6 @@
-// «Килим» — тканый орнамент (бесшовные SVG-тайлы, см. src/files/img/patterns/):
+// «Килим» — тканый орнамент. Декоративные ленты и поле — единый тайл
+// 358×44 (src/files/img/patterns/main.svg); фон страницы — шумовой
+// linen.svg (см. linen.scss):
 //   .kilim        — горизонтальная лента (после героя, в кнопке-загадке);
 //   .kilim--sm    — уменьшенная лента (под фото подносов);
 //   .vkilim       — вертикальная лента (края hero и «вечера»);
@@ -6,9 +8,9 @@
 .kilim {
   display: block;
   height: var(--kilim-height);
-  background-image: url("../../files/img/patterns/kilim-strip.svg");
+  background-image: url("../../files/img/patterns/main.svg");
   background-repeat: repeat-x;
-  background-size: auto var(--kilim-height); // тайл 56×56 → ширина = высоте
+  background-size: auto var(--kilim-height); // тайл 358×44 → ширина = высота × 358/44
   background-position: center;
 }
 
@@ -18,14 +20,14 @@
 }
 
 .vkilim {
-  background-image: url("../../files/img/patterns/kilim-vstrip.svg");
+  background-image: url("../../files/img/patterns/main.svg");
   background-repeat: repeat-y;
-  background-size: 100% auto; // тайл 30×30 → период по вертикали = ширине полосы
+  background-size: 100% auto; // тайл 358×44 → период по вертикали = ширина × 44/358
 }
 
 .kilim-field {
-  background-image: url("../../files/img/patterns/kilim-field.svg");
-  background-size: 520px 520px;
+  background-image: url("../../files/img/patterns/main.svg");
+  background-size: auto; // нативный тайл 358×44
   background-repeat: repeat;
 }
 

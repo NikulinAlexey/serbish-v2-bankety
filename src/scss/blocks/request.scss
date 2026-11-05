@@ -3,7 +3,12 @@
 .request {
   position: relative;
   overflow: hidden;
-  padding-block: var(--spacing-100) var(--spacing-110);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
   background-color: var(--color-surface-dark);
   color: var(--color-text-on-dark);
 }

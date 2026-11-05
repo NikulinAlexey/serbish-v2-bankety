@@ -1,7 +1,9 @@
-// Шапка: sticky тёмно-синяя полоса высотой 72px. Внутри — логотип,
-// навигация, тумблер азбуки, телефон и CTA. На планшете и уже
-// навигация и телефон скрываются: их заменяют бургер (.mnav)
-// и нижняя панель .mbar.
+// Шапка: sticky тёмно-синяя полоса высотой 72px. Логотип и .header__side —
+// навигация, тумблер азбуки и телефон. До lg .header__side — полноэкранное
+// меню, которое открывает бургер (burger.scss + nav.js): закрыто — уехало
+// за правый край (translateX(100%)) и visibility: hidden, открыто (_active) —
+// выкатывается на экран, ссылки появляются каскадом. От lg панель снова
+// раскладывается в строку внутри шапки, бургер скрывается.
 .header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -16,63 +18,180 @@
   }
 }
 
-.header__inner {
+.header__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: var(--spacing-24);
   height: var(--header-height);
 }
 
-.header__aside {
+// ============================================================
+// Меню: до lg — полноэкранная тёмная панель; от lg — строка в шапке.
+// ============================================================
+.header__side {
+  position: fixed;
+  inset: 0;
+  z-index: 1; // бургер (z 2 в burger.scss) остаётся доступным поверх панели
   display: flex;
-  align-items: center;
-  gap: var(--spacing-20);
-}
+  flex-direction: column;
+  gap: var(--spacing-40);
+  padding: calc(var(--header-height) + var(--spacing-32)) var(--spacing-28)
+    calc(var(--mbar-height) + var(--mbar-offset) * 2 + var(--spacing-24));
+  background-color: var(--color-surface-dark);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  visibility: hidden; // закрытое меню выпадает из tab-порядка
+  transition: transform 0.35s ease-in-out, visibility 0s linear 0.35s;
 
-.header__cta {
-  display: none; // показываем от lg, когда есть место
+  // Открытое меню (класс ставит nav.js).
+  &._active {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.35s ease-in-out;
+  }
 
   @include media-breakpoint-up(lg) {
-    display: inline-block;
+    position: static;
+    inset: auto;
+    z-index: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-24);
+    margin-left: auto;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+    transform: none;
+    visibility: visible;
+    transition: none;
+
+    // Окно растянули при открытом меню — панель больше не шторка
+    // (класс снимет nav.js при resize, здесь страхуем стилями).
+    &._active {
+      transform: none;
+      visibility: visible;
+      transition: none;
+    }
+  }
+}
+
+// Пока меню открыто — не прокручиваем страницу под ним.
+body.is-menu-open {
+  overflow: hidden;
+}
+
+// Навигация: в меню — колонка крупными serif-ссылками, в шапке (lg+) — строка.
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-22);
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-30);
+  }
+}
+
+.nav__link {
+  font-family: var(--font-serif);
+  font-size: var(--display-lg-font-size);
+  line-height: 1.1;
+  padding: var(--spacing-6) 0; // зона нажатия на тач-экранах
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+    font-family: var(--font-sans);
+    font-size: var(--nav-font-size);
+  }
+}
+
+.nav__link:hover {
+  color: var(--color-gold);
+}
+
+// Активный раздел (включает scroll-spy в scroll.js).
+.nav__link.is-active {
+  color: var(--color-gold);
+}
+
+// Каскадное появление ссылок при открытии меню (задержка по номеру).
+.header__side._active .nav__link {
+  animation: nav-link-in 0.4s ease backwards;
+
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{0.05 + $i * 0.05}s;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    animation: none;
+  }
+}
+
+@keyframes nav-link-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__side,
+  .header__side._active {
+    transition: none;
+  }
+
+  .header__side._active .nav__link {
+    animation: none;
+  }
+}
+
+// Блок действий: в меню — колонка у низа панели, в шапке (lg+) — строка.
+.header__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-14);
+  margin-top: auto; // прижимаем к низу меню
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-20);
+    margin-top: 0;
   }
 }
 
 .header__phone {
-  display: none; // показываем только от xl
-  font-size: var(--label-lg-font-size);
+  display: block; // в меню телефон виден всегда
+  font-size: var(--label-xl-font-size);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-on-dark);
   text-decoration: none;
 
-  // От xl показываем и телефон, и кнопку; между lg и xl —
-  // только кнопку (телефон дублируют mbar и футер).
+  &:hover {
+    color: var(--color-gold);
+  }
+
+  // В строке — только когда помещается (от xl).
+  @include media-breakpoint-up(lg) {
+    display: none;
+    font-size: var(--label-lg-font-size);
+  }
+
   @include media-breakpoint-up(xl) {
     display: block;
   }
 }
-
-.header__phone:hover {
-  color: var(--color-gold);
-}
-
-// Порядок: [лого | nav | aside | бургер]. Бургер прижат вправо.
-.nav-burger {
-  order: 1;
-}
-
-.header__aside {
-  order: 0;
-}
-
-// Навигация в шапке видна только от планшета (≥900px);
-// ниже её заменяют бургер (.mnav) и нижняя панель .mbar.
-.header__nav {
-  display: none;
-
-  @include media-breakpoint-up(tab) {
-    display: flex;
-  }
-}
-
-

@@ -1,7 +1,12 @@
 // Секция «Мешано месо»: фото подносов с килимной лентой снизу
 // и описание; колонки выровнены по центру.
 .meshano {
-  padding-block: var(--spacing-40) var(--spacing-120);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
 }
 
 .meshano__grid {

@@ -1,17 +1,15 @@
 // Полоса сербской вышивки во всю ширину страницы (разделитель между
-// секциями) и узкая полоса сверху карточки «Кстати» — бесшовный
-// SVG-паттерн repeat-x (src/files/img/patterns/embroidery-strip.svg).
+// секциями) и узкая полоса сверху карточки «Кстати» — единый
+// SVG-паттерн проекта repeat-x (src/files/img/patterns/main.svg, тайл 358×44).
 .embroidery {
   display: block;
   width: 100%;
-  height: var(--embroidery-height);
-  background-image: url("../../files/img/patterns/embroidery-strip.svg");
+  height: 48px;
+  background-image: url("../../files/img/patterns/main.svg");
   background-repeat: repeat-x;
-  background-size: auto 100%; // тайл 150×150 → ширина = высоте
-}
+  background-size: auto 100%; // тайл 358×44 → ширина = высота × 358/44
 
-// Узкая полоса вышивки в карточке «Кстати» (patтерн масштабируется к высоте).
-.embroidery--aside {
-  height: 46px; // значение donor.html
+  @include media-breakpoint-up(lg) {
+    height: 80px; // значение donor.html
+  }
 }
-

@@ -1,7 +1,12 @@
 // Секция отзывов: три светлые карточки на льняном фоне,
 // между FAQ и формой заявки.
 .reviews {
-  padding-block: var(--spacing-100) var(--spacing-110);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
 }
 
 .reviews__title {

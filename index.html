@@ -85,31 +85,32 @@
 <body>
   <div class="page linen">
     <header class="header">
-      <div class="container header__inner">
+      <div class="container header__container">
         <a class="logo" href="#top">
           <span class="logo__name">Serbish</span>
           <span class="logo__tag">meat · fish</span>
         </a>
-        <nav class="nav header__nav" aria-label="Разделы страницы">
-          <a class="nav__link" href="#format">Форматы</a>
-          <a class="nav__link" href="#usloviya">Условия</a>
-          <a class="nav__link" href="#menu">Меню</a>
-          <a class="nav__link" href="#calc">Сколько стоит</a>
-          <a class="nav__link" href="#faq">Вопросы</a>
-        </nav>
-        <div class="header__aside">
-          <button class="abc-toggle" type="button" id="abcBtn" aria-pressed="false"
-            title="Сербский пишется и кириллицей, и латиницей" aria-label="Переключить азбуку сербских слов">
-            <span class="abc-toggle__option is-active" id="abcC">Ћир</span><span class="abc-toggle__option"
-              id="abcL">Lat</span>
-          </button>
-          <a class="header__phone" href="tel:+79213986069">+7 921 398-60-69</a>
+        <div class="header__side" id="site-menu" data-menu>
+          <nav class="header__nav" aria-label="Разделы страницы">
+            <a class="nav__link" href="#format">Форматы</a>
+            <a class="nav__link" href="#usloviya">Условия</a>
+            <a class="nav__link" href="#menu">Меню</a>
+            <a class="nav__link" href="#calc">Сколько стоит</a>
+            <a class="nav__link" href="#faq">Вопросы</a>
+          </nav>
+          <div class="header__actions">
+            <button class="abc-toggle" type="button" id="abcBtn" aria-pressed="false"
+              title="Сербский пишется и кириллицей, и латиницей" aria-label="Переключить азбуку сербских слов">
+              <span class="abc-toggle__option is-active" id="abcC">Ћир</span><span class="abc-toggle__option"
+                id="abcL">Lat</span>
+            </button>
+            <a class="header__phone" href="tel:+79213986069">+7 921 398-60-69</a>
+          </div>
         </div>
-        <button class="nav-burger" type="button" id="navBtn" aria-expanded="false" aria-controls="mnav"
-          aria-label="Открыть меню разделов">
-          <span class="nav-burger__line" aria-hidden="true"></span>
-          <span class="nav-burger__line" aria-hidden="true"></span>
-          <span class="nav-burger__line" aria-hidden="true"></span>
+
+        <button class="burger" type="button" id="navBtn" data-burger-btn aria-expanded="false" aria-controls="site-menu"
+          aria-label="Открыть меню">
+          <span class="burger__slice" aria-hidden="true"></span>
         </button>
       </div>
     </header>
@@ -117,7 +118,6 @@
     <main>
       <section class="hero" id="top">
         <div class="hero__grid">
-          <div class="vkilim hero__kilim deco" aria-hidden="true"></div>
           <div class="hero__body">
             <div class="hero__hello">
               <img class="hero__icon"
@@ -139,7 +139,7 @@
           </div>
           <div class="hero__media">
             <img class="hero__photo"
-              src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg"
+              src="./src/files/img/IMG_8057.jpg"
               alt="Длинный банкетный стол в зале Serbish, накрытый закусками" fetchpriority="high" />
             <div class="hero__badge"><b>от 2000 ₽</b> на гостя по еде</div>
           </div>
@@ -179,7 +179,6 @@
       </section>
 
       <section class="evening">
-        <div class="vkilim evening__kilim deco" aria-hidden="true"></div>
         <img class="deco evening__deco"
           src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/928cfc45-pres-banket-ico_buklija.png"
           alt="" aria-hidden="true" />
