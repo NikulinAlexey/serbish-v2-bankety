@@ -17,6 +17,7 @@ export function initGallery() {
       const src = thumb.dataset.lightbox;
       const alt = thumb.querySelector("img") ? thumb.querySelector("img").alt : "";
       image.src = src;
+      
       image.alt = alt;
       dialog.showModal();
     });
