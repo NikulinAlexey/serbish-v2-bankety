@@ -20,6 +20,8 @@
     property="og:image"
     content="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- TODO: после публикации заменить домен на боевой -->
+  <link rel="canonical" href="https://serbish.ru/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -38,6 +40,10 @@
       "servesCuisine": "Сербская",
       "priceRange": "2000–3000 ₽",
       "telephone": "+7 921 398-60-69",
+      "url": "https://serbish.ru/",
+      "image": "https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg",
+      "currenciesAccepted": "RUB",
+      "acceptsReservations": "True",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Пестеля, 8/36",
@@ -64,24 +70,24 @@
         },
         {
           "@type": "Question",
-          "name": "Можно ли подстроиться под бюджет?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Конечно. Каждый предзаказ составляем индивидуально, поэтому подстроимся и под пожелания, и под бюджет. Пришлём его на согласование заранее." }
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли что-то убрать или заменить?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Да. Предзаказ присылаем заранее — вычеркните то, что не едят ваши гости, и мы поменяем." }
+          "name": "Можно ли скорректировать меню, бюджет и состав гостей?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Да. Предзаказ с точной суммой пришлём заранее: вычеркните блюда, поменяем под бюджет. Если состав гостей изменится — сообщите хотя бы за пару дней, пересчитаем." }
         },
         {
           "@type": "Question",
           "name": "За сколько нужно бронировать?",
           "acceptedAnswer": { "@type": "Answer", "text": "Чем раньше, тем спокойнее, особенно на пятницу и субботу. Наши гости часто бронируют за 3–4 недели, так что если дата уже есть — звоните сейчас." }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли прийти с детьми?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Конечно, банкет — семейный формат. Скажите заранее, сколько будет детей: поставим детские стулья и согласуем блюда, которые им подойдут." }
         }
       ]
     }
   </script>
-  <script type="module" crossorigin src="/serbish-v2-bankety/assets/index-C3raBx46.js"></script>
-  <link rel="stylesheet" crossorigin href="/serbish-v2-bankety/assets/index-M8rS6o03.css">
+  <script type="module" crossorigin src="/serbish-v2-bankety/assets/index-Cu7zqAf8.js"></script>
+  <link rel="stylesheet" crossorigin href="/serbish-v2-bankety/assets/index-DF5BStre.css">
 </head>
 
 <body>
@@ -106,14 +112,27 @@
               <span class="abc-toggle__option is-active" id="abcC">Ћир</span><span class="abc-toggle__option"
                 id="abcL">Lat</span>
             </button>
-            <a class="header__phone" href="tel:+79213986069">+7 921 398-60-69</a>
+            <a class="header__phone" href="tel:+79213986069"><svg viewBox="0 0 24 24" width="18" height="18"
+                fill="currentColor" aria-hidden="true" focusable="false">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.21c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>+7 921 398-60-69</a>
           </div>
         </div>
 
-        <button class="burger" type="button" id="navBtn" data-burger-btn aria-expanded="false" aria-controls="site-menu"
-          aria-label="Открыть меню">
-          <span class="burger__slice" aria-hidden="true"></span>
-        </button>
+        <div class="header__tools">
+          <a class="header__phone-icon" href="tel:+79213986069" aria-label="Позвонить: +7 921 398-60-69">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"
+              focusable="false">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.21c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </a>
+          <button class="burger" type="button" id="navBtn" data-burger-btn aria-expanded="false"
+            aria-controls="site-menu" aria-label="Открыть меню">
+            <span class="burger__slice" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -159,21 +178,17 @@
             <h2 class="about__title">В Сербии не подают каждому по тарелке</h2>
           </div>
           <div class="about__body">
-            <p class="about__text">Есть вещи, которые сербы умеют лучше всех: готовить мясо, накрывать стол так,
-              чтобы он ломился, и принимать гостей так, чтобы они возвращались.</p>
-            <p class="about__text">На свадьбу, день рождения или большой семейный праздник там ставят на стол общие
-              блюда. Главное из них — <i lang="sr-Cyrl">мешано месо</i>, «смешанное мясо»: плескавица, чевапи,
-              ражничи, томлёное мясо и всё, что было на гриле и в печи, на нескольких больших овалах.</p>
-            <p class="about__text">Именно так мы накрываем банкеты. Никто не выбирает «одно горячее из трёх» и не
-              ждёт, пока официант дойдёт до его края стола. Блюда стоят по всей длине стола, и добавка всегда рядом.</p>
+            <p class="about__text">На больших сербских праздниках стол не делят на порции: главное блюдо — <i
+                lang="sr-Cyrl">мешано месо</i>, «смешанное мясо» — плескавица, чевапи, ражничи, томлёное мясо с
+              гриля и из печи — ставят на несколько больших овалов по всей длине стола. Добавка всегда рядом, и
+              никто не ждёт, пока официант дойдёт до его края.</p>
             <p class="about__text about__text--muted">Если гостей много, а повод большой, так получается и сытнее, и
               дешевле, чем меню на каждого.</p>
             <div class="about__aside">
               <div class="embroidery embroidery--aside" aria-hidden="true"></div>
               <div class="about__aside-body">
-                <b>Кстати.</b> Главный семейный праздник сербов — <i lang="sr-Cyrl" data-srlang><span
-                    data-sr="slava">слава</span></i>, день святого покровителя рода. Под него накрывают стол на всю
-                  родню, а в 2014 году ЮНЕСКО внесло славу в список нематериального наследия человечества.
+                <b>Кстати.</b> <i lang="sr-Cyrl" data-srlang><span data-sr="slava">слава</span></i> — семейный
+                  праздник сербов, внесённый ЮНЕСКО в список наследия человечества.
               </div>
             </div>
           </div>
@@ -202,8 +217,7 @@
             </div>
             <div class="evening__step">
               <div class="evening__step-title">Если хотите удивить</div>
-              <p class="evening__step-text">В середину стола ставим отдельное блюдо: запечённую утку, томлёную
-                голяшку ягнёнка или рыбное плато. Его заказывают сверх банкета.</p>
+              <p class="evening__step-text">Поставим отдельное блюдо в центр стола — см. «Жемчужины стола» ниже.</p>
             </div>
           </div>
         </div>
@@ -482,31 +496,13 @@
         </div>
       </section>
 
-      <section class="meshano">
-        <div class="container meshano__grid">
-          <div class="meshano__media">
-            <img class="meshano__photo"
-              src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/74f57b49-pres-banket-trays.jpg"
-              alt="Три блюда мешано месо на банкетном столе" />
-            <div class="kilim kilim--sm" aria-hidden="true"></div>
-          </div>
-          <div class="meshano__body">
-            <h2 class="meshano__title">Мешано месо</h2>
-            <p class="meshano__text">Плескавица, чевапи, уштипцы, пуньена пилетина, шницель «Караджорджева», сувлаки
-              и томлёное мясо. К ним гарниры, соусы, каймак, айвар и хлеб из нашей пекарни.</p>
-            <p class="meshano__text meshano__text--muted">Одно блюдо — на несколько человек. Сколько блюд нужно на
-              ваш стол, посчитаем при заказе.</p>
-          </div>
-        </div>
-      </section>
-
       <div class="embroidery" aria-hidden="true"></div>
 
       <section class="proverb">
         <div class="container proverb__inner reveal">
           <div class="proverb__serb" lang="sr-Cyrl" data-srlang><span data-sr="gost">Гост у кућу — Бог у кућу</span>
           </div>
-          <div class="proverb__translate">«Гость в дом — Бог в дом». Сербская поговорка.</div>
+          <div class="proverb__translate">«Гость в дом — Бог в дом» — сербская поговорка</div>
           <figure class="proverb__quote">
             <blockquote class="proverb__text">«Доброму гостю я рад, как своему другу!»</blockquote>
             <figcaption class="proverb__author">Йован Рашета, владелец Serbish</figcaption>
@@ -520,7 +516,7 @@
           alt="" aria-hidden="true" />
         <div class="container conditions__inner reveal">
           <span class="kicker">Условия</span>
-          <h2 class="conditions__title">Что важно знать заранее</h2>
+          <h2 class="conditions__title">Условия банкета</h2>
           <div class="conditions__grid">
             <div class="condition">
               <div class="condition__head">
@@ -528,8 +524,8 @@
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/928cfc45-pres-banket-ico_buklija.png"
                   alt="" aria-hidden="true" />Пробкового сбора нет
               </div>
-              <p class="condition__text">Потому что свои напитки мы не принимаем: отвечаем за всё, что наливаем
-                гостям. Всё выбирается из нашей барной карты.</p>
+              <p class="condition__text">Свои напитки не принимаем, поэтому сбора за пробки нет — всё из нашей
+                барной карты.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -537,8 +533,8 @@
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/c884152f-pres-banket-ico_sajkaca.png"
                   alt="" aria-hidden="true" />Напитки — когда удобно
               </div>
-              <p class="condition__text">Можно включить в предзаказ, а можно заказывать прямо на празднике.
-                Подходит для обоих форматов.</p>
+              <p class="condition__text">Включите напитки в предзаказ или заказывайте прямо на празднике — в обоих
+                форматах.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -546,8 +542,8 @@
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/005f2b8e-pres-banket-ico_pogaca.png"
                   alt="" aria-hidden="true" />Свой торт — на свадьбу или юбилей
               </div>
-              <p class="condition__text">Торты на заказ мы не готовим, поэтому для большого повода свой привезти
-                можно. Две просьбы: предупредите нас заранее и сохраните чек о покупке.</p>
+              <p class="condition__text">Свои торты не готовим — на большой повод можно принести свой:
+                предупредите заранее и сохраните чек.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -555,8 +551,7 @@
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/0402692d-pres-banket-ico_dzezva.png"
                   alt="" aria-hidden="true" />Десерты — в любой момент
               </div>
-              <p class="condition__text">Из основного меню, без предзаказа. Можно попросить вынести к чаю или
-                кофе.</p>
+              <p class="condition__text">Десерты из основного меню — без предзаказа, к чаю и кофе.</p>
             </div>
           </div>
         </div>
@@ -569,11 +564,11 @@
         <div class="container calc__grid reveal">
           <div class="calc__info">
             <span class="kicker">Стоимость</span>
-            <h2 class="calc__title">Сколько это стоит</h2>
-            <p class="calc__lead">По еде — от 2000 до 3000 ₽ на человека. Разница зависит от того, сколько мяса и
-              закусок вы хотите и будут ли отдельные блюда в центре стола.</p>
-            <p class="calc__note">Напитки считаются отдельно. Перед праздником пришлём вам предзаказ с точной
-              суммой — можно поправить, что-то убрать или добавить.</p>
+            <h2 class="calc__title">Стоимость банкета — от 2000 ₽ на гостя</h2>
+            <p class="calc__lead">По еде — 2000–3000 ₽ на гостя. Итог зависит от состава мешано месо и «жемчужин»
+              в центре стола.</p>
+            <p class="calc__note">Напитки считаются отдельно. Точный предзаказ с суммой пришлём заранее — на
+              согласование.</p>
           </div>
           <div class="calc-card">
             <label class="calc-card__label" for="gval">Сколько вас будет</label>
@@ -594,7 +589,7 @@
               <div class="calc-card__hint">По еде выйдет примерно</div>
               <div class="calc-card__amount"><span id="range">24 000 – 36 000 ₽</span></div>
               <div class="calc-card__per">это 2 000 – 3 000 ₽ на человека</div>
-              <div class="calc-card__aside" id="svadba" hidden>
+              <div class="calc-card__aside" id="svadba">
                 <i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="svadba">Ово је већ права
                     свадба!</span></i>
                 <span class="calc-card__muted"> — «это уже настоящая свадьба!»</span>
@@ -604,20 +599,21 @@
                 такую компанию банкет не нужен — просто забронируйте столик: +7 (812) 904-38-44.
               </div>
             </div>
-            <a class="btn btn--block calc-card__cta" href="#form">Хочу точный расчёт</a>
+            <a class="btn btn--block calc-card__cta" href="#form">Получить точный расчёт</a>
           </div>
         </div>
       </section>
 
       <section class="hall" id="hall">
         <img class="hall__photo"
-          src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/ea5354fc-pres-banket-hall.jpg"
+          src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg"
           alt="Зал Serbish, накрытый к банкету" loading="lazy" decoding="async" />
         <div class="container hall__inner reveal">
           <div class="hall__card">
-            <div class="hall__title">Зал на Пестеля, 8/36</div>
-            <p class="hall__text">Рядом с Литейным и метро «Чернышевская». Большой общий стол, кирпичные стены,
-              тёплый свет. Банкеты на 8–40 гостей.</p>
+            <div class="hall__title">Банкетный зал на Пестеля, 8/36</div>
+            <p class="hall__text">Зал в центре Санкт-Петербурга, рядом с Литейным и метро «Чернышевская». Общий
+              стол на 8–40 гостей, кирпичные стены, тёплый свет. Своей парковки нет: в пятницу и субботу
+              закладывайте на дорогу чуть больше времени.</p>
             <a class="hall__map" target="_blank" rel="noopener"
               href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%9F%D0%B5%D1%81%D1%82%D0%B5%D0%BB%D1%8F%208%2F36">Открыть
               в Яндекс.Картах</a>
@@ -626,17 +622,17 @@
             <!-- TODO: заменить на реальные фото с проведённых банкетов -->
             <button class="hall__thumb" type="button" data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg"
               aria-label="Увеличить фото: банкетный стол">
-              <img src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg"
+              <img src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg"
                 alt="Банкетный стол с закусками" loading="lazy" decoding="async" />
             </button>
             <button class="hall__thumb" type="button" data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/74f57b49-pres-banket-trays.jpg"
               aria-label="Увеличить фото: блюда мешано месо">
-              <img src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/74f57b49-pres-banket-trays.jpg"
+              <img src="/serbish-v2-bankety/assets/%D0%A7%D0%B5%D0%B2%D0%B0%D0%BF%D0%B8-%D1%81-%D0%BA%D0%B0%D0%B9%D0%BC%D0%B0%D0%BA%D0%BE%D0%BC-C560aMiR.jpg"
                 alt="Блюда мешано месо на банкетном столе" loading="lazy" decoding="async" />
             </button>
             <button class="hall__thumb" type="button" data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/ea5354fc-pres-banket-hall.jpg"
               aria-label="Увеличить фото: зал Serbish">
-              <img src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/ea5354fc-pres-banket-hall.jpg"
+              <img src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg"
                 alt="Зал Serbish, накрытый к банкету" loading="lazy" decoding="async" />
             </button>
           </div>
@@ -692,19 +688,11 @@
               </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли подстроиться под бюджет?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?<span
+                  class="faq-item__sign" aria-hidden="true"></span></summary>
               <div class="faq-item__body">
-                <p class="faq-item__answer">Конечно. Каждый предзаказ составляем индивидуально, поэтому подстроимся и
-                  под пожелания, и под бюджет. Пришлём его на согласование заранее.</p>
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли что-то убрать или заменить?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <div class="faq-item__body">
-                <p class="faq-item__answer">Да. Предзаказ присылаем заранее — вычеркните то, что не едят ваши гости,
-                  и мы поменяем.</p>
+                <p class="faq-item__answer">Да. Предзаказ с точной суммой пришлём заранее: вычеркните блюда,
+                  поменяем под бюджет. Если состав гостей изменится — сообщите хотя бы за пару дней, пересчитаем.</p>
               </div>
             </details>
             <details class="faq-item">
@@ -722,30 +710,6 @@
               <div class="faq-item__body">
                 <p class="faq-item__answer">Конечно, банкет — семейный формат. Скажите заранее, сколько будет детей,
                   — поставим детские стулья и согласуем блюда, которые им подойдут.</p>
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-item__summary">Где припарковаться?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <div class="faq-item__body">
-                <p class="faq-item__answer">Зал на Пестеля, 8/36 — в двух шагах от Литейного. По вечерам улица
-                  заполняется, поэтому на пятницу и субботу закладывайте на парковку чуть больше времени.</p>
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-item__summary">Как оплатить банкет?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <div class="faq-item__body">
-                <p class="faq-item__answer">Точный счёт придёт вместе с предзаказом на согласование. Порядок оплаты
-                  согласует менеджер при подтверждении брони.</p>
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-item__summary">А если гостей станет больше или меньше?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <div class="faq-item__body">
-                <p class="faq-item__answer">Не проблема. Сообщите об изменении хотя бы за пару дней — пересчитаем
-                  количество блюд и сумму предзаказа.</p>
               </div>
             </details>
           </div>
@@ -794,32 +758,18 @@
               <li class="request__perk">
                 <img class="request__perk-icon"
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/c884152f-pres-banket-ico_sajkaca.png"
-                  alt="" aria-hidden="true" />Без пробкового сбора
-              </li>
-              <li class="request__perk">
-                <img class="request__perk-icon"
-                  src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/005f2b8e-pres-banket-ico_pogaca.png"
-                  alt="" aria-hidden="true" />Свой торт на большой повод — можно
+                  alt="" aria-hidden="true" />Меню соберём под состав ваших гостей
               </li>
             </ul>
           </div>
           <div class="request__card">
-            <div class="request__success" id="sent" hidden>
-              <div class="request__thanks" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></div>
-              <p class="request__success-text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
-            </div>
-            <div class="request__fail" id="failed" hidden>
-              <p>Не получилось отправить заявку. Позвоните нам — примем заявку по телефону:</p>
-              <a class="request__retry" href="tel:+79213986069">+7 921 398-60-69</a>
-              <button class="request__retry-button" type="button">Попробовать ещё раз</button>
-            </div>
             <form class="request__form" id="bform" novalidate>
               <div class="request__row">
                 <label class="request__label">Дата
                   <input class="request__input" id="f1" name="f1" type="date" />
                 </label>
                 <label class="request__label">Сколько гостей
-                  <input class="request__input" type="number" min="8" max="40" value="12" id="fguests" />
+                  <input class="request__input" type="number" min="8" max="40" value="12" id="fguests" name="fguests" />
                 </label>
               </div>
               <label class="request__label">Что празднуете
@@ -848,6 +798,21 @@
           </div>
         </div>
       </section>
+
+      <!-- Модалка результата отправки формы (открывает form.js) -->
+      <dialog class="request-modal" id="request-modal" aria-label="Результат отправки заявки">
+        <button class="request-modal__close" type="button" aria-label="Закрыть окно">✕</button>
+        <div class="request-modal__state" data-state="success">
+          <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></p>
+          <p class="request-modal__text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
+        </div>
+        <div class="request-modal__state" data-state="error" hidden>
+          <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="izvinite">Извините!</span></p>
+          <p class="request-modal__text">Не получилось отправить заявку. Позвоните нам — примем заявку по телефону:</p>
+          <a class="request-modal__phone" href="tel:+79213986069">+7 921 398-60-69</a>
+          <button class="request-modal__again" type="button">Попробовать ещё раз</button>
+        </div>
+      </dialog>
 
       <div class="kilim-note" id="kilimInfo" hidden>
         <div class="container kilim-note__inner">Нашли! Этот узор — по мотивам <b>пиротского ковра</b>, <i
