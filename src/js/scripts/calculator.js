@@ -1,7 +1,7 @@
 // ============================================================
-// Калькулятор гостей: степпер «−/+», быстрый выбор чипами,
-// прямой ввод числа, диапазон цены с плавным count-up и
-// реплика-тултип «права свадба» для компаний от 25 гостей.
+// Калькулятор гостей: степпер «−/+», быстрый выбор чипами
+// с тултипами («права свадба» на 25 и 30 гостях), прямой
+// ввод числа и диапазон цены с плавным count-up.
 // ============================================================
 import { MIN_GUESTS, MAX_GUESTS, PRICE_MIN, PRICE_MAX, WEDDING_GUESTS, GUEST_PRESETS } from "@js/config.js";
 
@@ -11,12 +11,35 @@ export function initGuestsCalculator() {
   const decButton = document.getElementById("dec");
   const range = document.getElementById("range");
   const chipsBox = document.getElementById("chips");
-  const weddingNote = document.getElementById("svadba");
   const smallNote = document.getElementById("small");
   const formGuests = document.getElementById("fguests");
   if (!value || !incButton || !decButton || !range) return;
 
   let guests = 12;
+
+  // Чипы с репликой «права свадба» — пресеты от порога (25 и 30).
+  const weddingChips = chipsBox
+    ? [...chipsBox.querySelectorAll(".calc-card__chip")].filter(
+        (chip) => Number(chip.dataset.guests) >= WEDDING_GUESTS,
+      )
+    : [];
+  let activeTip = null; // обёртка чипа, чей тултип сейчас открыт
+  let weddingDismissed = false;
+
+  const hideWeddingTip = () => {
+    activeTip?.querySelector(".calc-card__tooltip")?.classList.remove("is-visible");
+    activeTip = null;
+  };
+
+  // Бабл всплывает под ближайшим чипом-пресетом: 25–29 → чип 25,
+  // 30 и больше → чип 30.
+  const showWeddingTip = () => {
+    hideWeddingTip();
+    const chip = [...weddingChips].reverse().find((c) => Number(c.dataset.guests) <= guests);
+    if (!chip) return;
+    activeTip = chip.closest(".calc-card__chip-wrap");
+    activeTip?.querySelector(".calc-card__tooltip")?.classList.add("is-visible");
+  };
 
   // Активное состояние чипа — «текущее» значение гостей.
   const renderChips = () => {
@@ -61,11 +84,15 @@ export function initGuestsCalculator() {
   const render = () => {
     value.value = guests;
     tweenRange(guests * PRICE_MIN, guests * PRICE_MAX);
-    // Реплика «права свадба» — тултип над ценой (absolute, вне
-    // потока): показываем классом is-visible, ничего не сдвигается.
-    if (weddingNote) {
-      weddingNote.hidden = false;
-      weddingNote.classList.toggle("is-visible", guests >= WEDDING_GUESTS);
+    // Тултип «права свадба»: показывается на 25+ гостях, пока не
+    // закрыт тапом/кликом вне его (флаг weddingDismissed).
+    if (guests < WEDDING_GUESTS) {
+      weddingDismissed = false;
+      hideWeddingTip();
+    } else if (weddingDismissed) {
+      hideWeddingTip();
+    } else {
+      showWeddingTip();
     }
     // Реплика для маленьких компаний недостижима (MIN_GUESTS = 8),
     // держим прежнюю логику на hidden — она не резервирует место.
@@ -102,6 +129,18 @@ export function initGuestsCalculator() {
   value.addEventListener("blur", () => {
     const parsed = parseInt(value.value, 10);
     if (Number.isNaN(parsed) || parsed < MIN_GUESTS || parsed > MAX_GUESTS) render();
+  });
+
+  // Тап или клик вне открытого тултипа закрывает его (pointerdown
+  // ловит и касания, и мышь раньше click). Клик по самому баблу
+  // или по его чипу тултип не закрывает.
+  document.addEventListener("pointerdown", (event) => {
+    if (!activeTip) return;
+    const tip = activeTip.querySelector(".calc-card__tooltip");
+    if (!tip || !tip.classList.contains("is-visible")) return;
+    if (activeTip.contains(event.target)) return;
+    weddingDismissed = true;
+    hideWeddingTip();
   });
 
   render();

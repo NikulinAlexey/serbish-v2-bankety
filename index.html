@@ -577,21 +577,31 @@
               <button class="calc-card__btn" type="button" aria-label="Больше гостей" id="inc">+</button>
             </div>
             <div class="calc-card__chips" id="chips" role="group" aria-label="Быстрый выбор количества гостей">
-              <button class="calc-card__chip" type="button" data-guests="10">10</button>
-              <button class="calc-card__chip" type="button" data-guests="15">15</button>
-              <button class="calc-card__chip" type="button" data-guests="20">20</button>
-              <button class="calc-card__chip" type="button" data-guests="25">25</button>
-              <button class="calc-card__chip" type="button" data-guests="30">30</button>
+              <span class="calc-card__chip-wrap">
+                <button class="calc-card__chip" type="button" data-guests="10">10</button>
+                <span class="calc-card__tooltip" role="tooltip"></span>
+              </span>
+              <span class="calc-card__chip-wrap">
+                <button class="calc-card__chip" type="button" data-guests="15">15</button>
+                <span class="calc-card__tooltip" role="tooltip"></span>
+              </span>
+              <span class="calc-card__chip-wrap">
+                <button class="calc-card__chip" type="button" data-guests="20">20</button>
+                <span class="calc-card__tooltip" role="tooltip"></span>
+              </span>
+              <span class="calc-card__chip-wrap">
+                <button class="calc-card__chip" type="button" data-guests="25" aria-describedby="chip-tip-25">25</button>
+                <span class="calc-card__tooltip" role="tooltip" id="chip-tip-25"><i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="svadba">Ово је већ права свадба!</span></i> <span class="calc-card__muted"> — «это уже настоящая свадьба!»</span></span>
+              </span>
+              <span class="calc-card__chip-wrap">
+                <button class="calc-card__chip" type="button" data-guests="30" aria-describedby="chip-tip-30">30</button>
+                <span class="calc-card__tooltip" role="tooltip" id="chip-tip-30"><i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="svadba">Ово је већ права свадба!</span></i> <span class="calc-card__muted"> — «это уже настоящая свадьба!»</span></span>
+              </span>
             </div>
             <div class="calc-card__result">
               <div class="calc-card__hint">По еде выйдет примерно</div>
               <div class="calc-card__amount"><span id="range">24 000 – 36 000 ₽</span></div>
               <div class="calc-card__per">это 2 000 – 3 000 ₽ на человека</div>
-              <div class="calc-card__aside" id="svadba">
-                <i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="svadba">Ово је већ права
-                    свадба!</span></i>
-                <span class="calc-card__muted"> — «это уже настоящая свадьба!»</span>
-              </div>
               <div class="calc-card__aside calc-card__aside--muted" id="small" hidden>
                 <i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="polako">Полако.</span></i> На
                 такую компанию банкет не нужен — просто забронируйте столик: +7 (812) 904-38-44.

@@ -447,7 +447,7 @@ Template Name: Страница банкетов №2
             <div class="calc-card__result">
               <div class="calc-card__hint">По еде выйдет примерно</div>
               <div class="calc-card__amount"><span id="range">24 000 – 36 000 ₽</span></div>
-              <div class="calc-card__aside" id="svadba">
+              <div class="calc-card__aside" id="svadba" hidden>
                 <i class="calc-card__serb" lang="sr-Cyrl" data-srlang><span data-sr="svadba">Ово је већ права
                     свадба!</span></i>
                 <span class="calc-card__muted"> — «это уже настоящая свадьба!»</span>
