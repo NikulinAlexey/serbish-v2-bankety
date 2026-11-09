@@ -23,8 +23,11 @@
 .header__container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--spacing-24);
   height: var(--header-height);
+
+  @include media-breakpoint-up(lg) {}
 }
 
 // ============================================================
@@ -37,8 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-40);
-  padding: calc(var(--header-height) + var(--spacing-32)) var(--spacing-28)
-    calc(var(--mbar-height) + var(--mbar-offset) * 2 + var(--spacing-24));
+  padding: calc(var(--header-height) + var(--spacing-32)) var(--spacing-28) calc(var(--mbar-height) + var(--mbar-offset) * 2 + var(--spacing-24));
   background-color: var(--color-surface-dark);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -59,7 +61,7 @@
     z-index: auto;
     flex-direction: row;
     align-items: center;
-    gap: var(--spacing-24);
+    gap: var(--spacing-56);
     margin-left: auto;
     padding: 0;
     overflow: visible;
@@ -93,7 +95,14 @@ body.is-menu-open {
   @include media-breakpoint-up(lg) {
     flex-direction: row;
     align-items: center;
-    gap: var(--spacing-30);
+    gap: var(--spacing-8);
+  }
+}
+
+.header__burger {
+
+  @include media-breakpoint-up(lg) {
+    display: none;
   }
 }
 
@@ -107,7 +116,7 @@ body.is-menu-open {
   transition: color 0.2s ease;
 
   @include media-breakpoint-up(lg) {
-    padding: 0;
+    padding: var(--spacing-12);
     font-family: var(--font-sans);
     font-size: var(--nav-font-size);
   }
@@ -150,6 +159,7 @@ body.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .header__side,
   .header__side._active {
     transition: none;
@@ -217,8 +227,7 @@ body.is-menu-open {
   margin-left: auto;
 
   @include media-breakpoint-up(lg) {
-    margin-left: 0;
-    gap: var(--spacing-20);
+    display: none;
   }
 }
 
@@ -234,6 +243,7 @@ body.is-menu-open {
   height: 40px;
   color: var(--color-text-on-dark);
   transition: color 0.2s ease;
+  order: -1;
 
   svg {
     display: block;
@@ -248,9 +258,7 @@ body.is-menu-open {
   // Бургер скрыт — лишний отступ справа не нужен.
   @include media-breakpoint-up(lg) {
     margin-right: 0;
-  }
-
-  @include media-breakpoint-up(xl) {
     display: none;
+    order: 0;
   }
 }

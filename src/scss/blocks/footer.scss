@@ -53,7 +53,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--color-mist-200, var(--color-text-on-dark-secondary));
+  color: var(--color-text-on-dark-secondary);
 }
 
 // Колонка контактов: справа, как раньше.
@@ -69,9 +69,10 @@
   color: var(--color-text-on-dark-muted);
 }
 
-.footer__map {
+// Специфичность выше правила .footer__contacts a — !important не нужен.
+.footer__contacts .footer__map {
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-on-dark) !important;
+  color: var(--color-text-on-dark);
   text-decoration: none;
 
   &:hover {

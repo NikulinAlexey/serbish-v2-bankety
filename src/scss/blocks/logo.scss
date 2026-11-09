@@ -2,17 +2,15 @@
 .logo {
   display: inline-flex;
   flex-direction: column;
-  align-items: baseline;
-  // gap: var(--spacing-12);
-  text-decoration: none;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   font-size: var(--display-sm-font-size);
   line-height: 1;
 }
 
 .logo__name {
-font-family: var(--font-serif);
+  font-family: var(--font-serif);
   color: var(--color-text-on-dark);
 }
 

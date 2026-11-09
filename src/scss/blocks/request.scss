@@ -226,7 +226,7 @@ label.has-error .request__input {
 
   // Тот же занавес, что у лайтбоксов галереи и меню.
   &::backdrop {
-    background: rgba(29, 32, 51, 0.8);
+    background: var(--color-surface-scrim);
     opacity: 0;
     transition:
       opacity 0.24s ease,

@@ -16,10 +16,6 @@
   background-color: transparent;
   cursor: pointer;
 
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
-
   &::before,
   &::after {
     content: "";

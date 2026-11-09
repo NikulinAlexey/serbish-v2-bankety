@@ -1,13 +1,13 @@
 // Мобильная панель действий: фиксированная снизу пара кнопок
 // «Позвонить» и «Посчитать», видна ниже планшета (<900px);
 // учтены safe-area отступы.
-.mbar {
+.panel {
   display: flex;
   position: fixed;
-  left: max(var(--mbar-offset), env(safe-area-inset-left, 0px));
-  right: max(var(--mbar-offset), env(safe-area-inset-right, 0px));
-  bottom: calc(var(--mbar-offset) + env(safe-area-inset-bottom, 0px));
-  z-index: var(--z-mbar);
+  left: max(var(--panel-offset), env(safe-area-inset-left, 0px));
+  right: max(var(--panel-offset), env(safe-area-inset-right, 0px));
+  bottom: calc(var(--panel-offset) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--z-panel);
   gap: var(--spacing-10);
 
   @include media-breakpoint-up(tab) {
@@ -15,24 +15,24 @@
   }
 }
 
-.mbar__link {
+.panel__link {
   display: flex;
   flex: 1;
   align-items: center;
   justify-content: center;
-  height: var(--mbar-height);
+  height: var(--panel-height);
   font-size: var(--button-sm-font-size);
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
   border-radius: var(--radius-sm);
 }
 
-.mbar__link--phone {
+.panel__link--phone {
   color: var(--color-text-on-dark);
   background-color: var(--color-surface-dark);
 }
 
-.mbar__link--calc {
+.panel__link--calc {
   color: var(--color-text-on-accent);
   background-color: var(--color-surface-accent);
 }
