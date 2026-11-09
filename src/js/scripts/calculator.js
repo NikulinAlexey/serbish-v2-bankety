@@ -1,7 +1,7 @@
 // ============================================================
 // Калькулятор гостей: степпер «−/+», быстрый выбор чипами,
 // прямой ввод числа, диапазон цены с плавным count-up и
-// реплики-сюрпризы для свадеб и маленьких компаний.
+// реплика-тултип «права свадба» для компаний от 25 гостей.
 // ============================================================
 import { MIN_GUESTS, MAX_GUESTS, PRICE_MIN, PRICE_MAX, WEDDING_GUESTS, GUEST_PRESETS } from "@js/config.js";
 
@@ -61,7 +61,14 @@ export function initGuestsCalculator() {
   const render = () => {
     value.value = guests;
     tweenRange(guests * PRICE_MIN, guests * PRICE_MAX);
-    if (weddingNote) weddingNote.hidden = guests < WEDDING_GUESTS;
+    // Реплика «права свадба» — тултип над ценой (absolute, вне
+    // потока): показываем классом is-visible, ничего не сдвигается.
+    if (weddingNote) {
+      weddingNote.hidden = false;
+      weddingNote.classList.toggle("is-visible", guests >= WEDDING_GUESTS);
+    }
+    // Реплика для маленьких компаний недостижима (MIN_GUESTS = 8),
+    // держим прежнюю логику на hidden — она не резервирует место.
     if (smallNote) smallNote.hidden = guests > 3;
     if (formGuests) formGuests.value = guests;
     renderChips();

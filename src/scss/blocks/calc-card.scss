@@ -1,5 +1,5 @@
 // Карточка калькулятора: степпер «−/значение/+», диапазон цены
-// и реплики-сюрпризы для свадеб и маленьких компаний.
+// и реплика-тултип «права свадба» для компаний от 25 гостей.
 .calc-card {
   padding: var(--spacing-40);
   background-color: var(--color-surface-card);
@@ -99,7 +99,9 @@
   }
 }
 
+// Точка привязки тултипа «права свадба» (см. .calc-card__aside).
 .calc-card__result {
+  position: relative;
   margin-top: var(--spacing-24);
   padding-top: var(--spacing-24);
   border-top: 1px solid var(--color-surface-soft);
@@ -123,10 +125,63 @@
   color: var(--color-text-secondary);
 }
 
-// Реплики-сюрпризы (показывает/прячет JS через атрибут hidden).
+// ============================================================
+// Тултип «Ово је већ права свадба!» — показывает calculator.js
+// на 25+ гостях классом is-visible. Обычный тёмный бабл с
+// хвостиком над блоком цены: absolute, из потока исключён,
+// переход через порог ничего не сдвигает; pointer-events: none —
+// не мешает кликать по чипам и подписям под ним.
+// ============================================================
 .calc-card__aside {
-  margin-top: var(--spacing-14);
-  font-size: var(--text-md-font-size);
+  position: absolute;
+  bottom: calc(100% + var(--spacing-10));
+  left: 50%;
+  width: max-content;
+  max-width: 100%;
+  padding: var(--spacing-10) var(--spacing-14);
+  font-size: var(--caption-font-size);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-text-on-dark);
+  background-color: var(--color-surface-dark);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(29, 32, 51, 0.25);
+  transform: translate(-50%, var(--spacing-6));
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+
+  // Хвостик вниз, к цене.
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: var(--spacing-6) solid transparent;
+    border-top-color: var(--color-surface-dark);
+    transform: translateX(-50%);
+  }
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  // На тёмном бабле сербское слово — золотом, а не красным.
+  .calc-card__serb {
+    color: var(--color-gold);
+  }
+
+  .calc-card__muted {
+    color: var(--color-text-on-dark-secondary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .calc-card__serb {

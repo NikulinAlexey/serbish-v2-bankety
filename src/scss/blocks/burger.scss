@@ -2,6 +2,7 @@
 // ставит nav.js) складываются в крест. До lg — виден, от lg — скрыт
 // (меню раскладывается в строку). z-index 2 — бургер остаётся кликабельным
 // поверх выехавшей панели .header__side (z 1 в header.scss).
+// margin-left: auto не нужен: правую группу строки собирает .header__tools.
 .burger {
   --burger-size: 40px;
   --burger-slice-height: max(4px, calc(var(--burger-size) / 5));
@@ -11,7 +12,6 @@
   width: var(--burger-size);
   height: var(--burger-size);
   border: none;
-  margin-left: auto;
   padding: 0;
   background-color: transparent;
   cursor: pointer;

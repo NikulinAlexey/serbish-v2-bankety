@@ -4,6 +4,8 @@
 // за правый край (translateX(100%)) и visibility: hidden, открыто (_active) —
 // выкатывается на экран, ссылки появляются каскадом. От lg панель снова
 // раскладывается в строку внутри шапки, бургер скрывается.
+// Телефон из шапки не исчезает: ниже xl в строке его замещает иконка
+// (.header__phone-icon), от xl в строке стоит полный номер.
 .header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -175,11 +177,20 @@ body.is-menu-open {
 }
 
 .header__phone {
-  display: block; // в меню телефон виден всегда
+  display: flex; // в меню телефон виден всегда
+  align-items: center;
+  gap: var(--spacing-8);
+  white-space: nowrap;
   font-size: var(--label-xl-font-size);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-on-dark);
   text-decoration: none;
+
+  svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+  }
 
   &:hover {
     color: var(--color-gold);
@@ -192,6 +203,48 @@ body.is-menu-open {
   }
 
   @include media-breakpoint-up(xl) {
+    display: flex;
+  }
+}
+
+// Правая группа строки шапки: иконка телефона + бургер. На мобиле
+// margin-left: auto прижимает группу к правому краю; от lg правый край
+// держит .header__side, а с xl иконка скрывается — в строке полный номер.
+.header__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin-left: auto;
+
+  @include media-breakpoint-up(lg) {
+    margin-left: 0;
+    gap: var(--spacing-20);
+  }
+}
+
+// Иконка телефона вместо номера: закрывает ширины, где полный номер
+// не помещается, — мобильная шапка и диапазон lg–xl. Кликабельна (tel:),
+// номер продублирован в aria-label. Фокус подсвечивает base.scss.
+.header__phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-on-dark);
+  transition: color 0.2s ease;
+
+  svg {
     display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    color: var(--color-gold);
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: none;
   }
 }
