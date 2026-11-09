@@ -3,29 +3,24 @@
 // банкетного стола во всю высоту. По левому краю — вертикальный килим.
 .hero {
   position: relative;
+  background-image: url('/src/files/img/IMG_8057.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-
-  @include media-breakpoint-up(tab) {
-    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  }
+.hero__container {
+  background: linear-gradient(90deg, transparent 20%, #f9f9f9 50%, transparent 100%);
+  display: flex;
+  justify-content: center;
 }
 
-// Левая половина: центрирование по вертикали; левое поле совпадает
-// с полем .container (в доноре — max(32px, calc((100vw - 1180px)/2 + 32px))).
 .hero__body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--spacing-24);
-
-  @include media-breakpoint-up(lg) {
-    padding: var(--spacing-88) var(--spacing-56) var(--spacing-72) max(var(--spacing-32),
-        calc((100vw - var(--container-max)) / 2 + var(--spacing-32)));
-  }
+  width: 800px;
 }
 
 .hero__hello {
@@ -39,6 +34,7 @@
   width: 46px; // значение donor.html
   height: 46px;
   transform: rotate(-8deg);
+  border-radius: var(--radius-md);
 }
 
 .hero__welcome {
@@ -68,9 +64,14 @@
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: var(--spacing-20);
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
 }
 
 .hero__call {
@@ -84,6 +85,7 @@
 .hero__facts {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-10);
   margin: var(--spacing-28) 0 0;
   padding: 0;
