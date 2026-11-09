@@ -1,9 +1,14 @@
-// Секция «Что важно знать заранее»: сетка 2×2 из пунктов condition;
+// Секция «Условия банкета»: сетка 2×2 из пунктов condition;
 // справа сверху — полупрозрачная погача.
 .conditions {
   position: relative;
   overflow: hidden;
-  padding-block: var(--spacing-110) var(--spacing-20);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
 }
 
 .conditions__deco {

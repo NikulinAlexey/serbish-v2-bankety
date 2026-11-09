@@ -1,7 +1,8 @@
 // ============================================================
 // Форма заявки: маска телефона, inline-валидация, обязательное
-// согласие на обработку ПД, отправка JSON на FORM_ENDPOINT и
-// три состояния (отправляется / «Хвала!» / ошибка с телефоном).
+// согласие на обработку ПД, multipart-отправка FormData на
+// FORM_ENDPOINT (contact2.php отвечает текстом «ok») и модалка
+// результата на нативном <dialog>: «Хвала!» / ошибка с телефоном.
 // ============================================================
 import { FORM_ENDPOINT, PHONE_BANQUETS, PHONE_BANQUETS_LINK } from "@js/config.js";
 
@@ -35,14 +36,39 @@ function setError(input, show) {
 
 export function initRequestForm() {
   const form = document.getElementById("bform");
-  const success = document.getElementById("sent");
-  const failure = document.getElementById("failed");
+  const modal = document.getElementById("request-modal");
   const submitButton = form ? form.querySelector(".request__submit") : null;
-  if (!form || !success || !submitButton) return;
+  if (!form || !modal || !submitButton) return;
+
+  // Тела двух состояний модалки — переключает openModal().
+  const modalStates = {
+    success: modal.querySelector('[data-state="success"]'),
+    error: modal.querySelector('[data-state="error"]'),
+  };
+
+  const openModal = (state) => {
+    Object.entries(modalStates).forEach(([key, body]) => {
+      if (body) body.hidden = key !== state;
+    });
+    modal.showModal();
+  };
+
+  // Закрытие: крестик, клик по подложке или «Попробовать ещё раз».
+  modal.addEventListener("click", (event) => {
+    if (
+      event.target === modal ||
+      event.target.closest(".request-modal__close, .request-modal__again")
+    ) {
+      modal.close();
+    }
+  });
+
+  // После закрытия возвращаем фокус на кнопку — удобно повторить заявку.
+  modal.addEventListener("close", () => {
+    submitButton.focus();
+  });
 
   const dateInput = document.getElementById("f1");
-  const guestsInput = document.getElementById("fguests");
-  const occasionInput = document.getElementById("f2");
   const nameInput = document.getElementById("f3");
   const phoneInput = document.getElementById("f4");
   const consentInput = document.getElementById("f5");
@@ -77,6 +103,9 @@ export function initRequestForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // Защита от повторной отправки по двойному клику.
+    if (submitButton.disabled) return;
+
     // 1. Валидация.
     const errors = [];
     if (nameInput && nameInput.value.trim().length < 2) {
@@ -96,42 +125,32 @@ export function initRequestForm() {
       return;
     }
 
-    // 2. Отправка.
-    const payload = {
-      date: dateInput ? dateInput.value : "",
-      guests: guestsInput ? guestsInput.value : "",
-      occasion: occasionInput ? occasionInput.value.trim() : "",
-      name: nameInput ? nameInput.value.trim() : "",
-      phone: phoneInput ? phoneInput.value : "",
-    };
+    // 2. Отправка: все поля формы уходят POST-ом как
+    // multipart/form-data (FormData), обработчик contact2.php
+    // отвечает текстом «ok». Заголовок Content-Type не задаём
+    // вручную — браузер сам проставит multipart-границу.
+    const formData = new FormData(form);
 
     setLoading(true);
     try {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
       });
-      if (!response.ok) throw new Error(`Bad status: ${response.status}`);
+      const result = (await response.text()).trim();
+      if (!response.ok || result !== "ok") {
+        throw new Error(result || `Bad status: ${response.status}`);
+      }
 
-      form.hidden = true;
-      success.hidden = false;
-    } catch {
-      // Endpoint не задан или недоступен — показываем состояние
-      // ошибки с телефоном, чтобы заявка не терялась молча.
-      if (failure) failure.hidden = false;
+      form.reset();
+      openModal("success");
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+      // Endpoint недоступен или вернул не «ok» — открываем
+      // модалку с телефоном, чтобы заявка не потерялась молча.
+      openModal("error");
     } finally {
       setLoading(false);
     }
   });
-
-  // Кнопка «Позвонить» в состоянии ошибки — закрывает ошибку.
-  if (failure) {
-    const retry = failure.querySelector(".request__retry");
-    if (retry) {
-      retry.addEventListener("click", () => {
-        failure.hidden = true;
-      });
-    }
-  }
 }

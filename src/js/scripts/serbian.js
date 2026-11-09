@@ -13,6 +13,8 @@ const SERBIAN = {
   vidimo: ["Видимо се!", "Vidimo se!"],
   polako: ["Полако.", "Polako."],
   ajde: ["Ајде!", "Ajde!"],
+  ajde: ["Ајде!", "Ajde!"],
+  izvinite: ["Извините!", "Izvinite!"],
   gost: ["Гост у кућу — Бог у кућу", "Gost u kuću — Bog u kuću"],
   svadba: ["Ово је већ права свадба!", "Ovo je već prava svadba!"],
   slava: ["слава", "slava"],

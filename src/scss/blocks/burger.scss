@@ -1,0 +1,69 @@
+// Бургер шапки: полоска + два псевдоэлемента, при открытии (_active
+// ставит nav.js) складываются в крест. До lg — виден, от lg — скрыт
+// (меню раскладывается в строку). z-index 2 — бургер остаётся кликабельным
+// поверх выехавшей панели .header__side (z 1 в header.scss).
+// margin-left: auto не нужен: правую группу строки собирает .header__tools.
+.burger {
+  --burger-size: 40px;
+  --burger-slice-height: max(4px, calc(var(--burger-size) / 5));
+
+  position: relative;
+  z-index: 2;
+  width: var(--burger-size);
+  height: var(--burger-size);
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &__slice,
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: var(--burger-slice-height);
+    background-color: var(--color-text-on-dark);
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s linear, opacity 0.18s linear,
+      background-color 0.18s linear;
+  }
+
+  &::before {
+    transform: translate(-50%, calc(-50% - var(--burger-slice-height) * 2));
+  }
+
+  &::after {
+    transform: translate(-50%, calc(-50% + var(--burger-slice-height) * 2));
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &:hover .burger__slice {
+    background-color: var(--color-gold);
+  }
+
+  &._active .burger__slice {
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleX(0);
+  }
+
+  &._active::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &._active::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

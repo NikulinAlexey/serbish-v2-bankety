@@ -1,5 +1,5 @@
 // Карточка калькулятора: степпер «−/значение/+», диапазон цены
-// и реплики-сюрпризы для свадеб и маленьких компаний.
+// и тултипы над чипами («права свадба» на 25 и 30 гостях).
 .calc-card {
   padding: var(--spacing-40);
   background-color: var(--color-surface-card);
@@ -68,7 +68,8 @@
   }
 }
 
-// Чипы быстрого выбора (10/15/20/25/30 гостей).
+// Чипы быстрого выбора (10/15/20/25/30 гостей). Каждый чип
+// обёрнут в .calc-card__chip-wrap — точку привязки тултипа.
 .calc-card__chips {
   display: flex;
   flex-wrap: wrap;
@@ -99,6 +100,13 @@
   }
 }
 
+// Обёртка чипа: position relative — тултип позиционируется
+// относительно кнопки, а не всей карточки.
+.calc-card__chip-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
 .calc-card__result {
   margin-top: var(--spacing-24);
   padding-top: var(--spacing-24);
@@ -123,10 +131,87 @@
   color: var(--color-text-secondary);
 }
 
-// Реплики-сюрпризы (показывает/прячет JS через атрибут hidden).
+// Реплика «маленькая компания» — недостижима при
+// MIN_GUESTS = 8, блок оставлен на будущее.
 .calc-card__aside {
   margin-top: var(--spacing-14);
   font-size: var(--text-md-font-size);
+}
+
+// ============================================================
+// Тултип чипа: лежит внутри обёртки чипа, бабл — под кнопкой,
+// носик смотрит вверх и указывает на нижнюю границу кнопки,
+// по центру её оси X. Показ — классом is-visible
+// (calculator.js).
+// ============================================================
+.calc-card__tooltip {
+  position: absolute;
+  top: calc(100% + var(--spacing-6));
+  left: 50%;
+  width: max-content;
+  max-width: min(240px, 72vw);
+  padding: var(--spacing-10) var(--spacing-14);
+  font-size: var(--caption-font-size);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-text-on-dark);
+  background-color: var(--color-surface-dark);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(29, 32, 51, 0.25);
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  // Носик: торчит из-под верхнего края бабла и указывает вверх —
+  // на нижнюю границу кнопки, по центру её оси X.
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: var(--spacing-6) solid transparent;
+    border-bottom-color: var(--color-surface-dark);
+    transform: translateX(-50%);
+  }
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // У последнего чипа выравниваем бабл по правому краю обёртки,
+  // чтобы он не вылезал за пределы карточки.
+  .calc-card__chip-wrap:last-child & {
+    left: auto;
+    right: 0;
+    transform: none;
+
+    &::after {
+      left: auto;
+      right: var(--spacing-14);
+      transform: none;
+    }
+  }
+
+  // Сербское слово на тёмном бабле — золотом, а не красным.
+  .calc-card__serb {
+    color: var(--color-gold);
+  }
+
+  .calc-card__muted {
+    color: var(--color-text-on-dark-secondary);
+  }
+
+  // Пустые тултипы (без контента) не рендерим вовсе.
+  &:empty {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .calc-card__serb {

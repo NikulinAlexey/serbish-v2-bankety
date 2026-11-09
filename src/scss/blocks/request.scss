@@ -3,7 +3,12 @@
 .request {
   position: relative;
   overflow: hidden;
-  padding-block: var(--spacing-100) var(--spacing-110);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
   background-color: var(--color-surface-dark);
   color: var(--color-text-on-dark);
 }
@@ -81,24 +86,6 @@
   background-color: var(--color-surface-page);
   color: var(--color-text-primary);
   border-radius: var(--radius-md);
-}
-
-// Сообщение об успехе (показывает JS вместо формы).
-.request__success {
-  padding-block: var(--spacing-32);
-}
-
-.request__thanks {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--display-lg-font-size);
-  color: var(--color-text-accent);
-}
-
-.request__success-text {
-  margin: var(--spacing-12) 0 0;
-  font-size: var(--text-lg-font-size);
-  line-height: var(--text-lg-line-height);
 }
 
 .request__form {
@@ -191,25 +178,130 @@ label.has-error .request__input {
   border-color: var(--color-accent);
 }
 
-// Состояние сбоя отправки: подсказка позвонить.
-.request__fail {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-12);
-  padding-block: var(--spacing-24);
-  font-size: var(--text-md-font-size);
+.request__disclaimer {
+  font-size: var(--caption-sm-font-size);
+  line-height: var(--caption-line-height);
+  color: var(--color-text-secondary);
 }
 
-.request__retry {
-  justify-self: start;
+// ============================================================
+// Модалка результата отправки: нативный <dialog>, который
+// открывает form.js. Два состояния (успех / сбой) переключаются
+// атрибутом hidden у .request-modal__state.
+//
+// Анимация открытия/закрытия: базовые стили — «закрытый» кадр,
+// @[open] — «открытый», @starting-style задаёт стартовый кадр
+// входа, а allow-discrete на display/overlay удерживает диалог
+// в top layer на время исхода. Браузеры без поддержки этих
+// свойств просто показывают и прячут модалку мгновенно.
+// ============================================================
+.request-modal {
+  width: min(420px, calc(100% - 2 * var(--spacing-24)));
+  padding: var(--spacing-28);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+  margin: auto;
+
+  // Закрытый кадр — из него же проигрывается исход.
+  opacity: 0;
+  transform: translateY(var(--spacing-16)) scale(0.96);
+  transition:
+    opacity 0.24s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    overlay 0.28s allow-discrete,
+    display 0.28s allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transform: none;
+
+    // Стартовый кадр входа.
+    @starting-style {
+      opacity: 0;
+      transform: translateY(var(--spacing-16)) scale(0.96);
+    }
+  }
+
+  // Тот же занавес, что у лайтбоксов галереи и меню.
+  &::backdrop {
+    background: rgba(29, 32, 51, 0.8);
+    opacity: 0;
+    transition:
+      opacity 0.24s ease,
+      overlay 0.28s allow-discrete,
+      display 0.28s allow-discrete;
+  }
+
+  &[open]::backdrop {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &::backdrop {
+      transition: none;
+    }
+  }
+}
+
+.request-modal__close {
+  position: absolute;
+  top: var(--spacing-10);
+  right: var(--spacing-10);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-soft);
+  }
+}
+
+.request-modal__state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.request-modal__heading {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-lg-font-size);
+  color: var(--color-text-accent);
+}
+
+.request-modal__text {
+  margin: var(--spacing-12) 0 0;
+  font-size: var(--text-lg-font-size);
+  line-height: var(--text-lg-line-height);
+}
+
+.request-modal__phone {
+  margin-top: var(--spacing-12);
   font-family: var(--font-serif);
   font-size: var(--display-md-font-size);
   color: var(--color-text-accent);
   text-decoration: none;
 }
 
-.request__retry-button {
-  justify-self: start;
+.request-modal__again {
+  margin-top: var(--spacing-20);
   padding: var(--spacing-8) var(--spacing-16);
   font-size: var(--caption-font-size);
   font-weight: var(--font-weight-medium);
@@ -223,10 +315,4 @@ label.has-error .request__input {
     color: var(--color-text-primary);
     border-color: var(--color-text-secondary);
   }
-}
-
-.request__disclaimer {
-  font-size: var(--caption-sm-font-size);
-  line-height: var(--caption-line-height);
-  color: var(--color-text-secondary);
 }

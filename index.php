@@ -83,21 +83,18 @@ Template Name: Страница банкетов №2
             <h2 class="about__title">В Сербии не подают каждому по тарелке</h2>
           </div>
           <div class="about__body">
-            <p class="about__text">Есть вещи, которые сербы умеют лучше всех: готовить мясо, накрывать стол так,
-              чтобы он ломился, и принимать гостей так, чтобы они возвращались.</p>
-            <p class="about__text">На свадьбу, день рождения или большой семейный праздник там ставят на стол общие
-              блюда. Главное из них — <i lang="sr-Cyrl">мешано месо</i>, «смешанное мясо»: плескавица, чевапи,
-              ражничи, томлёное мясо и всё, что было на гриле и в печи, на нескольких больших овалах.</p>
-            <p class="about__text">Именно так мы накрываем банкеты. Никто не выбирает «одно горячее из трёх» и не
-              ждёт, пока официант дойдёт до его края стола. Блюда стоят по всей длине стола, и добавка всегда рядом.</p>
+            <p class="about__text">На больших сербских праздниках стол не делят на порции: главное блюдо — <i
+                lang="sr-Cyrl">мешано месо</i>, «смешанное мясо» — плескавица, чевапи, ражничи, томлёное мясо с
+              гриля и из печи — ставят на несколько больших овалов по всей длине стола. Добавка всегда рядом, и
+              никто не ждёт, пока официант дойдёт до его края.</p>
+
             <p class="about__text about__text--muted">Если гостей много, а повод большой, так получается и сытнее, и
               дешевле, чем меню на каждого.</p>
             <div class="about__aside">
               <div class="embroidery embroidery--aside" aria-hidden="true"></div>
               <div class="about__aside-body">
-                <b>Кстати.</b> Главный семейный праздник сербов — <i lang="sr-Cyrl" data-srlang><span
-                    data-sr="slava">слава</span></i>, день святого покровителя рода. Под него накрывают стол на всю
-                  родню, а в 2014 году ЮНЕСКО внесло славу в список нематериального наследия человечества.
+                <b>Кстати.</b> <i lang="sr-Cyrl" data-srlang><span data-sr="slava">слава</span></i> — семейный
+                  праздник сербов, внесённый ЮНЕСКО в список наследия человечества.
               </div>
             </div>
           </div>
@@ -126,8 +123,7 @@ Template Name: Страница банкетов №2
             </div>
             <div class="evening__step">
               <div class="evening__step-title">Если хотите удивить</div>
-              <p class="evening__step-text">В середину стола ставим отдельное блюдо: запечённую утку, томлёную
-                голяшку ягнёнка или рыбное плато. Его заказывают сверх банкета.</p>
+              <p class="evening__step-text">Поставим отдельное блюдо в центр стола — см. «Жемчужины стола» ниже.</p>
             </div>
           </div>
         </div>
@@ -369,31 +365,13 @@ Template Name: Страница банкетов №2
         </div>
       </section>
 
-      <section class="meshano">
-        <div class="container meshano__grid">
-          <div class="meshano__media">
-            <img class="meshano__photo"
-              src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/74f57b49-pres-banket-trays.jpg"
-              alt="Три блюда мешано месо на банкетном столе" />
-            <div class="kilim kilim--sm" aria-hidden="true"></div>
-          </div>
-          <div class="meshano__body">
-            <h2 class="meshano__title">Мешано месо</h2>
-            <p class="meshano__text">Плескавица, чевапи, уштипцы, пуньена пилетина, шницель «Караджорджева», сувлаки
-              и томлёное мясо. К ним гарниры, соусы, каймак, айвар и хлеб из нашей пекарни.</p>
-            <p class="meshano__text meshano__text--muted">Одно блюдо — на несколько человек. Сколько блюд нужно на
-              ваш стол, посчитаем при заказе.</p>
-          </div>
-        </div>
-      </section>
-
       <div class="embroidery" aria-hidden="true"></div>
 
       <section class="proverb">
         <div class="container proverb__inner">
           <div class="proverb__serb" lang="sr-Cyrl" data-srlang><span data-sr="gost">Гост у кућу — Бог у кућу</span>
           </div>
-          <div class="proverb__translate">«Гость в дом — Бог в дом». Сербская поговорка.</div>
+          <div class="proverb__translate">«Гость в дом — Бог в дом» — сербская поговорка</div>
           <figure class="proverb__quote">
             <blockquote class="proverb__text">«Доброму гостю я рад, как своему другу!»</blockquote>
             <figcaption class="proverb__author">Йован Рашета, владелец Serbish</figcaption>
@@ -406,7 +384,7 @@ Template Name: Страница банкетов №2
           src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/005f2b8e-pres-banket-ico_pogaca.png"
           alt="" aria-hidden="true" />
         <div class="container conditions__inner">
-          <h2 class="conditions__title">Что важно знать заранее</h2>
+          <h2 class="conditions__title">Условия банкета</h2>
           <div class="conditions__grid">
             <div class="condition">
               <div class="condition__head">
@@ -414,8 +392,8 @@ Template Name: Страница банкетов №2
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/928cfc45-pres-banket-ico_buklija.png"
                   alt="" aria-hidden="true" />Пробкового сбора нет
               </div>
-              <p class="condition__text">Потому что свои напитки мы не принимаем: отвечаем за всё, что наливаем
-                гостям. Всё выбирается из нашей барной карты.</p>
+              <p class="condition__text">Свои напитки не принимаем, поэтому сбора за пробки нет — всё из нашей
+                барной карты.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -423,8 +401,8 @@ Template Name: Страница банкетов №2
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/c884152f-pres-banket-ico_sajkaca.png"
                   alt="" aria-hidden="true" />Напитки — когда удобно
               </div>
-              <p class="condition__text">Можно включить в предзаказ, а можно заказывать прямо на празднике.
-                Подходит для обоих форматов.</p>
+              <p class="condition__text">Включите напитки в предзаказ или заказывайте прямо на празднике — в обоих
+                форматах.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -432,8 +410,8 @@ Template Name: Страница банкетов №2
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/005f2b8e-pres-banket-ico_pogaca.png"
                   alt="" aria-hidden="true" />Свой торт — на свадьбу или юбилей
               </div>
-              <p class="condition__text">Торты на заказ мы не готовим, поэтому для большого повода свой привезти
-                можно. Две просьбы: предупредите нас заранее и сохраните чек о покупке.</p>
+              <p class="condition__text">Свои торты не готовим — на большой повод можно принести свой:
+                предупредите заранее и сохраните чек.</p>
             </div>
             <div class="condition">
               <div class="condition__head">
@@ -441,8 +419,7 @@ Template Name: Страница банкетов №2
                   src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/0402692d-pres-banket-ico_dzezva.png"
                   alt="" aria-hidden="true" />Десерты — в любой момент
               </div>
-              <p class="condition__text">Из основного меню, без предзаказа. Можно попросить вынести к чаю или
-                кофе.</p>
+              <p class="condition__text">Десерты из основного меню — без предзаказа, к чаю и кофе.</p>
             </div>
           </div>
         </div>
@@ -454,11 +431,11 @@ Template Name: Страница банкетов №2
           alt="" aria-hidden="true" />
         <div class="container calc__grid">
           <div class="calc__info">
-            <h2 class="calc__title">Сколько это стоит</h2>
-            <p class="calc__lead">По еде — от 2000 до 3000 ₽ на человека. Разница зависит от того, сколько мяса и
-              закусок вы хотите и будут ли отдельные блюда в центре стола.</p>
-            <p class="calc__note">Напитки считаются отдельно. Перед праздником пришлём вам предзаказ с точной
-              суммой — можно поправить, что-то убрать или добавить.</p>
+            <h2 class="calc__title">Стоимость банкета — от 2000 ₽ на гостя</h2>
+            <p class="calc__lead">По еде — 2000–3000 ₽ на гостя. Итог зависит от состава мешано месо и «жемчужин»
+              в центре стола.</p>
+            <p class="calc__note">Напитки считаются отдельно. Точный предзаказ с суммой пришлём заранее — на
+              согласование.</p>
           </div>
           <div class="calc-card">
             <label class="calc-card__label" for="gval">Сколько вас будет</label>
@@ -480,7 +457,7 @@ Template Name: Страница банкетов №2
                 такую компанию банкет не нужен — просто забронируйте столик: +7 (812) 904-38-44.
               </div>
             </div>
-            <a class="btn btn--block calc-card__cta" href="#form">Хочу точный расчёт</a>
+            <a class="btn btn--block calc-card__cta" href="#form">Получить точный расчёт</a>
           </div>
         </div>
       </section>
@@ -491,9 +468,10 @@ Template Name: Страница банкетов №2
           alt="Зал Serbish, накрытый к банкету" />
         <div class="container hall__inner">
           <div class="hall__card">
-            <div class="hall__title">Зал на Пестеля, 8/36</div>
-            <p class="hall__text">Рядом с Литейным и метро «Чернышевская». Большой общий стол, кирпичные стены,
-              тёплый свет. Банкеты на 8–40 гостей.</p>
+            <div class="hall__title">Банкетный зал на Пестеля, 8/36</div>
+            <p class="hall__text">Зал в центре Санкт-Петербурга, рядом с Литейным и метро «Чернышевская». Общий
+              стол на 8–40 гостей, кирпичные стены, тёплый свет. Своей парковки нет: в пятницу и субботу
+              закладывайте на дорогу чуть больше времени.</p>
           </div>
         </div>
       </section>
@@ -518,16 +496,10 @@ Template Name: Страница банкетов №2
                 от даты и дня недели.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли подстроиться под бюджет?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <p class="faq-item__answer">Конечно. Каждый предзаказ составляем индивидуально, поэтому подстроимся и
-                под пожелания, и под бюджет. Пришлём его на согласование заранее.</p>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли что-то убрать или заменить?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
-              <p class="faq-item__answer">Да. Предзаказ присылаем заранее — вычеркните то, что не едят ваши гости,
-                и мы поменяем.</p>
+              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?<span
+                  class="faq-item__sign" aria-hidden="true"></span></summary>
+              <p class="faq-item__answer">Да. Предзаказ с точной суммой пришлём заранее: вычеркните блюда,
+                поменяем под бюджет. Если состав гостей изменится — сообщите хотя бы за пару дней, пересчитаем.</p>
             </details>
             <details class="faq-item">
               <summary class="faq-item__summary">За сколько нужно бронировать?<span class="faq-item__sign"
@@ -549,10 +521,6 @@ Template Name: Страница банкетов №2
             <a class="request__phone" href="tel:+79213986069">+7 921 398-60-69</a>
           </div>
           <div class="request__card">
-            <div class="request__success" id="sent" hidden>
-              <div class="request__thanks" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></div>
-              <p class="request__success-text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
-            </div>
             <form class="request__form" id="bform">
               <div class="request__row">
                 <label class="request__label">Дата
@@ -578,6 +546,21 @@ Template Name: Страница банкетов №2
           </div>
         </div>
       </section>
+
+      <!-- Модалка результата отправки формы (открывает form.js) -->
+      <dialog class="request-modal" id="request-modal" aria-label="Результат отправки заявки">
+        <button class="request-modal__close" type="button" aria-label="Закрыть окно">✕</button>
+        <div class="request-modal__state" data-state="success">
+          <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></p>
+          <p class="request-modal__text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
+        </div>
+        <div class="request-modal__state" data-state="error" hidden>
+          <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="izvinite">Извините!</span></p>
+          <p class="request-modal__text">Не получилось отправить заявку. Позвоните нам — примем заявку по телефону:</p>
+          <a class="request-modal__phone" href="tel:+79213986069">+7 921 398-60-69</a>
+          <button class="request-modal__again" type="button">Попробовать ещё раз</button>
+        </div>
+      </dialog>
 
       <div class="kilim-note" id="kilimInfo" hidden>
         <div class="container kilim-note__inner">Нашли! Этот узор — по мотивам <b>пиротского ковра</b>, <i

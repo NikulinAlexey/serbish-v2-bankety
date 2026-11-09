@@ -1,7 +1,12 @@
 // Песочная секция-пословица: «Гост у кућу — Бог у кућу», перевод
 // и цитата владельца с линией-разделителем.
 .proverb {
-  padding-block: var(--spacing-80) var(--spacing-100);
+  // Единый ритм секций: 24px на мобиле, 48px от таба.
+  padding-block: var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-48);
+  }
   background-color: var(--color-surface-soft);
 }
 

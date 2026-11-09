@@ -6,8 +6,8 @@
   padding: var(--spacing-22);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-pearls);
-  background-image: url("../../files/img/patterns/kilim-field.svg");
-  background-size: 520px 520px;
+  background-image: url("../../files/img/patterns/main.svg");
+  background-size: auto; // нативный тайл 358×44
   background-repeat: repeat;
 }
 
