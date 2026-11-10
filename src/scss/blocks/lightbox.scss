@@ -4,20 +4,11 @@
   border: 0;
   border-radius: var(--radius-md);
   background: transparent;
-  max-width: min(1100px, 92vw);
-  max-height: 92vh;
+  width: 100vw;
 
   &::backdrop {
-    background: rgba(29, 32, 51, 0.8);
+    background: var(--color-surface-scrim);
   }
-}
-
-.lightbox__img {
-  display: block;
-  max-width: 100%;
-  max-height: 92vh;
-  border-radius: var(--radius-md);
-  object-fit: contain;
 }
 
 .lightbox__close {
@@ -30,10 +21,11 @@
   height: 44px;
   font-size: 18px;
   color: var(--color-text-on-dark);
-  background-color: rgba(29, 32, 51, 0.6);
-  border: 1px solid rgba(243, 236, 226, 0.4);
+  background-color: var(--color-surface-dark-glass);
+  border: 1px solid var(--color-border-on-dark-strong);
   border-radius: 50%;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     color: var(--color-gold);
@@ -46,30 +38,34 @@
   background-color: var(--color-surface-dark);
   border-radius: var(--radius-md);
   max-width: min(980px, 94vw);
-  max-height: 92vh;
 }
 
 .lightbox__stage {
+  width: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
 
-  @include media-breakpoint-up(tab) {
-    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  height: fit-content;
+  max-width: var(--lightbox-stage-max-width);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.lightbox--menu .lightbox__img {
+.lightbox__img {
   width: 100%;
-  height: 44vh;
-  min-height: 0;
+  aspect-ratio: 2 / 1;
   object-fit: cover;
   border-radius: 0;
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
 
-  @include media-breakpoint-up(tab) {
-    height: 100%;
-    min-height: 440px;
-  }
+    @include media-breakpoint-up(lg) {
+        aspect-ratio: 1;
+      }
 }
 
 .lightbox__panel {
@@ -127,15 +123,15 @@
   height: 44px;
   font-size: 24px;
   color: var(--color-text-on-dark);
-  background-color: rgba(243, 236, 226, 0.08);
-  border: 1px solid rgba(243, 236, 226, 0.3);
+  background-color: var(--color-surface-on-dark-faint);
+  border: 1px solid var(--color-border-on-dark-faint);
   border-radius: 50%;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 
   &:hover {
     color: var(--color-gold);
-    background-color: rgba(243, 236, 226, 0.14);
-    border-color: rgba(243, 236, 226, 0.55);
+    background-color: var(--color-surface-on-dark-faint-hover);
+    border-color: var(--color-border-on-dark-faint-hover);
   }
 }

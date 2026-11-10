@@ -4,6 +4,7 @@
 .abc-toggle {
   display: flex;
   padding: 0;
+  width: fit-content;
   font-family: var(--font-sans);
   font-size: var(--caption-sm-font-size);
   font-weight: var(--font-weight-semibold);

@@ -38,7 +38,7 @@
 }
 
 .request__call {
-  margin: 0 0 var(--spacing-36);
+  margin: 0 0 var(--spacing-8);
   font-size: var(--text-lg-font-size);
   line-height: var(--text-lg-line-height);
   color: var(--color-text-on-dark-secondary);
@@ -226,7 +226,7 @@ label.has-error .request__input {
 
   // Тот же занавес, что у лайтбоксов галереи и меню.
   &::backdrop {
-    background: rgba(29, 32, 51, 0.8);
+    background: var(--color-surface-scrim);
     opacity: 0;
     transition:
       opacity 0.24s ease,

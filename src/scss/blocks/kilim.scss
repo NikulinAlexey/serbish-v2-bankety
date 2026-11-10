@@ -2,8 +2,7 @@
 // 358×44 (src/files/img/patterns/main.svg); фон страницы — шумовой
 // linen.svg (см. linen.scss):
 //   .kilim        — горизонтальная лента (после героя, в кнопке-загадке);
-//   .kilim--sm    — уменьшенная лента (под фото подносов);
-//   .vkilim       — вертикальная лента (края hero и «вечера»);
+//   .vkilim       — вертикальная лента (края hero и «вечера», только WP-шаблон);
 //   .kilim-field  — ковровое поле (паспарту «Жемчужин», фон заявки).
 .kilim {
   display: block;
@@ -12,11 +11,6 @@
   background-repeat: repeat-x;
   background-size: auto var(--kilim-height); // тайл 358×44 → ширина = высота × 358/44
   background-position: center;
-}
-
-.kilim--sm {
-  height: var(--kilim-height-sm);
-  background-size: auto var(--kilim-height-sm);
 }
 
 .vkilim {
