@@ -5,6 +5,7 @@
 // результата на нативном <dialog>: «Хвала!» / ошибка с телефоном.
 // ============================================================
 import { FORM_ENDPOINT, PHONE_BANQUETS, PHONE_BANQUETS_LINK } from "@js/config.js";
+import { lockScroll, unlockScroll } from "@js/scripts/scroll-lock.js";
 
 // Маска +7 (XXX) XXX-XX-XX — возвращает отформатированную строку.
 function maskPhone(raw) {
@@ -51,6 +52,7 @@ export function initRequestForm() {
       if (body) body.hidden = key !== state;
     });
     modal.showModal();
+    lockScroll();
   };
 
   // Закрытие: крестик, клик по подложке или «Попробовать ещё раз».
@@ -64,7 +66,9 @@ export function initRequestForm() {
   });
 
   // После закрытия возвращаем фокус на кнопку — удобно повторить заявку.
+  // close срабатывает при любом закрытии: Esc, подложка, крестик.
   modal.addEventListener("close", () => {
+    unlockScroll();
     submitButton.focus();
   });
 

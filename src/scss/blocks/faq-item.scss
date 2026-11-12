@@ -1,4 +1,4 @@
-// Пункт FAQ: <details> с линией-разделителем и знаком «+/−».
+// Пункт FAQ: <details> с линией-разделителем и знаком «+/−» из спрайта.
 .faq-item {
   border-bottom: 1px solid var(--color-border-faq);
 }
@@ -8,27 +8,45 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-20);
-  padding-block: var(--spacing-24);
+  // На мобиле строки ужаты: 18px, от таба — 24px.
+  padding-block: var(--spacing-18);
   font-size: var(--faq-question-font-size);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   cursor: pointer;
   list-style: none;
 
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-24);
+  }
+
   &::-webkit-details-marker {
     display: none;
   }
 }
 
-.faq-item__sign::before {
-  content: "+";
-  font-size: var(--faq-sign-size);
-  line-height: 1;
+// Знак вопроса — иконка из спрайта: «+» закрыт, «−» открыт.
+// Размер шрифта больше не нужен: svg задаёт --faq-sign-size.
+.faq-item__sign {
+  flex: none;
+  width: var(--faq-sign-size);
+  height: var(--faq-sign-size);
   color: var(--color-text-accent);
+  fill: none;
+  stroke: currentColor;
 }
 
-.faq-item[open] .faq-item__sign::before {
-  content: "−";
+// По умолчанию показываем «+», у открытого пункта — «−».
+.faq-item__sign use + use {
+  display: none;
+}
+
+.faq-item[open] .faq-item__sign use:first-of-type {
+  display: none;
+}
+
+.faq-item[open] .faq-item__sign use + use {
+  display: block;
 }
 
 // Обёртка ответа: JS анимирует её высоту (плавное раскрытие).

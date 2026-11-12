@@ -28,15 +28,20 @@
 }
 
 .hall__card {
+  // На мобиле паддинги ужаты: 28/24, от таба — донорские 40/44.
   max-width: 560px; // значение donor.html
-  padding: var(--spacing-40) var(--spacing-44);
+  padding: var(--spacing-28) var(--spacing-24);
   background-color: var(--color-surface-dark);
   color: var(--color-text-on-dark);
   border-radius: var(--radius-xs);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-40) var(--spacing-44);
+  }
 }
 
 .hall__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-md-font-size);
 }
 
@@ -66,12 +71,26 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--spacing-14);
-  align-self: end;
+  // Флекс-айтем .hall__inner: базис 0% + min-width: 0 — галерея занимает
+  // ровно свободное место рядом с карточкой и не распирается
+  // intrinsic-шириной фото (width: 100% у img не резолвится при
+  // intrinsic-сайзинге и раздувает сетку до ~5000px).
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+
+  @include media-breakpoint-up(tab) {
+    // Прижатие к нижней кромке осмыслено только в строке (кросс-ось Y):
+    // в колонке (мобила) align-self: end убивал растяжение по ширине
+    // и распирал галерею intrinsic-шириной фото.
+    align-self: end;
+  }
 }
 
 .hall__thumb {
   padding: 0;
   border: 0;
+  background: none; // сброс UA-серого фона кнопки (виден, пока грузится lazy-img)
   border-radius: var(--radius-xs);
   cursor: pointer;
   overflow: hidden;

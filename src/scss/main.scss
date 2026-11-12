@@ -1,10 +1,12 @@
 // base
 @import "global/normalize.css";
 @import "global/variables.scss";
+@import "global/fonts.scss";
 
 // mixins
 @import "mixins/media.scss";
 @import "mixins/grid.scss";
+@import "mixins/retina.scss";
 
 // base styles
 @import "global/base.scss";

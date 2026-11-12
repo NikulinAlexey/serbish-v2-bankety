@@ -38,12 +38,17 @@
 
 // Песочная карточка «Кстати» с полосой вышивки сверху (SVG-паттерн .embroidery).
 .about__aside {
-  margin-top: var(--spacing-36);
+  // На мобиле карточка «Кстати» подтянута: 24px, от таба — 36px.
+  margin-top: var(--spacing-24);
   background-color: var(--color-surface-soft);
   border-radius: var(--radius-sm);
   overflow: hidden;
   font-size: var(--text-md-font-size);
   line-height: var(--text-md-line-height);
+
+  @include media-breakpoint-up(tab) {
+    margin-top: var(--spacing-36);
+  }
 }
 
 // Полоса вышивки сверху карточки — SVG-паттерн (.embroidery--aside).

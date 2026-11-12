@@ -25,7 +25,12 @@
 }
 
 .conditions__title {
-  margin: 0 0 var(--spacing-48);
+  // На мобиле пункты подтянуты к заголовку: 24px, от таба — 48px.
+  margin: 0 0 var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    margin-bottom: var(--spacing-48);
+  }
 }
 
 .conditions__grid {

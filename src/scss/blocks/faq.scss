@@ -26,5 +26,10 @@
 }
 
 .faq__title {
-  margin: 0 0 var(--spacing-32);
+  // На мобиле список подтянут: 24px, от таба — 32px.
+  margin: 0 0 var(--spacing-24);
+
+  @include media-breakpoint-up(tab) {
+    margin-bottom: var(--spacing-32);
+  }
 }

@@ -17,6 +17,14 @@ Template Name: Страница банкетов №2
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/bankety.css">
 </head>
 <body>
+    <?php
+    // Спрайт SVG-иконок собирается из репозитория лендинга (npm run sprite):
+    // файл icons.sprite.svg копируется в тему рядом с index.php. Если файла
+    // нет — иконки не рисуются, но страница остаётся рабочей.
+    if ( file_exists( __DIR__ . '/icons.sprite.svg' ) ) {
+        include __DIR__ . '/icons.sprite.svg';
+    }
+    ?>
     <!-- Здесь будет ваш чистый HTML. Если хотите, чтобы контент из редактора WP выводился, добавьте цикл: -->
     <!-- <?php while ( have_posts() ) : the_post(); ?> -->
         <!-- <?php the_content(); ?> -->
@@ -440,9 +448,17 @@ Template Name: Страница банкетов №2
           <div class="calc-card">
             <label class="calc-card__label" for="gval">Сколько вас будет</label>
             <div class="calc-card__stepper">
-              <button class="calc-card__btn" type="button" aria-label="Меньше гостей" id="dec">−</button>
+              <button class="calc-card__btn" type="button" aria-label="Меньше гостей" id="dec">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-minus"></use>
+                </svg>
+              </button>
               <div class="calc-card__value" id="gval">12</div>
-              <button class="calc-card__btn" type="button" aria-label="Больше гостей" id="inc">+</button>
+              <button class="calc-card__btn" type="button" aria-label="Больше гостей" id="inc">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                </svg>
+              </button>
             </div>
             <div class="calc-card__result">
               <div class="calc-card__hint">По еде выйдет примерно</div>
@@ -484,26 +500,42 @@ Template Name: Страница банкетов №2
           <h2 class="faq__title">Частые вопросы</h2>
           <div class="faq__list">
             <details class="faq-item" open>
-              <summary class="faq-item__summary">От скольких человек можно заказать банкет?<span
-                  class="faq-item__sign" aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">От скольких человек можно заказать банкет?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <p class="faq-item__answer">Банкет можно заказать на компанию от 8 до 40 гостей.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Нужен ли депозит или аренда зала?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Нужен ли депозит или аренда зала?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <p class="faq-item__answer">Если хотите провести праздник только со своими гостями, без посторонних
                 посетителей, зал можно закрыть полностью. Депозит в этом случае считаем индивидуально: он зависит
                 от даты и дня недели.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?<span
-                  class="faq-item__sign" aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <p class="faq-item__answer">Да. Предзаказ с точной суммой пришлём заранее: вычеркните блюда,
                 поменяем под бюджет. Если состав гостей изменится — сообщите хотя бы за пару дней, пересчитаем.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">За сколько нужно бронировать?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">За сколько нужно бронировать?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <p class="faq-item__answer">Чем раньше, тем спокойнее, особенно на пятницу и субботу. Наши гости
                 часто бронируют за 3–4 недели, так что если дата уже есть — звоните сейчас.</p>
             </details>
@@ -549,7 +581,11 @@ Template Name: Страница банкетов №2
 
       <!-- Модалка результата отправки формы (открывает form.js) -->
       <dialog class="request-modal" id="request-modal" aria-label="Результат отправки заявки">
-        <button class="request-modal__close" type="button" aria-label="Закрыть окно">✕</button>
+        <button class="request-modal__close" type="button" aria-label="Закрыть окно">
+          <svg width="16" height="16" aria-hidden="true" focusable="false">
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
         <div class="request-modal__state" data-state="success">
           <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></p>
           <p class="request-modal__text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>

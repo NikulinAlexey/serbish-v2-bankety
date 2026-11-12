@@ -17,9 +17,26 @@ npm install       # установка зависимостей (node_modules в
 npm run dev       # dev-сервер Vite
 npm run build     # прод-сборка в dist/
 npm run preview   # локальный просмотр собранного dist/
+npm run sprite    # сборка SVG-спрайта иконок (npm run sprite)
 ```
 
 Node 22 в CI. Тестов и lint-скриптов нет — после правок проверяй `npm run build`.
+
+## Иконки (SVG-спрайт)
+
+Все UI-иконки — из спрайта, а не текстовые символы (эмодзи/юникод-знаки).
+
+- Иконки лежат в `src/files/icons/*.svg` — по одному файлу на иконку.
+- `npm run sprite` (или `scripts/build-icons-sprite.mjs`) собирает их в `icons.sprite.svg` в корне проекта.
+- `vite.config.js` — плагин `iconsSpritePlugin()`: инлайнит спрайт в `<body>` index.html
+  (в dev пересобирается при добавлении/правке/удалении иконок, в build — на каждую сборку).
+- Использование в разметке:
+  ```html
+  <svg class="..." width="18" height="18" aria-hidden="true"><use href="#icon-phone"></use></svg>
+  ```
+- Иконки наследуют `currentColor`: корневые атрибуты `fill`/`stroke`/`stroke-*` иконки
+  переносятся на `<symbol>` скриптом сборки.
+- Для WP-темы: файл `icons.sprite.svg` копируется в тему рядом с `index.php` и подключается через PHP-include.
 
 ## Структура
 
@@ -27,7 +44,9 @@ Node 22 в CI. Тестов и lint-скриптов нет — после пр�
 index.html            # ВХОДНАЯ ТОЧКА Vite: вся вёрстка лендинга + SEO/OG/JSON-LD
 index.php             # WordPress-шаблон страницы («Страница банкетов №2») — боевой вариант для WP-темы
 contact-bankety.php   # PHP-обработчик формы заявки: mail() + VK API. Живёт в корне WP-темы
+icons.sprite.svg      # СГЕНЕРИРОВАННЫЙ SVG-спрайт (npm run sprite), в git не коммитится
 public/               # favicon.svg (копируется в билд как есть)
+scripts/              # build-icons-sprite.mjs — сборка SVG-спрайта иконок
 src/
   js/
     main.js           # точка входа: импорт @scss/main.scss + init 9 модулей
@@ -36,9 +55,11 @@ src/
   scss/
     main.scss         # единственная точка входа стилей (@import всего)
     global/           # normalize.css, variables.scss (дизайн-токены), base.scss
-    mixins/           # media.scss, font.scss, grid.scss
+    mixins/           # media.scss, grid.scss, retina.scss (retina-image() для ретина-картинок)
     blocks/           # ~40 файлов, один БЭМ-блок = один файл
-  files/img/          # локальные картинки и patterns/*.svg
+  files/
+    icons/            # SVG-иконки для спрайта (по одному файлу на иконку)
+    img/              # локальные картинки и patterns/*.svg
 .github/workflows/    # два воркфлоу деплоя на GitHub Pages (см. ниже)
 ```
 
@@ -61,6 +82,7 @@ src/
 | `calculator.js` | Степпер гостей 8–40, чипы 10/15/20/25/30, тултип «права свадба» (25+), count-up суммы 2000–3000 ₽/гост |
 | `form.js` | Форма `#bform`: маска +7 (XXX) XXX-XX-XX, валидация, `FormData` POST на `FORM_ENDPOINT`, модалка результата на нативном `<dialog>` («Хвала!» / ошибка с телефоном) |
 | `nav.js` | Мобильное бургер-меню |
+| `scroll-lock.js` | Блокировка прокрутки страницы, пока открыт модальный `<dialog>` или меню-шторка: класс `.scroll-locked` на `<html>` (в base.scss). Используют nav.js, gallery.js, menu-view.js, form.js |
 | `scroll.js` | Скролл-эффекты (шапка и пр.) |
 | `faq.js` | Аккордеон FAQ |
 | `gallery.js` | Галерея + лайтбокс |
@@ -82,7 +104,11 @@ src/
 - **Mobile-first**: базовые стили — мобильные, апгрейды через `@include media-breakpoint-up(name)`.
 - **Брейкпоинты** (`variables.scss`): `xs` 375, `sm` 576, `phone` 600, `md` 768, `tab` 900, `lg` 992, `xl` 1200, `xxl` 1400. Исторические из donor.html — `phone` и `tab`.
 - **Цвета**: только через семантические переменные (`--color-*` из `variables.scss`), а не сырые CORE-значения. Слои токенов: CORE → SEMANTIC → SPACING (шаг 4px) → RADIUS → TYPOGRAPHY → EFFECTS/LAYOUT.
-- **Шрифты** (Google Fonts): `Playfair Display` — serif-заголовки, сербизмы, цитаты; `Golos Text` — основной текст.
+- **Шрифты**: `Montserrat` — заголовки, сербизмы, цитаты (self-host WOFF2-подсеты в
+  `src/files/fonts/`, лицензия `OFL.txt` рядом; пересборка — `npm run fonts:build`);
+  `Golos Text` — основной текст (Google Fonts CDN).
+- Глиф ₽ (U+20BD) лежит в **latin-ext**-подсете Montserrat; у Playfair Display его в
+  подсетах не было — из-за этого ₽ рендерился системным фолбэком с чужой метрикой.
 - Миксины: `font($fs, $lh, $fw, $family)`, `grid-two()`, `media-breakpoint-up()`.
 - Контейнер: `--container-max: 1180px`.
 

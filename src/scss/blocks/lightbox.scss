@@ -4,7 +4,10 @@
   border: 0;
   border-radius: var(--radius-md);
   background: transparent;
-  width: 100vw;
+  // Прежде было 100vw: на десктопе (где у фото квадратный кроп от lg)
+  // диалог занимал весь экран. 920px/94vw — видимы скругления и поля
+  // от краёв, фото остаётся крупным.
+  width: min(920px, 94vw);
 
   &::backdrop {
     background: var(--color-surface-scrim);
@@ -19,13 +22,20 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  font-size: 18px;
   color: var(--color-text-on-dark);
   background-color: var(--color-surface-dark-glass);
   border: 1px solid var(--color-border-on-dark-strong);
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
+
+  svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+  }
 
   &:hover {
     color: var(--color-gold);
@@ -35,18 +45,26 @@
 // ===== Каталог-лайтбокс меню блюд (menu-view.js) =====
 .lightbox--menu {
   overflow-y: auto;
+  // Не переливаем скролл на страницу у края списка: страница под
+  // диалогом заблокирована (scroll-lock.js), а contain гасит жест
+  // у края — без него тач-браузеры дёргают резинку на подложке.
+  overscroll-behavior: contain;
   background-color: var(--color-surface-dark);
   border-radius: var(--radius-md);
-  max-width: min(980px, 94vw);
+  // База .lightbox стала уже (min(920px, 94vw)) — у каталога блюд своя
+  // ширина: явная width вместо max-width сохраняет прежние 980px.
+  width: min(980px, 94vw);
 }
 
 .lightbox__stage {
   width: 100%;
   position: relative;
   display: grid;
-
   height: fit-content;
-  max-width: var(--lightbox-stage-max-width);
+  // Явная одна колонка: трек minmax(0, 1fr) не даёт грид-айтемам
+  // (фото и панель) распереться изнутри шире диалога — иначе у
+  // item'ов min-width: auto и контент выдавливает X-скролл.
+  grid-template-columns: minmax(0, 1fr);
 
   @include media-breakpoint-up(lg) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -54,18 +72,20 @@
 }
 
 .lightbox__img {
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  border-radius: 0;
   display: block;
+  width: 100%;
   max-width: 100%;
-  border-radius: var(--radius-md);
+  aspect-ratio: 2 / 1;
+  // Квадратный кроп от lg на невысоких вьюпортах (ноутбуки) может
+  // стать выше экрана — страхуемся по высоте; object-fit: cover
+  // дотянет кадр без искажений.
+  max-height: 80vh;
   object-fit: cover;
+  border-radius: var(--radius-md);
 
-    @include media-breakpoint-up(lg) {
-        aspect-ratio: 1;
-      }
+  @include media-breakpoint-up(lg) {
+    aspect-ratio: 1;
+  }
 }
 
 .lightbox__panel {
@@ -89,16 +109,30 @@
 
 .lightbox__name {
   margin: var(--spacing-10) 0 0;
-  font-family: var(--font-serif);
-  font-size: var(--display-md-font-size);
-  line-height: 1.15;
+  font-family: var(--font-display);
+  // Название блюда — подпись к фото, а не заголовок секции: 22px на
+  // мобиле и 28px от таба. Прежние 24/32px делали панель кричащей;
+  // фикс X-скролла с длинным словом («Караджорджева») остаётся в силе.
+  font-size: var(--display-mini-font-size);
+  font-weight: var(--font-weight-display); // у h3 был UA-жирный 700
+  line-height: 1.2;
+  // Длинное слово никогда не вылезает за панель ни при каком контенте.
+  overflow-wrap: anywhere;
+
+  @include media-breakpoint-up(tab) {
+    font-size: var(--display-xs-font-size);
+    line-height: 1.15;
+  }
 }
 
 .lightbox__desc {
   margin: var(--spacing-12) 0 0;
-  font-size: var(--text-md-font-size);
+  // Состав блюда — вторичная подпись: ужимаем вровень с новым именем.
+  font-size: var(--caption-font-size);
   line-height: var(--text-md-line-height);
   color: var(--color-text-on-dark-secondary);
+  // Страховка от X-переливания длинными словами состава.
+  overflow-wrap: anywhere;
 }
 
 .lightbox__foot {
@@ -114,6 +148,8 @@
   font-size: var(--caption-font-size);
   color: var(--color-text-on-dark-muted);
   font-variant-numeric: tabular-nums;
+  min-width: 54px;
+  text-align: center;
 }
 
 .lightbox__nav {
@@ -121,13 +157,20 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  font-size: 24px;
   color: var(--color-text-on-dark);
   background-color: var(--color-surface-on-dark-faint);
   border: 1px solid var(--color-border-on-dark-faint);
   border-radius: 50%;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+
+  svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+  }
 
   &:hover {
     color: var(--color-gold);

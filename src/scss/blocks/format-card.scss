@@ -4,8 +4,13 @@
 .format-card {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-40) var(--spacing-40) var(--spacing-36);
+  // На мобиле паддинг ужат: 28/24, от таба — донорские 40/40/36.
+  padding: var(--spacing-28) var(--spacing-24);
   border-radius: var(--radius-md);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-40) var(--spacing-40) var(--spacing-36);
+  }
 }
 
 .format-card--dark {
@@ -19,7 +24,7 @@
 }
 
 .format-card__name {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-xl-font-size);
 }
 
@@ -55,11 +60,17 @@
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: var(--spacing-12) var(--spacing-20);
-  margin: var(--spacing-26) 0 0;
-  padding-top: var(--spacing-22);
+  // На мобиле зазор до линии ужат: 18+16, от таба — донорские 26+22.
+  margin: var(--spacing-18) 0 0;
+  padding-top: var(--spacing-16);
   border-top: 1px solid var(--color-border-on-dark);
   font-size: var(--text-md-font-size);
   line-height: var(--text-md-line-height);
+
+  @include media-breakpoint-up(tab) {
+    margin-top: var(--spacing-26);
+    padding-top: var(--spacing-22);
+  }
 }
 
 .format-card__term {

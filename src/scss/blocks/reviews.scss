@@ -10,7 +10,12 @@
 }
 
 .reviews__title {
-  margin: 0 0 var(--spacing-40);
+  // На мобиле карточки подтянуты: 28px, от таба — 40px.
+  margin: 0 0 var(--spacing-28);
+
+  @include media-breakpoint-up(tab) {
+    margin-bottom: var(--spacing-40);
+  }
 }
 
 .reviews__grid {

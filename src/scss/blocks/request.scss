@@ -27,7 +27,7 @@
 
 .request__serb {
   margin-bottom: var(--spacing-12);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: var(--display-sm-font-size);
   color: var(--color-gold);
@@ -45,7 +45,7 @@
 }
 
 .request__phone {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--phone-big-font-size);
   color: var(--color-text-on-dark);
   text-decoration: none;
@@ -82,10 +82,15 @@
 
 // Льняная карточка с формой.
 .request__card {
-  padding: var(--spacing-36);
+  // На мобиле паддинг ужат: 24px, от таба — 36px.
+  padding: var(--spacing-24);
   background-color: var(--color-surface-page);
   color: var(--color-text-primary);
   border-radius: var(--radius-md);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-36);
+  }
 }
 
 .request__form {
@@ -258,13 +263,20 @@ label.has-error .request__input {
   place-items: center;
   width: 36px;
   height: 36px;
-  font-size: 16px;
   line-height: 1;
   color: var(--color-text-secondary);
   background: none;
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+
+  svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+  }
 
   &:hover {
     color: var(--color-text-primary);
@@ -280,7 +292,7 @@ label.has-error .request__input {
 
 .request-modal__heading {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: var(--display-lg-font-size);
   color: var(--color-text-accent);
@@ -294,7 +306,7 @@ label.has-error .request__input {
 
 .request-modal__phone {
   margin-top: var(--spacing-12);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-md-font-size);
   color: var(--color-text-accent);
   text-decoration: none;

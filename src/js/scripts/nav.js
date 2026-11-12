@@ -4,9 +4,10 @@
 // aria-expanded бургера, из него же читается текущее состояние.
 // При переключении меняются: aria-expanded (true/false), aria-label
 // («Закрыть меню»/«Открыть меню»), классы _active на бургере и
-// панели, is-menu-open на body (блок прокрутки). Закрытие: клик по
+// панели; блокировка прокрутки — через scroll-lock.js. Закрытие: клик по
 // ссылке, Esc (фокус на бургер), клик мимо панели и бургера.
 // ============================================================
+import { lockScroll, unlockScroll } from "@js/scripts/scroll-lock.js";
 
 export function initMobileNav() {
   const burger = document.querySelector("[data-burger-btn]");
@@ -16,11 +17,20 @@ export function initMobileNav() {
   const isOpen = () => burger.getAttribute("aria-expanded") === "true";
 
   const setOpen = (open) => {
+    const wasOpen = isOpen();
     burger.classList.toggle("_active", open);
     menu.classList.toggle("_active", open);
     burger.setAttribute("aria-expanded", String(open));
     burger.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
-    document.body.classList.toggle("is-menu-open", open);
+    // Блокировку прокрутки трогаем только при реальном переключении,
+    // чтобы счётчик scroll-lock.js не разбалансировался.
+    if (open !== wasOpen) {
+      if (open) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
+    }
   };
 
   burger.addEventListener("click", () => setOpen(!isOpen()));

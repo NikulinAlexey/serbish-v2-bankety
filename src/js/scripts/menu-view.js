@@ -3,7 +3,9 @@
 // <dialog> с большим фото, названием и составом. Листание —
 // кнопки, стрелки ←/→ и свайп; закрывается по Esc, клику по
 // подложке или кнопке. Фокус возвращается на карточку.
+// Пока диалог открыт, страница под ним не прокручивается (scroll-lock.js).
 // ============================================================
+import { lockScroll, unlockScroll } from "@js/scripts/scroll-lock.js";
 
 export function initMenuView() {
   const dialog = document.getElementById("menu-lightbox");
@@ -65,6 +67,7 @@ export function initMenuView() {
       lastTrigger = card;
       render(i);
       dialog.showModal();
+      lockScroll();
     });
   });
 
@@ -107,6 +110,8 @@ export function initMenuView() {
   });
 
   dialog.addEventListener("close", () => {
+    // close срабатывает при любом закрытии: Esc, подложка, кнопка.
+    unlockScroll();
     if (lastTrigger) lastTrigger.focus();
   });
 }

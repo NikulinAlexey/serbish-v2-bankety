@@ -1,10 +1,15 @@
 // Карточка калькулятора: степпер «−/значение/+», диапазон цены
 // и тултипы над чипами («права свадба» на 25 и 30 гостях).
 .calc-card {
-  padding: var(--spacing-40);
+  // На мобиле паддинг ужат: 24px, от таба — донорские 40px.
+  padding: var(--spacing-24);
   background-color: var(--color-surface-card);
   border: 1px solid var(--color-border-card);
   border-radius: var(--radius-md);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-40);
+  }
 }
 
 .calc-card__label {
@@ -24,13 +29,21 @@
   place-items: center;
   width: var(--stepper-size);
   height: var(--stepper-size);
-  font-size: var(--stepper-font-size);
   color: var(--color-text-primary);
   background-color: var(--color-surface-stepper);
   border: 1px solid var(--color-border-divider);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+
+  // Иконка из спрайта наследует currentColor кнопки.
+  svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+  }
 }
 
 .calc-card__btn:hover {
@@ -41,7 +54,7 @@
 // Числовое поле вместо простого div: можно ввести значение с клавиатуры.
 .calc-card__value {
   min-width: var(--spacing-80);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--calc-value-font-size);
   line-height: 1;
   text-align: center;
@@ -108,9 +121,15 @@
 }
 
 .calc-card__result {
-  margin-top: var(--spacing-24);
-  padding-top: var(--spacing-24);
+  // На мобиле зазор до суммы ужат: 16+16, от таба — 24+24.
+  margin-top: var(--spacing-16);
+  padding-top: var(--spacing-16);
   border-top: 1px solid var(--color-border-card);
+
+  @include media-breakpoint-up(tab) {
+    margin-top: var(--spacing-24);
+    padding-top: var(--spacing-24);
+  }
 }
 
 .calc-card__hint {
@@ -120,7 +139,7 @@
 
 .calc-card__amount {
   margin-top: var(--spacing-6);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--calc-amount-font-size);
   line-height: var(--calc-amount-line-height);
 }
@@ -215,7 +234,7 @@
 }
 
 .calc-card__serb {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: var(--display-mini-font-size);
   color: var(--color-text-accent);

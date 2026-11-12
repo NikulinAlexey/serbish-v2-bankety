@@ -1,8 +1,13 @@
 // Пункт «Что важно знать»: сильная линия сверху, иконка-посуда
 // рядом с заголовком и вторичный текст.
 .condition {
-  padding: var(--spacing-24) 0 var(--spacing-36);
+  // На мобиле пункты ужаты: 20/28, от таба — донорские 24/36.
+  padding: var(--spacing-20) 0 var(--spacing-28);
   border-top: 2px solid var(--color-border-rule);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-24) 0 var(--spacing-36);
+  }
 }
 
 .condition__head {

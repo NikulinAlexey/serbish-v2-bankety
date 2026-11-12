@@ -3,18 +3,28 @@
 // и тремя деликатесами в course-колонках.
 .pearls {
   margin-top: var(--spacing-28);
-  padding: var(--spacing-22);
+  // На мобиле паспарту ужато: 14px, от таба — 22px.
+  padding: var(--spacing-14);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-pearls);
   background-image: url("../../files/img/patterns/main.svg");
   background-size: auto; // нативный тайл 358×44
   background-repeat: repeat;
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-22);
+  }
 }
 
 .pearls__inner {
-  padding: var(--spacing-36) var(--spacing-40) var(--spacing-34);
+  // На мобиле карта ужата: 24/20, от таба — донорские 36/40/34.
+  padding: var(--spacing-24) var(--spacing-20);
   border-radius: var(--radius-xs);
   box-shadow: var(--ring-pearls);
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-36) var(--spacing-40) var(--spacing-34);
+  }
 }
 
 .pearls__head {
@@ -26,7 +36,7 @@
 }
 
 .pearls__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-lg-font-size);
 }
 
@@ -47,20 +57,35 @@
 }
 
 .pearls__item {
-  padding: var(--spacing-22) var(--spacing-28) var(--spacing-4) 0;
+  // Мобильный стек: деликатесы разделены горизонтальной линией,
+  // от таба — три колонки с вертикальными разделителями.
+  padding: var(--spacing-20) 0 var(--spacing-4);
 
   &:nth-child(n + 2) {
-    border-left: 1px solid var(--color-border-divider);
-    padding-left: var(--spacing-28);
+    border-top: 1px solid var(--color-border-divider);
   }
 
   &:last-child {
-    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  @include media-breakpoint-up(tab) {
+    padding: var(--spacing-22) var(--spacing-28) var(--spacing-4) 0;
+
+    &:nth-child(n + 2) {
+      border-top: 0;
+      border-left: 1px solid var(--color-border-divider);
+      padding-left: var(--spacing-28);
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
 .pearls__name {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-3xs-font-size);
 }
 

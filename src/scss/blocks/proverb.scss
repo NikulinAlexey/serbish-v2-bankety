@@ -15,7 +15,7 @@
 }
 
 .proverb__serb {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: var(--display-3xl-font-size);
   line-height: var(--display-3xl-line-height);
 }
@@ -27,14 +27,20 @@
 }
 
 .proverb__quote {
-  margin: var(--spacing-40) 0 0;
-  padding-top: var(--spacing-28);
+  // На мобиле цитата подтянута: 24+20, от таба — донорские 40+28.
+  margin: var(--spacing-24) 0 0;
+  padding-top: var(--spacing-20);
   border-top: 1px solid var(--color-border-divider);
+
+  @include media-breakpoint-up(tab) {
+    margin-top: var(--spacing-40);
+    padding-top: var(--spacing-28);
+  }
 }
 
 .proverb__text {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: var(--display-2xs-font-size);
   line-height: 1.35; // значение donor.html

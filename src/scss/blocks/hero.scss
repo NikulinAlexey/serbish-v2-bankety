@@ -3,7 +3,12 @@
 // банкетного стола во всю высоту. По левому краю — вертикальный килим.
 .hero {
   position: relative;
-  background-image: url('/src/files/img/IMG_8057.jpg');
+  // Фолбэк для браузеров без image-set(): обычный url на @1x-вариант.
+  background-image: url("../../files/img/IMG_8057@1x.jpg");
+  // Ретина-варианты фона: @1x/@2x webp, тяжёлый исходник в билд не едет.
+  // Пути внутри image-set() — абсолютные от корня проекта: Vite резолвит
+  // только их, относительные остаются «как есть» и ломаются в билде.
+  background-image: retina-image("/src/files/img/IMG_8057");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -19,7 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--spacing-24);
+  padding-bottom: var(--spacing-24);
   width: 800px;
 }
 
@@ -38,7 +43,7 @@
 }
 
 .hero__welcome {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: var(--display-2xs-font-size);
   color: var(--color-text-accent);
@@ -48,6 +53,7 @@
   font-size: clamp(42px, 5vw, var(--title-font-size-desktop));
   margin: var(--spacing-14) 0 var(--spacing-22);
   text-wrap: balance;
+  text-align: center;
 }
 
 .hero__accent {
@@ -56,10 +62,15 @@
 }
 
 .hero__lead {
-  margin: 0 0 var(--spacing-40);
+  // На мобиле кнопки подтянуты ближе: 24px, от таба — донорские 40px.
+  margin: 0 0 var(--spacing-24);
   max-width: 480px; // значение donor.html
   font-size: var(--lead-xl-font-size);
   line-height: var(--lead-xl-line-height);
+
+  @include media-breakpoint-up(tab) {
+    margin-bottom: var(--spacing-40);
+  }
 }
 
 .hero__actions {
@@ -115,7 +126,7 @@
   backdrop-filter: blur(4px);
 
   b {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: var(--text-lg-font-size);
     color: var(--color-text-accent);
   }

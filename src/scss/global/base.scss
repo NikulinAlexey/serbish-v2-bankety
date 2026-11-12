@@ -18,7 +18,7 @@ body {
 h1,
 h2 {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: var(--font-weight-display);
   text-wrap: balance;
 }
@@ -59,6 +59,19 @@ a:hover {
 
 html {
   scroll-padding-top: calc(var(--header-height) + var(--spacing-16));
+}
+
+/* Прокрутка страницы заблокирована (scroll-lock.js): открыт
+   модальный <dialog> или меню-шторка. Класс вешаем на <html>,
+   а не на body: overflow с body транслируется на вьюпорт только
+   пока у html overflow «visible» в обеих осях, а у нас выше стоит
+   html { overflow-x: hidden } — блокировка через body не работает. */
+html.scroll-locked {
+  overflow: hidden;
+
+  /* Резерв под исчезающий скроллбар: контент не «прыгает»
+     при блокировке (Windows с классическими полосами прокрутки). */
+  scrollbar-gutter: stable;
 }
 
 /* Скрытые элементы: важнее display:flex/grid у блоков
