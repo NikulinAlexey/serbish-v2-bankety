@@ -22,9 +22,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Golos+Text:wght@400;500;600&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="preload" as="image" href="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg" fetchpriority="high" />
+  <!-- Montserrat self-host (src/files/fonts, лицензия OFL.txt): первый экран —
+       hero-заголовок «от 2000 ₽» и сербизм «Добродошли!», поэтому прелоадим
+       cyrillic + latin + latin-ext (₽ живёт в latin-ext) основного веса и
+       cyrillic-italic для сербизма. -->
+  <link rel="preload" as="font" type="font/woff2"
+    href="/serbish-v2-bankety/assets/montserrat-cyrillic-400-EAA9jha_.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2"
+    href="/serbish-v2-bankety/assets/montserrat-latin-400-l_AIctKy.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2"
+    href="/serbish-v2-bankety/assets/montserrat-latin-ext-400-BsZE-iaG.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2"
+    href="/serbish-v2-bankety/assets/montserrat-cyrillic-400-italic-Dekf1MMa.woff2" crossorigin />
+  <link rel="preload" as="image" href="/serbish-v2-bankety/assets/IMG_8057@1x-2LziliUA.webp" media="(max-resolution: 1x)"
+    fetchpriority="high" />
+  <link rel="preload" as="image" href="/serbish-v2-bankety/assets/IMG_8057@2x-N4hZSJyH.webp" media="(min-resolution: 2x)"
+    fetchpriority="high" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,14 +94,25 @@
       ]
     }
   </script>
-  <script type="module" crossorigin src="/serbish-v2-bankety/assets/index-Cm6apg5x.js"></script>
-  <link rel="stylesheet" crossorigin href="/serbish-v2-bankety/assets/index-Cj9T8s2j.css">
+  <script type="module" crossorigin src="/serbish-v2-bankety/assets/index-CNejtBtR.js"></script>
+  <link rel="stylesheet" crossorigin href="/serbish-v2-bankety/assets/index-CXOa_7dh.css">
 </head>
 
 <body>
+<!-- GENERATED FILE — не редактируйте вручную.
+     Источник: src/files/icons/*.svg, сборка: scripts/build-icons-sprite.mjs. -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M13 6l6 6-6 6" /></symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="M6 6l12 12" /></symbol>
+  <symbol id="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /></symbol>
   <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="currentColor"
     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.21c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></symbol>
+  <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" />
+  <path d="M5 12h14" /></symbol>
 </svg>
   <div class="page linen">
     <header class="header">
@@ -112,9 +138,8 @@
         </div>
 
         <a class="header__phone-icon" href="tel:+79213986069" aria-label="Позвонить: +7 921 398-60-69">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
-            <path
-              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.21c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          <svg width="24" height="24" aria-hidden="true" focusable="false">
+            <use href="#icon-phone"></use>
           </svg>
         </a>
 
@@ -288,8 +313,15 @@
             <div class="menu__grid">
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Ассорти сербских паштетов» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Ассорти сербских паштетов"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/assorti-serbskikh-pashtetov@1x-C1kylfyu.webp 1x, /serbish-v2-bankety/assets/assorti-serbskikh-pashtetov@2x-CbMjbxvi.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/assorti-serbskikh-pashtetov@1x-D0Bq1nwK.jpg"
+                      srcset="/serbish-v2-bankety/assets/assorti-serbskikh-pashtetov@2x-Bgn3G4Oz.jpg 2x"
+                      alt="Ассорти сербских паштетов" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Ассорти сербских паштетов</div>
@@ -298,7 +330,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Мезе» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Мезе" loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/meze@1x-DUmv_oxw.webp 1x, /serbish-v2-bankety/assets/meze@2x-tY99CCwM.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/meze@1x-1XGw_xtU.jpg"
+                      srcset="/serbish-v2-bankety/assets/meze@2x-B4aChqnX.jpg 2x"
+                      alt="Мезе" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Мезе</div>
@@ -307,8 +347,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Тартар по-сербски» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Тартар по-сербски"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/tartar-po-serbski@1x-DnNvxC-B.webp 1x, /serbish-v2-bankety/assets/tartar-po-serbski@2x-Cih-2MUB.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/tartar-po-serbski@1x-CQOuQBiv.jpg"
+                      srcset="/serbish-v2-bankety/assets/tartar-po-serbski@2x-B3ITzO1z.jpg 2x"
+                      alt="Тартар по-сербски" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Тартар по-сербски</div>
@@ -317,8 +364,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Жареный сулугуни» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Жареный сулугуни"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/zharenyy-suluguni@1x-Dx3F0p5Q.webp 1x, /serbish-v2-bankety/assets/zharenyy-suluguni@2x-D-Ck3VEq.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/zharenyy-suluguni@1x-DNXbZ-xQ.jpg"
+                      srcset="/serbish-v2-bankety/assets/zharenyy-suluguni@2x-CdCPd-GL.jpg 2x"
+                      alt="Жареный сулугуни" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Жареный сулугуни</div>
@@ -327,7 +381,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Гибаница» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Гибаница" loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/gibanica@1x-zlUmuP77.webp 1x, /serbish-v2-bankety/assets/gibanica@2x-CnH3JGcC.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/gibanica@1x-Dve0ruoP.jpg"
+                      srcset="/serbish-v2-bankety/assets/gibanica@2x-pd48n50g.jpg 2x"
+                      alt="Гибаница" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Гибаница</div>
@@ -336,8 +398,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Печена паприка» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Печена паприка"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/pechena-paprika@1x-9jV2ObYF.webp 1x, /serbish-v2-bankety/assets/pechena-paprika@2x-COvtb8Zs.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/pechena-paprika@1x-Bs1bvtVq.jpg"
+                      srcset="/serbish-v2-bankety/assets/pechena-paprika@2x-CoDA-h55.jpg 2x"
+                      alt="Печена паприка" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Печена паприка</div>
@@ -346,8 +415,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Салат с томлёной телятиной» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Салат с томлёной телятиной"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/salat-s-tomlenoy-telyatinoy-i-baklazhanami@1x-KFdWGJhu.webp 1x, /serbish-v2-bankety/assets/salat-s-tomlenoy-telyatinoy-i-baklazhanami@2x-BPSg0Omf.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/salat-s-tomlenoy-telyatinoy-i-baklazhanami@1x-DGzbPZo6.jpg"
+                      srcset="/serbish-v2-bankety/assets/salat-s-tomlenoy-telyatinoy-i-baklazhanami@2x-b2PRlBvn.jpg 2x"
+                      alt="Салат с томлёной телятиной" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Салат с томлёной телятиной</div>
@@ -356,8 +432,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Шопский салат» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Шопский салат"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/shopskiy-s-brynzoy@1x-BYRRM0e3.webp 1x, /serbish-v2-bankety/assets/shopskiy-s-brynzoy@2x-BMYiS72j.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/shopskiy-s-brynzoy@1x-BvV_a0Ei.jpg"
+                      srcset="/serbish-v2-bankety/assets/shopskiy-s-brynzoy@2x-nzZUcyqu.jpg 2x"
+                      alt="Шопский салат" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Шопский салат</div>
@@ -375,8 +458,15 @@
             <div class="menu__grid">
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Тарелка Мераклии» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Тарелка Мераклии"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/tarelka-meraklii@1x-B1DIKTVR.webp 1x, /serbish-v2-bankety/assets/tarelka-meraklii@2x-Bn6g6IVG.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/tarelka-meraklii@1x-DbwnYK4S.jpg"
+                      srcset="/serbish-v2-bankety/assets/tarelka-meraklii@2x-i_glXtMs.jpg 2x"
+                      alt="Тарелка Мераклии" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Тарелка «Мераклии»</div>
@@ -385,7 +475,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Чевапи» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Чевапи" loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/bolshaya-tarelka-chevapi@1x-DQ6ptlUe.webp 1x, /serbish-v2-bankety/assets/bolshaya-tarelka-chevapi@2x-CJrZfXB3.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/bolshaya-tarelka-chevapi@1x-D11POehH.jpg"
+                      srcset="/serbish-v2-bankety/assets/bolshaya-tarelka-chevapi@2x-BQlrUsYR.jpg 2x"
+                      alt="Чевапи" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Чевапи</div>
@@ -394,8 +492,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Плескавица» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Плескавица"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/pleskavitsa@1x-BxTOxTS2.webp 1x, /serbish-v2-bankety/assets/pleskavitsa@2x-BiwugX7Y.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/pleskavitsa@1x-S0XE0tbl.jpg"
+                      srcset="/serbish-v2-bankety/assets/pleskavitsa@2x-bqPjfCka.jpg 2x"
+                      alt="Плескавица" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Плескавица</div>
@@ -404,8 +509,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Лесковачки уштипак» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Лесковачки уштипак"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/leskovachki-ushtipak@1x-DZLbzldF.webp 1x, /serbish-v2-bankety/assets/leskovachki-ushtipak@2x-BPRgpdUF.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/leskovachki-ushtipak@1x-BYcZMqeb.jpg"
+                      srcset="/serbish-v2-bankety/assets/leskovachki-ushtipak@2x-c18sJ3O-.jpg 2x"
+                      alt="Лесковачки уштипак" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Лесковачки уштипак</div>
@@ -414,8 +526,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Ягнёнок под сачем» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Ягнёнок под сачем"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/yagnenok-pod-sachem@1x-D_f_RnDh.webp 1x, /serbish-v2-bankety/assets/yagnenok-pod-sachem@2x-72WKI-32.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/yagnenok-pod-sachem@1x-X4LAUKUz.jpg"
+                      srcset="/serbish-v2-bankety/assets/yagnenok-pod-sachem@2x-BzLxx8NB.jpg 2x"
+                      alt="Ягнёнок под сачем" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Ягнёнок под сачем</div>
@@ -424,8 +543,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Лесковачка мучкалица» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Лесковачка мучкалица"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/leskovachka-muchkalica@1x-2r1-I371.webp 1x, /serbish-v2-bankety/assets/leskovachka-muchkalica@2x-EK3NcYxM.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/leskovachka-muchkalica@1x-BPv5dhaR.jpg"
+                      srcset="/serbish-v2-bankety/assets/leskovachka-muchkalica@2x-DBFj3_Kd.jpg 2x"
+                      alt="Лесковачка мучкалица" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Лесковачка мучкалица</div>
@@ -434,8 +560,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Пуньена пилетина» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Пуньена пилетина"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/punjena-piletina@1x-C4odGeVu.webp 1x, /serbish-v2-bankety/assets/punjena-piletina@2x-C8TEJ8-D.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/punjena-piletina@1x-Dit0UmcF.jpg"
+                      srcset="/serbish-v2-bankety/assets/punjena-piletina@2x-CDY8qeAK.jpg 2x"
+                      alt="Пуньена пилетина" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Пуньена пилетина</div>
@@ -444,8 +577,15 @@
               </figure>
               <figure class="menu__item">
                 <button class="menu__card" type="button" aria-label="Смотреть «Шницель Караджорджева» крупно">
-                  <img class="menu__photo" src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Шницель Караджорджева"
-                    loading="lazy" />
+                  <span class="menu__card-badge" aria-hidden="true">
+                    <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                  </span>
+                  <picture>
+                    <source type="image/webp" srcset="/serbish-v2-bankety/assets/shnitsel-karadjordjeva@1x-BiZJE8tU.webp 1x, /serbish-v2-bankety/assets/shnitsel-karadjordjeva@2x-D39TPsw1.webp 2x" />
+                    <img class="menu__photo" src="/serbish-v2-bankety/assets/shnitsel-karadjordjeva@1x-ClNT23ZB.jpg"
+                      srcset="/serbish-v2-bankety/assets/shnitsel-karadjordjeva@2x-UMKZQw0V.jpg 2x"
+                      alt="Шницель Караджорджева" loading="lazy" decoding="async" />
+                  </picture>
                 </button>
                 <figcaption class="menu__caption">
                   <div class="menu__name">Шницель «Караджорджева»</div>
@@ -456,9 +596,6 @@
           </div>
           <p class="menu__note">Все блюда — из нашего основного меню. Набор на банкет собираем под ваших гостей и
             присылаем на согласование.</p>
-          <div class="menu__cta">
-            <a class="btn btn--ghost" href="#request">Пришлём полное меню и смету</a>
-          </div>
 
         </div>
       </section>
@@ -540,9 +677,17 @@
           <div class="calc-card">
             <label class="calc-card__label" for="gval">Сколько вас будет</label>
             <div class="calc-card__stepper">
-              <button class="calc-card__btn" type="button" aria-label="Меньше гостей" id="dec">−</button>
+              <button class="calc-card__btn" type="button" aria-label="Меньше гостей" id="dec">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-minus"></use>
+                </svg>
+              </button>
               <input class="calc-card__value" id="gval" type="number" inputmode="numeric" min="8" max="40" value="12" />
-              <button class="calc-card__btn" type="button" aria-label="Больше гостей" id="inc">+</button>
+              <button class="calc-card__btn" type="button" aria-label="Больше гостей" id="inc">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                </svg>
+              </button>
             </div>
             <div class="calc-card__chips" id="chips" role="group" aria-label="Быстрый выбор количества гостей">
               <span class="calc-card__chip-wrap">
@@ -587,8 +732,12 @@
       </section>
 
       <section class="hall" id="hall">
-        <img class="hall__photo" src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg" alt="Зал Serbish, накрытый к банкету" loading="lazy"
-          decoding="async" />
+        <picture>
+          <source type="image/webp" srcset="/serbish-v2-bankety/assets/IMG_8057@1x-2LziliUA.webp 1x, /serbish-v2-bankety/assets/IMG_8057@2x-N4hZSJyH.webp 2x" />
+          <img class="hall__photo" src="/serbish-v2-bankety/assets/IMG_8057@1x-DXFM2nVF.jpg"
+            srcset="/serbish-v2-bankety/assets/IMG_8057@2x-CfL7-_k_.jpg 2x"
+            alt="Зал Serbish, накрытый к банкету" loading="lazy" decoding="async" />
+        </picture>
         <div class="container hall__inner reveal">
           <div class="hall__card">
             <div class="hall__title">Банкетный зал на Пестеля, 8/36</div>
@@ -602,22 +751,25 @@
           <div class="hall__gallery" aria-label="Фотографии зала и банкета">
             <!-- TODO: заменить на реальные фото с проведённых банкетов -->
             <button class="hall__thumb" type="button"
-              data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/cc19e905-pres-banket-table.jpg"
               aria-label="Увеличить фото: банкетный стол">
-              <img src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg" alt="Банкетный стол с закусками" loading="lazy"
-                decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="/serbish-v2-bankety/assets/IMG_8057@1x-2LziliUA.webp 1x, /serbish-v2-bankety/assets/IMG_8057@2x-N4hZSJyH.webp 2x" />
+                <img src="/serbish-v2-bankety/assets/IMG_8057@1x-DXFM2nVF.jpg" srcset="/serbish-v2-bankety/assets/IMG_8057@2x-CfL7-_k_.jpg 2x"
+                  alt="Банкетный стол с закусками" loading="lazy" decoding="async" />
+              </picture>
             </button>
             <button class="hall__thumb" type="button"
-              data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/74f57b49-pres-banket-trays.jpg"
               aria-label="Увеличить фото: блюда мешано месо">
               <img src="/serbish-v2-bankety/assets/cevapi-s-kajmakom-C560aMiR.jpg" alt="Блюда мешано месо на банкетном столе" loading="lazy"
                 decoding="async" />
             </button>
             <button class="hall__thumb" type="button"
-              data-lightbox="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/ea5354fc-pres-banket-hall.jpg"
               aria-label="Увеличить фото: зал Serbish">
-              <img src="/serbish-v2-bankety/assets/IMG_8057-Dx_-b0OY.jpg" alt="Зал Serbish, накрытый к банкету" loading="lazy"
-                decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="/serbish-v2-bankety/assets/IMG_8057@1x-2LziliUA.webp 1x, /serbish-v2-bankety/assets/IMG_8057@2x-N4hZSJyH.webp 2x" />
+                <img src="/serbish-v2-bankety/assets/IMG_8057@1x-DXFM2nVF.jpg" srcset="/serbish-v2-bankety/assets/IMG_8057@2x-CfL7-_k_.jpg 2x"
+                  alt="Зал Serbish, накрытый к банкету" loading="lazy" decoding="async" />
+              </picture>
             </button>
           </div>
         </div>
@@ -625,13 +777,21 @@
 
       <!-- Лайтбокс галереи -->
       <dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографии">
-        <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">✕</button>
+        <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">
+          <svg width="18" height="18" aria-hidden="true" focusable="false">
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
         <img class="lightbox__img" src="" alt="" />
       </dialog>
 
       <!-- Лайтбокс меню блюд -->
       <dialog class="lightbox lightbox--menu" id="menu-lightbox" aria-label="Просмотр блюда">
-        <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">✕</button>
+        <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">
+          <svg width="18" height="18" aria-hidden="true" focusable="false">
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
         <div class="lightbox__stage">
           <img class="lightbox__img" src="" alt="" />
           <div class="lightbox__panel">
@@ -639,9 +799,17 @@
             <h3 class="lightbox__name"></h3>
             <p class="lightbox__desc"></p>
             <div class="lightbox__foot">
-              <button class="lightbox__nav" type="button" data-dir="-1" aria-label="Предыдущее блюдо">‹</button>
+              <button class="lightbox__nav" type="button" data-dir="-1" aria-label="Предыдущее блюдо">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-chevron-left"></use>
+                </svg>
+              </button>
               <span class="lightbox__counter"></span>
-              <button class="lightbox__nav" type="button" data-dir="1" aria-label="Следующее блюдо">›</button>
+              <button class="lightbox__nav" type="button" data-dir="1" aria-label="Следующее блюдо">
+                <svg width="20" height="20" aria-hidden="true" focusable="false">
+                  <use href="#icon-chevron-right"></use>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -656,15 +824,23 @@
           <h2 class="faq__title">Частые вопросы</h2>
           <div class="faq__list">
             <details class="faq-item" open>
-              <summary class="faq-item__summary">От скольких человек можно заказать банкет?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">От скольких человек можно заказать банкет?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <div class="faq-item__body">
                 <p class="faq-item__answer">Банкет можно заказать на компанию от 8 до 40 гостей.</p>
               </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Нужен ли депозит или аренда зала?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Нужен ли депозит или аренда зала?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <div class="faq-item__body">
                 <p class="faq-item__answer">Если хотите провести праздник только со своими гостями, без посторонних
                   посетителей, зал можно закрыть полностью. Депозит в этом случае считаем индивидуально: он зависит
@@ -672,16 +848,24 @@
               </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?<span
-                  class="faq-item__sign" aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Можно ли скорректировать меню, бюджет и состав гостей?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <div class="faq-item__body">
                 <p class="faq-item__answer">Да. Предзаказ с точной суммой пришлём заранее: вычеркните блюда,
                   поменяем под бюджет. Если состав гостей изменится — сообщите хотя бы за пару дней, пересчитаем.</p>
               </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-item__summary">За сколько нужно бронировать?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">За сколько нужно бронировать?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <div class="faq-item__body">
                 <p class="faq-item__answer">Чем раньше, тем спокойнее, особенно на пятницу и субботу. Наши гости
                   часто бронируют за 3–4 недели, так что если дата уже есть — звоните сейчас.</p>
@@ -689,8 +873,12 @@
             </details>
             <!-- TODO: согласовать формулировки ответов ниже с рестораном -->
             <details class="faq-item">
-              <summary class="faq-item__summary">Можно ли прийти с детьми?<span class="faq-item__sign"
-                  aria-hidden="true"></span></summary>
+              <summary class="faq-item__summary">Можно ли прийти с детьми?
+                <svg class="faq-item__sign" aria-hidden="true" focusable="false">
+                  <use href="#icon-plus"></use>
+                  <use href="#icon-minus"></use>
+                </svg>
+              </summary>
               <div class="faq-item__body">
                 <p class="faq-item__answer">Конечно, банкет — семейный формат. Скажите заранее, сколько будет детей,
                   — поставим детские стулья и согласуем блюда, которые им подойдут.</p>
@@ -785,7 +973,11 @@
 
       <!-- Модалка результата отправки формы (открывает form.js) -->
       <dialog class="request-modal" id="request-modal" aria-label="Результат отправки заявки">
-        <button class="request-modal__close" type="button" aria-label="Закрыть окно">✕</button>
+        <button class="request-modal__close" type="button" aria-label="Закрыть окно">
+          <svg width="16" height="16" aria-hidden="true" focusable="false">
+            <use href="#icon-close"></use>
+          </svg>
+        </button>
         <div class="request-modal__state" data-state="success">
           <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></p>
           <p class="request-modal__text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
@@ -829,11 +1021,23 @@
         </nav>
         <div class="footer__contacts">
           <span class="footer__head">Связаться</span>
-          <span class="footer__contact">Банкеты: <a href="tel:+79213986069">+7 921 398-60-69</a></span>
-          <span class="footer__contact">Ресторан: <a href="tel:+78129043844">+7 (812) 904-38-44</a></span>
+          <span class="footer__contact">Банкеты: <a href="tel:+79213986069">
+            <svg width="16" height="16" aria-hidden="true" focusable="false">
+              <use href="#icon-phone"></use>
+            </svg>
+            +7 921 398-60-69</a></span>
+          <span class="footer__contact">Ресторан: <a href="tel:+78129043844">
+            <svg width="16" height="16" aria-hidden="true" focusable="false">
+              <use href="#icon-phone"></use>
+            </svg>
+            +7 (812) 904-38-44</a></span>
           <a class="footer__map" target="_blank" rel="noopener"
-            href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%9F%D0%B5%D1%81%D1%82%D0%B5%D0%BB%D1%8F%208%2F36">Как
-            добраться →</a>
+            href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%9F%D0%B5%D1%81%D1%82%D0%B5%D0%BB%D1%8F%208%2F36">
+            Как добраться
+            <svg width="16" height="16" aria-hidden="true" focusable="false">
+              <use href="#icon-arrow-right"></use>
+            </svg>
+          </a>
           <span class="footer__serb"><span class="footer__serb-text" lang="sr-Cyrl" data-srlang><span
                 data-sr="vidimo">Видимо се!</span></span><img class="footer__icon"
               src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/82031d9d-pres-banket-ico_opanak.png"
@@ -843,7 +1047,12 @@
     </footer>
 
     <div class="panel">
-      <a class="panel__link panel__link--phone" href="tel:+79213986069">Позвонить</a>
+      <a class="panel__link panel__link--phone" href="tel:+79213986069">
+        <svg width="18" height="18" aria-hidden="true" focusable="false">
+          <use href="#icon-phone"></use>
+        </svg>
+        Позвонить
+      </a>
       <a class="panel__link panel__link--calc" href="#calc">Посчитать</a>
     </div>
 
