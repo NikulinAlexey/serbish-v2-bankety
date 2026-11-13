@@ -38,9 +38,18 @@ function iconsSpritePlugin() {
 }
 
 export default defineConfig({
-  // GitHub Pages публикует проект в под-пути:
-  // https://<user>.github.io/serbish-v2-bankety/
-  base: "/serbish-v2-bankety/",
+  // Собранные ресурсы подключаются из директории img в WordPress-теме.
+  base: "https://serbish.ru/wp-content/themes/serbish/img/",
+  build: {
+    assetsDir: "",
+  },
+  experimental: {
+    renderBuiltUrl(filename) {
+      if (filename.endsWith(".woff2")) {
+        return `https://serbish.ru/wp-content/themes/serbish/fonts/${filename.split("/").pop()}`;
+      }
+    },
+  },
   plugins: [iconsSpritePlugin()],
   resolve: {
     alias: {

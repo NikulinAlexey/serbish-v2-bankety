@@ -1,8 +1,8 @@
-// Hero — разворот «текст 6fr / фото 5fr»: слева приветствие
-// «Добродошли!», заголовок, подводка и действия; справа — фото
-// банкетного стола во всю высоту. По левому краю — вертикальный килим.
+// Hero — фото банкетного стола фоном, по центру приветствие,
+// заголовок, подводка и действия на мягкой светлой подложке.
 .hero {
   position: relative;
+  overflow: hidden;
   // Фолбэк для браузеров без image-set(): обычный url на @1x-вариант.
   background-image: url("../../files/img/IMG_8057@1x.jpg");
   // Ретина-варианты фона: @1x/@2x webp, тяжёлый исходник в билд не едет.
@@ -15,17 +15,53 @@
 }
 
 .hero__container {
-  background: linear-gradient(90deg, transparent 20%, #f9f9f9 50%, transparent 100%);
   display: flex;
   justify-content: center;
 }
 
 .hero__body {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: var(--spacing-24);
+  align-items: center;
+  padding-block: var(--spacing-24);
   width: 800px;
+
+  // Светлое пятно без видимых границ карточки: контрастно в центре,
+  // растворяется к краям и не перекрывает фото сплошной полосой.
+  &::before {
+    --hero-veil-stop: 78%;
+    --hero-mask-stop: 72%;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: calc(-1 * var(--spacing-32)) calc(-1 * var(--spacing-24));
+    background: radial-gradient(
+      ellipse closest-side at center,
+      var(--color-surface-page) 0%,
+      var(--color-surface-page-glass) var(--hero-veil-stop),
+      transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse closest-side at center,
+      var(--color-text-heading) var(--hero-mask-stop),
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse closest-side at center,
+      var(--color-text-heading) var(--hero-mask-stop),
+      transparent 100%
+    );
+    pointer-events: none;
+
+    @include media-breakpoint-up(tab) {
+      --hero-veil-stop: 68%;
+      --hero-mask-stop: 62%;
+      inset: calc(-1 * var(--spacing-40)) calc(-1 * var(--spacing-80));
+    }
+  }
 }
 
 .hero__hello {
@@ -62,6 +98,7 @@
 }
 
 .hero__lead {
+  text-align: center;
   // На мобиле кнопки подтянуты ближе: 24px, от таба — донорские 40px.
   margin: 0 0 var(--spacing-24);
   max-width: 480px; // значение donor.html
@@ -79,6 +116,8 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-20);
+  width: 100%;
+  max-width: 536px;
 
   @include media-breakpoint-up(lg) {
     flex-direction: row;

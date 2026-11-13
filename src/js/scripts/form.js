@@ -55,11 +55,12 @@ export function initRequestForm() {
     lockScroll();
   };
 
-  // Закрытие: крестик, клик по подложке или «Попробовать ещё раз».
+  // Закрытие: крестик, кнопка результата, клик по подложке
+  // или «Попробовать ещё раз».
   modal.addEventListener("click", (event) => {
     if (
       event.target === modal ||
-      event.target.closest(".request-modal__close, .request-modal__again")
+      event.target.closest("[data-modal-close], .request-modal__again")
     ) {
       modal.close();
     }

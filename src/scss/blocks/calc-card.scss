@@ -22,6 +22,7 @@
   align-items: center;
   gap: var(--spacing-18);
   margin-top: var(--spacing-16);
+
 }
 
 .calc-card__btn {
@@ -140,8 +141,10 @@
 .calc-card__amount {
   margin-top: var(--spacing-6);
   font-family: var(--font-display);
-  font-size: var(--calc-amount-font-size);
+  font-size: clamp(30px, 8vw, var(--calc-amount-font-size));
+  font-variant-numeric: tabular-nums;
   line-height: var(--calc-amount-line-height);
+  white-space: nowrap;
 }
 
 .calc-card__per {
@@ -164,11 +167,12 @@
 // (calculator.js).
 // ============================================================
 .calc-card__tooltip {
+  --tooltip-shift-x: 0px;
   position: absolute;
   top: calc(100% + var(--spacing-6));
   left: 50%;
   width: max-content;
-  max-width: min(240px, 72vw);
+  max-width: min(320px, 72vw);
   padding: var(--spacing-10) var(--spacing-14);
   font-size: var(--caption-font-size);
   line-height: 1.4;
@@ -177,19 +181,18 @@
   background-color: var(--color-surface-dark);
   border-radius: var(--radius-sm);
   box-shadow: 0 8px 24px rgba(29, 32, 51, 0.25);
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--tooltip-shift-x)));
   visibility: hidden;
   opacity: 0;
   z-index: 2;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 
-  // Носик: торчит из-под верхнего края бабла и указывает вверх —
-  // на нижнюю границу кнопки, по центру её оси X.
+  // При сдвиге бабла носик компенсирует его и остаётся у чипа.
   &::after {
     content: "";
     position: absolute;
     bottom: 100%;
-    left: 50%;
+    left: calc(50% - var(--tooltip-shift-x));
     border: var(--spacing-6) solid transparent;
     border-bottom-color: var(--color-surface-dark);
     transform: translateX(-50%);
@@ -198,20 +201,6 @@
   &.is-visible {
     visibility: visible;
     opacity: 1;
-  }
-
-  // У последнего чипа выравниваем бабл по правому краю обёртки,
-  // чтобы он не вылезал за пределы карточки.
-  .calc-card__chip-wrap:last-child & {
-    left: auto;
-    right: 0;
-    transform: none;
-
-    &::after {
-      left: auto;
-      right: var(--spacing-14);
-      transform: none;
-    }
   }
 
   // Сербское слово на тёмном бабле — золотом, а не красным.

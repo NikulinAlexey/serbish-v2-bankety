@@ -162,6 +162,10 @@
   a {
     color: var(--color-text-accent);
   }
+
+  .request__error {
+    grid-column: 2;
+  }
 }
 
 .request__checkbox {
@@ -201,13 +205,20 @@ label.has-error .request__input {
 // свойств просто показывают и прячут модалку мгновенно.
 // ============================================================
 .request-modal {
-  width: min(420px, calc(100% - 2 * var(--spacing-24)));
+  width: min(460px, calc(100% - 2 * var(--spacing-24)));
+  max-height: calc(100dvh - 2 * var(--spacing-24));
+  overflow-y: auto;
   padding: var(--spacing-28);
   color: var(--color-text-primary);
   background-color: var(--color-surface-card);
   border: 1px solid var(--color-border-card);
   border-radius: var(--radius-md);
+  box-shadow: 0 24px 80px rgba(29, 32, 51, 0.24);
   margin: auto;
+
+  @include media-breakpoint-up(phone) {
+    padding: var(--spacing-36);
+  }
 
   // Закрытый кадр — из него же проигрывается исход.
   opacity: 0;
@@ -257,8 +268,9 @@ label.has-error .request__input {
 
 .request-modal__close {
   position: absolute;
-  top: var(--spacing-10);
-  right: var(--spacing-10);
+  z-index: 1;
+  top: var(--spacing-12);
+  right: var(--spacing-12);
   display: grid;
   place-items: center;
   width: 36px;
@@ -269,6 +281,7 @@ label.has-error .request__input {
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
 
   svg {
     display: block;
@@ -287,7 +300,46 @@ label.has-error .request__input {
 .request-modal__state {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.request-modal__status {
+  display: grid;
+  place-items: center;
+  width: var(--spacing-64);
+  height: var(--spacing-64);
+  margin-bottom: var(--spacing-20);
+  border-radius: var(--radius-full);
+
+  svg {
+    width: var(--spacing-32);
+    height: var(--spacing-32);
+  }
+}
+
+.request-modal__state--success .request-modal__status {
+  color: var(--color-success);
+  background-color: var(--color-surface-success);
+}
+
+.request-modal__state--error .request-modal__status {
+  color: var(--color-text-accent);
+  background-color: var(--color-surface-error);
+}
+
+.request-modal__eyebrow {
+  margin: 0 0 var(--spacing-4);
+  font-size: var(--micro-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--caption-line-height);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 .request-modal__heading {
@@ -299,32 +351,102 @@ label.has-error .request__input {
 }
 
 .request-modal__text {
+  max-width: 36ch;
   margin: var(--spacing-12) 0 0;
-  font-size: var(--text-lg-font-size);
-  line-height: var(--text-lg-line-height);
+  font-size: var(--text-md-font-size);
+  line-height: var(--text-md-line-height);
+  color: var(--color-text-secondary);
 }
 
 .request-modal__phone {
-  margin-top: var(--spacing-12);
-  font-family: var(--font-display);
-  font-size: var(--display-md-font-size);
-  color: var(--color-text-accent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  margin-top: var(--spacing-24);
+  padding: var(--spacing-14) var(--spacing-16);
+  text-align: left;
   text-decoration: none;
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-surface-error);
+    border-color: var(--color-accent);
+  }
+}
+
+.request-modal__phone-icon,
+.request-modal__phone-arrow {
+  width: var(--spacing-20);
+  height: var(--spacing-20);
+  color: var(--color-text-accent);
+}
+
+.request-modal__phone-arrow {
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+}
+
+.request-modal__phone-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.request-modal__phone-label {
+  font-size: var(--caption-sm-font-size);
+  line-height: var(--caption-line-height);
+  color: var(--color-text-secondary);
+}
+
+.request-modal__phone-number {
+  font-family: var(--font-display);
+  font-size: var(--label-xl-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--button-line-height);
+  white-space: nowrap;
+  color: var(--color-text-heading);
+}
+
+.request-modal__action,
+.request-modal__again {
+  width: 100%;
+  min-height: var(--input-height);
+  margin-top: var(--spacing-24);
+  padding: var(--spacing-12) var(--spacing-16);
+  font-family: var(--font-sans);
+  font-size: var(--button-sm-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--button-line-height);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.request-modal__action {
+  color: var(--color-text-on-accent);
+  background-color: var(--color-surface-accent);
+  border: 1px solid var(--color-surface-accent);
+
+  &:hover {
+    background-color: var(--color-surface-accent-hover);
+    border-color: var(--color-surface-accent-hover);
+  }
 }
 
 .request-modal__again {
-  margin-top: var(--spacing-20);
-  padding: var(--spacing-8) var(--spacing-16);
-  font-size: var(--caption-font-size);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  margin-top: var(--spacing-12);
+  color: var(--color-text-accent);
   background-color: transparent;
   border: 1px solid var(--color-border-divider);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
 
   &:hover {
-    color: var(--color-text-primary);
-    border-color: var(--color-text-secondary);
+    color: var(--color-text-on-accent);
+    background-color: var(--color-surface-accent);
+    border-color: var(--color-surface-accent);
   }
 }

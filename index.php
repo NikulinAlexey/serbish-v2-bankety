@@ -581,20 +581,44 @@ Template Name: Страница банкетов №2
 
       <!-- Модалка результата отправки формы (открывает form.js) -->
       <dialog class="request-modal" id="request-modal" aria-label="Результат отправки заявки">
-        <button class="request-modal__close" type="button" aria-label="Закрыть окно">
+        <button class="request-modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
           <svg width="16" height="16" aria-hidden="true" focusable="false">
             <use href="#icon-close"></use>
           </svg>
         </button>
-        <div class="request-modal__state" data-state="success">
+        <div class="request-modal__state request-modal__state--success" data-state="success">
+          <div class="request-modal__status" aria-hidden="true">
+            <svg width="32" height="32" focusable="false">
+              <use href="#icon-check"></use>
+            </svg>
+          </div>
+          <p class="request-modal__eyebrow">Заявка отправлена</p>
           <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="hvala">Хвала!</span></p>
-          <p class="request-modal__text">Заявка у нас. Менеджер перезвонит и пришлёт предзаказ.</p>
+          <p class="request-modal__text">Менеджер перезвонит в&nbsp;течение дня, уточнит детали и&nbsp;пришлёт предзаказ.</p>
+          <button class="request-modal__action" type="button" data-modal-close>Отлично</button>
         </div>
-        <div class="request-modal__state" data-state="error" hidden>
+        <div class="request-modal__state request-modal__state--error" data-state="error" hidden>
+          <div class="request-modal__status" aria-hidden="true">
+            <svg width="32" height="32" focusable="false">
+              <use href="#icon-alert-circle"></use>
+            </svg>
+          </div>
+          <p class="request-modal__eyebrow">Ошибка отправки</p>
           <p class="request-modal__heading" lang="sr-Cyrl" data-srlang><span data-sr="izvinite">Извините!</span></p>
-          <p class="request-modal__text">Не получилось отправить заявку. Позвоните нам — примем заявку по телефону:</p>
-          <a class="request-modal__phone" href="tel:+79213986069">+7 921 398-60-69</a>
-          <button class="request-modal__again" type="button">Попробовать ещё раз</button>
+          <p class="request-modal__text">Не получилось отправить заявку. Попробуйте ещё&nbsp;раз или&nbsp;позвоните нам&nbsp;— примем заявку по&nbsp;телефону.</p>
+          <a class="request-modal__phone" href="tel:+79213986069">
+            <svg class="request-modal__phone-icon" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#icon-phone"></use>
+            </svg>
+            <span class="request-modal__phone-content">
+              <span class="request-modal__phone-label">Позвонить в&nbsp;ресторан</span>
+              <span class="request-modal__phone-number">+7&nbsp;921&nbsp;398-60-69</span>
+            </span>
+            <svg class="request-modal__phone-arrow" width="16" height="16" aria-hidden="true" focusable="false">
+              <use href="#icon-arrow-right"></use>
+            </svg>
+          </a>
+          <button class="request-modal__again" type="button">Попробовать ещё&nbsp;раз</button>
         </div>
       </dialog>
 
@@ -614,17 +638,56 @@ Template Name: Страница банкетов №2
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <span class="footer__name">Serbish</span><br />
-          Ресторан сербской кухни, ул. Пестеля, 8/36<br />
-          Вс–Чт 12:00–23:00, Пт–Сб 12:00–00:00
+          <span class="footer__name">Serbish</span>
+          <p class="footer__note">Ресторан сербской кухни</p>
+          <p class="footer__note">ул.&nbsp;Пестеля, 8/36 — рядом с&nbsp;Литейным</p>
+          <p class="footer__hours">Вс–Чт&nbsp;12:00–23:00<br />Пт–Сб&nbsp;12:00–00:00</p>
         </div>
+        <nav class="footer__nav" aria-label="Разделы страницы">
+          <span class="footer__head">Разделы</span>
+          <a href="#format">Форматы</a>
+          <a href="#usloviya">Условия</a>
+          <a href="#menu">Меню</a>
+          <a href="#calc">Сколько стоит</a>
+          <a href="#faq">Вопросы</a>
+        </nav>
         <div class="footer__contacts">
-          Банкеты: <a href="tel:+79213986069">+7 921 398-60-69</a><br />
-          Ресторан: +7 (812) 904-38-44<br />
+          <span class="footer__head">Связаться</span>
+          <div class="footer__contact">
+            <span class="footer__contact-label">Банкеты</span>
+            <a class="footer__phone" href="tel:+79213986069">
+              <span class="footer__phone-icon">
+                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                  <use href="#icon-phone"></use>
+                </svg>
+              </span>
+              <span>+7&nbsp;921&nbsp;398-60-69</span>
+            </a>
+          </div>
+          <div class="footer__contact">
+            <span class="footer__contact-label">Ресторан</span>
+            <a class="footer__phone" href="tel:+78129043844">
+              <span class="footer__phone-icon">
+                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                  <use href="#icon-phone"></use>
+                </svg>
+              </span>
+              <span>+7&nbsp;(812)&nbsp;904-38-44</span>
+            </a>
+          </div>
+        </div>
+        <div class="footer__bottom">
           <span class="footer__serb"><span class="footer__serb-text" lang="sr-Cyrl" data-srlang><span
                 data-sr="vidimo">Видимо се!</span></span><img class="footer__icon"
               src="https://dt.loocl.ru/storage/v1/object/public/local_public/projects/1490/other/82031d9d-pres-banket-ico_opanak.png"
               alt="" aria-hidden="true" /></span>
+          <a class="footer__map" target="_blank" rel="noopener"
+            href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%9F%D0%B5%D1%81%D1%82%D0%B5%D0%BB%D1%8F%208%2F36">
+            Как добраться
+            <svg width="16" height="16" aria-hidden="true" focusable="false">
+              <use href="#icon-arrow-right"></use>
+            </svg>
+          </a>
         </div>
       </div>
     </footer>

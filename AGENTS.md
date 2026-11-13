@@ -70,7 +70,7 @@ src/
 - `@scss` → `./src/scss`
 - `@js` → `./src/js`
 
-`base: "/serbish-v2-bankety/"` — проект публикуется в подпуть GitHub Pages. В билд попадает **только** `index.html` (multi-page не настроен): `donor.html` и `index.php` в сборку не входят.
+`base: "https://serbish.ru/wp-content/themes/serbish/img/"` — собранные ресурсы подключаются по абсолютному URL из директории `img` WordPress-темы. `build.assetsDir: ""` убирает промежуточный каталог `assets/` из путей и структуры билда. Для WOFF2-шрифтов `experimental.renderBuiltUrl` задаёт отдельный префикс `https://serbish.ru/wp-content/themes/serbish/fonts/`. В билд попадает **только** `index.html` (multi-page не настроен): `donor.html` и `index.php` в сборку не входят.
 
 ## JS-архитектура
 

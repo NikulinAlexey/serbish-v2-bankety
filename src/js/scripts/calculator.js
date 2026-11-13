@@ -26,6 +26,24 @@ export function initGuestsCalculator() {
   let activeTip = null; // обёртка чипа, чей тултип сейчас открыт
   let weddingDismissed = false;
 
+  const positionWeddingTip = () => {
+    const tip = activeTip?.querySelector(".calc-card__tooltip");
+    if (!tip) return;
+
+    tip.style.setProperty("--tooltip-shift-x", "0px");
+    const rect = tip.getBoundingClientRect();
+    const viewportPadding = 12;
+    let shift = 0;
+
+    if (rect.left < viewportPadding) {
+      shift = viewportPadding - rect.left;
+    } else if (rect.right > window.innerWidth - viewportPadding) {
+      shift = window.innerWidth - viewportPadding - rect.right;
+    }
+
+    tip.style.setProperty("--tooltip-shift-x", `${shift}px`);
+  };
+
   const hideWeddingTip = () => {
     activeTip?.querySelector(".calc-card__tooltip")?.classList.remove("is-visible");
     activeTip = null;
@@ -39,7 +57,10 @@ export function initGuestsCalculator() {
     if (!chip) return;
     activeTip = chip.closest(".calc-card__chip-wrap");
     activeTip?.querySelector(".calc-card__tooltip")?.classList.add("is-visible");
+    positionWeddingTip();
   };
+
+  window.addEventListener("resize", positionWeddingTip);
 
   // Активное состояние чипа — «текущее» значение гостей.
   const renderChips = () => {
@@ -50,17 +71,42 @@ export function initGuestsCalculator() {
   };
 
   const format = (n) => n.toLocaleString("ru-RU");
+  const amount = range.parentElement;
 
   // Плавный count-up для диапазона суммы (~400 мс).
   let tweenFrame = null;
   let shownMin = guests * PRICE_MIN;
   let shownMax = guests * PRICE_MAX;
+  let targetMin = shownMin;
+  let targetMax = shownMax;
+  let compactRange = false;
 
-  const tweenRange = (targetMin, targetMax) => {
+  const renderRange = () => {
+    range.textContent = compactRange
+      ? `${Math.round(shownMin / 1000)}–${Math.round(shownMax / 1000)}\u00A0тыс\u00A0₽`
+      : `${format(shownMin)} – ${format(shownMax)} ₽`;
+  };
+
+  // Сокращаем итоговую сумму только тогда, когда полный вариант
+  // действительно не помещается в контейнер на текущем экране.
+  const updateCompactRange = () => {
+    range.textContent = `${format(targetMin)} – ${format(targetMax)} ₽`;
+    compactRange = amount.clientWidth > 0 && amount.scrollWidth > amount.clientWidth;
+    renderRange();
+  };
+
+  window.addEventListener("resize", updateCompactRange);
+  document.fonts?.ready.then(updateCompactRange);
+
+  const tweenRange = (nextMin, nextMax) => {
+    targetMin = nextMin;
+    targetMax = nextMax;
+    updateCompactRange();
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       shownMin = targetMin;
       shownMax = targetMax;
-      range.textContent = `${format(targetMin)} – ${format(targetMax)} ₽`;
+      renderRange();
       return;
     }
 
@@ -75,7 +121,7 @@ export function initGuestsCalculator() {
       const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
       shownMin = Math.round(fromMin + (targetMin - fromMin) * eased);
       shownMax = Math.round(fromMax + (targetMax - fromMax) * eased);
-      range.textContent = `${format(shownMin)} – ${format(shownMax)} ₽`;
+      renderRange();
       if (t < 1) tweenFrame = requestAnimationFrame(step);
     };
     tweenFrame = requestAnimationFrame(step);
