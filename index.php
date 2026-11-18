@@ -170,6 +170,82 @@ Template Name: Страница банкетов №2
               <div class="format-card__price">Горячее — по ценам меню</div>
             </article>
           </div>
+
+          <div class="formats__menu menu__grid">
+            <figure class="menu__item">
+              <button class="menu__card" type="button" aria-label="Смотреть «Мешано месо» крупно">
+                <span class="menu__card-badge" aria-hidden="true">
+                  <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                </span>
+                <picture>
+                  <source type="image/webp" srcset="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso@1x-Bw4moqbU.webp 1x,
+                    https://serbish.ru/wp-content/themes/serbish/img/meshano-meso@2x-CA2M9fef.webp 2x" />
+                  <img class="menu__photo" src="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso@1x-yXeUHI9E.jpg"
+                    srcset="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso@2x-DpuMad26.jpg 2x"
+                    alt="Большое плато мешано месо с овощами и соусами" loading="lazy" decoding="async" />
+                </picture>
+              </button>
+              <figcaption class="menu__caption">
+                <div class="menu__name">Мешано месо</div>
+                <div class="menu__desc">Большие общие блюда с мясом, гарнирами и соусами</div>
+              </figcaption>
+            </figure>
+            <figure class="menu__item">
+              <button class="menu__card" type="button" aria-label="Смотреть «Мясо с гриля и из печи» крупно">
+                <span class="menu__card-badge" aria-hidden="true">
+                  <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                </span>
+                <picture>
+                  <source type="image/webp" srcset="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso-krupno@1x-CpV4uc5H.webp 1x,
+                    https://serbish.ru/wp-content/themes/serbish/img/meshano-meso-krupno@2x-TYttPgT2.webp 2x" />
+                  <img class="menu__photo" src="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso-krupno@1x-BY7Y84bZ.jpg"
+                    srcset="https://serbish.ru/wp-content/themes/serbish/img/meshano-meso-krupno@2x-Ck8roS9G.jpg 2x"
+                    alt="Мешано месо: чевапи, плескавица, шницель и гарниры" loading="lazy" decoding="async" />
+                </picture>
+              </button>
+              <figcaption class="menu__caption">
+                <div class="menu__name">Мясо с гриля и из печи</div>
+                <div class="menu__desc">Чевапи, плескавица, томлёное мясо и фирменные соусы</div>
+              </figcaption>
+            </figure>
+            <figure class="menu__item">
+              <button class="menu__card" type="button" aria-label="Смотреть «Банкетный стол» крупно">
+                <span class="menu__card-badge" aria-hidden="true">
+                  <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                </span>
+                <picture>
+                  <source type="image/webp" srcset="https://serbish.ru/wp-content/themes/serbish/img/banketnyy-stol@1x-B-_5thAV.webp 1x,
+                    https://serbish.ru/wp-content/themes/serbish/img/banketnyy-stol@2x-V1Ms9yb_.webp 2x" />
+                  <img class="menu__photo" src="https://serbish.ru/wp-content/themes/serbish/img/banketnyy-stol@1x-eFFxA8vA.jpg"
+                    srcset="https://serbish.ru/wp-content/themes/serbish/img/banketnyy-stol@2x-CXLGWlW6.jpg 2x"
+                    alt="Банкетный стол Serbish, накрытый закусками" loading="lazy" decoding="async" />
+                </picture>
+              </button>
+              <figcaption class="menu__caption">
+                <div class="menu__name">Банкетный стол</div>
+                <div class="menu__desc">Закуски и напитки ждут гостей к приходу</div>
+              </figcaption>
+            </figure>
+            <figure class="menu__item">
+              <button class="menu__card" type="button" aria-label="Смотреть «Пир на весь стол» крупно">
+                <span class="menu__card-badge" aria-hidden="true">
+                  <svg width="20" height="20" focusable="false"><use href="#icon-plus"></use></svg>
+                </span>
+                <picture>
+                  <source type="image/webp" srcset="https://serbish.ru/wp-content/themes/serbish/img/myasnye-plato@1x-CwleORUm.webp 1x,
+                    https://serbish.ru/wp-content/themes/serbish/img/myasnye-plato@2x-xtDuK503.webp 2x" />
+                  <img class="menu__photo" src="https://serbish.ru/wp-content/themes/serbish/img/myasnye-plato@1x-Cs1vMb9V.jpg"
+                    srcset="https://serbish.ru/wp-content/themes/serbish/img/myasnye-plato@2x-msXiokLJ.jpg 2x"
+                    alt="Три больших мясных плато для банкета" loading="lazy" decoding="async" />
+                </picture>
+              </button>
+              <figcaption class="menu__caption">
+                <div class="menu__name">Пир на весь стол</div>
+                <div class="menu__desc">Большие плато выставляем по длине стола, чтобы всем хватило</div>
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="pearls">
             <div class="pearls__inner linen">
               <div class="pearls__head">
@@ -691,6 +767,36 @@ Template Name: Страница банкетов №2
         </div>
       </div>
     </footer>
+
+    <!-- Лайтбокс меню блюд -->
+    <dialog class="lightbox lightbox--menu" id="menu-lightbox" aria-label="Просмотр блюда">
+      <button class="lightbox__close" type="button" aria-label="Закрыть просмотр">
+        <svg width="18" height="18" aria-hidden="true" focusable="false">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+      <div class="lightbox__stage">
+        <img class="lightbox__img" src="" alt="" />
+        <div class="lightbox__panel">
+          <span class="lightbox__group"></span>
+          <h3 class="lightbox__name"></h3>
+          <p class="lightbox__desc"></p>
+          <div class="lightbox__foot">
+            <button class="lightbox__nav" type="button" data-dir="-1" aria-label="Предыдущее блюдо">
+              <svg width="20" height="20" aria-hidden="true" focusable="false">
+                <use href="#icon-chevron-left"></use>
+              </svg>
+            </button>
+            <span class="lightbox__counter"></span>
+            <button class="lightbox__nav" type="button" data-dir="1" aria-label="Следующее блюдо">
+              <svg width="20" height="20" aria-hidden="true" focusable="false">
+                <use href="#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <div class="mbar">
       <a class="mbar__link mbar__link--phone" href="tel:+79213986069">Позвонить</a>

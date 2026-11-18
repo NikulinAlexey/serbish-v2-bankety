@@ -1,5 +1,5 @@
-// Секция «Два формата банкета»: две карточки-формата рядом;
-// справа по краю — полупрозрачный опанак.
+// Секция «Два формата банкета»: две карточки-формата рядом,
+// под ними — фотографии подачи; справа по краю — полупрозрачный опанак.
 .formats {
   position: relative;
   overflow: hidden;
@@ -36,4 +36,12 @@
 .formats__grid {
   align-items: stretch;
   @include grid-two(var(--spacing-28), var(--spacing-28));
+}
+
+.formats__menu {
+  padding-block: var(--spacing-40);
+
+  @include media-breakpoint-up(tab) {
+    padding-block: var(--spacing-56);
+  }
 }

@@ -4,11 +4,11 @@
   position: relative;
   overflow: hidden;
   // Фолбэк для браузеров без image-set(): обычный url на @1x-вариант.
-  background-image: url("../../files/img/IMG_8057@1x.jpg");
+  background-image: url("../../files/img/IMG_2245@1x.jpg");
   // Ретина-варианты фона: @1x/@2x webp, тяжёлый исходник в билд не едет.
   // Пути внутри image-set() — абсолютные от корня проекта: Vite резолвит
   // только их, относительные остаются «как есть» и ломаются в билде.
-  background-image: retina-image("/src/files/img/IMG_8057");
+  background-image: retina-image("/src/files/img/IMG_2245");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

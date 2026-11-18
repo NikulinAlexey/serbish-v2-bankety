@@ -1,8 +1,8 @@
 // ============================================================
 // Генератор ретина-версий фото блюд для карточек меню.
-// Из каждого исходника src/files/img/food/<блюдо>.jpg создаёт рядом:
+// Из каждого исходника src/files/img/food/<блюдо>.jpg/.png создаёт рядом:
 //   <блюдо>@1x.jpg  — 800px, фолбэк и вариант для 1x-экранов;
-//   <блюдо>@2x.jpg  — исходный размер (1470px), вариант для 2x;
+//   <блюдо>@2x.jpg  — исходный размер, вариант для 2x;
 //   <блюдо>@1x.webp и <блюдо>@2x.webp — то же в webp (<source> в <picture>).
 // 2x без апскейла: если исходник уже 1x — файл-дубль, лучше переснять.
 // Запуск: npm run images:food. Зависимость: sharp (dev).
@@ -20,10 +20,10 @@ const WEBP_QUALITY = 78;
 const retinaSuffix = /@(1|2)x\.(jpe?g|webp)$/i;
 
 const sources = (await readdir(FOOD_DIR))
-  .filter((name) => /\.jpe?g$/i.test(name) && !retinaSuffix.test(name));
+  .filter((name) => /\.(jpe?g|png)$/i.test(name) && !retinaSuffix.test(name));
 
 if (sources.length === 0) {
-  console.error(`В ${FOOD_DIR} нет исходных jpg — нечего обрабатывать.`);
+  console.error(`В ${FOOD_DIR} нет исходных jpg/png — нечего обрабатывать.`);
   process.exit(1);
 }
 
